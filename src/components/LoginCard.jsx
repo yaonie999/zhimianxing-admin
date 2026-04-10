@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import PasswordInput from './PasswordInput'
 import VerifyCodeInput from './VerifyCodeInput'
 
-const API = '/api'
+const API = 'https://zhimianxing-api.onrender.com/api'
 
 export default function LoginCard() {
   const [tab, setTab] = useState('password')

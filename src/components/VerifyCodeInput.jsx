@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 
-const API = '/api'
+const API = 'https://zhimianxing-api.onrender.com/api'
 
 export default function VerifyCodeInput({ value, onChange, phone, type, length = 4 }) {
   const [countdown, setCountdown] = useState(0)

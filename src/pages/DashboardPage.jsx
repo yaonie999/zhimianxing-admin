@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
+const API = 'https://zhimianxing-api.onrender.com/api'
+
 const STATS = [
   { label: '会员总数', value: '12,847', trend: '+12.3%', up: true, icon: '👥', color: 'blue' },
   { label: '在线设备', value: '3,291', trend: '+5.7%', up: true, icon: '📱', color: 'green' },
@@ -20,7 +22,7 @@ export default function DashboardPage() {
   const greeting = hour < 12 ? '上午好' : hour < 18 ? '下午好' : '晚上好'
 
   useEffect(() => {
-    fetch('/api/dashboard/stats')
+    fetch(`${API}/dashboard/stats`)
       .then(r => r.json())
       .then(data => {
         if (data.totalUsers) {
