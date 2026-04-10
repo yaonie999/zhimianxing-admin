@@ -42,7 +42,7 @@ export default function SystemConfigPage() {
                   <td><span className="badge badge-default" style={{ fontFamily: 'JetBrains Mono' }}>{c.key}</span></td>
                   <td style={{ fontFamily: 'JetBrains Mono', color: '#1E3A5F' }}>{c.value}</td>
                   <td><span className="badge badge-primary">{c.type}</span></td>
-                  <td style={{ color: '#94A3B8', fontSize: 12 }}>{c.updateTime}</td>
+                  <td style={{ color: '#CBD5E1', fontSize: 12 }}>{c.updateTime}</td>
                   <td><button className="btn btn-secondary btn-sm">编辑</button></td>
                 </tr>
               ))}

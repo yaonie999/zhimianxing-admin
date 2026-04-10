@@ -94,7 +94,7 @@ export default function ProductListPage() {
             <tbody>
               {data.map((g, idx) => (
                 <tr key={g.id}>
-                  <td style={{ fontFamily: 'JetBrains Mono', color: '#64748B' }}>{(page - 1) * PAGE_SIZE + idx + 1}</td>
+                  <td style={{ fontFamily: 'JetBrains Mono', color: '#9CA3AF' }}>{(page - 1) * PAGE_SIZE + idx + 1}</td>
                   <td>
                     <div style={{ width: 40, height: 40, borderRadius: 6, background: '#E2E8F0', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, overflow: 'hidden' }}>
                       {g.imagePreview ? <img src={g.imagePreview} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : '📦'}
@@ -107,7 +107,7 @@ export default function ProductListPage() {
                       {g.stock === 0 ? '缺货' : g.stock}
                     </span>
                   </td>
-                  <td style={{ fontFamily: 'JetBrains Mono', color: '#64748B' }}>{g.sales.toLocaleString()}</td>
+                  <td style={{ fontFamily: 'JetBrains Mono', color: '#9CA3AF' }}>{g.sales.toLocaleString()}</td>
                   <td>
                     <span className={`badge ${g.status === '上架' ? 'badge-success' : 'badge-danger'}`}
                       style={{ background: g.status === '上架' ? '#D1FAE5' : '#FEE2E2', color: g.status === '上架' ? '#059669' : '#EF4444' }}>
@@ -115,9 +115,9 @@ export default function ProductListPage() {
                     </span>
                   </td>
                   <td style={{ fontFamily: 'JetBrains Mono', color: '#E67E22', fontWeight: 700 }}>¥{g.price}</td>
-                  <td style={{ fontFamily: 'JetBrains Mono', color: '#64748B' }}>{(page - 1) * PAGE_SIZE + idx + 1}</td>
-                  <td style={{ color: '#64748B', fontSize: 13 }}>{g.creator}</td>
-                  <td style={{ color: '#94A3B8', fontSize: 12 }}>{g.createTime}</td>
+                  <td style={{ fontFamily: 'JetBrains Mono', color: '#9CA3AF' }}>{(page - 1) * PAGE_SIZE + idx + 1}</td>
+                  <td style={{ color: '#9CA3AF', fontSize: 13 }}>{g.creator}</td>
+                  <td style={{ color: '#CBD5E1', fontSize: 12 }}>{g.createTime}</td>
                   <td>
                     <button className="btn-action" style={{ borderColor: '#1E3A5F', color: '#1E3A5F', marginRight: 6 }} onClick={() => setEditTarget({ ...g })}>详情</button>
                     <button className="btn-action btn-edit" style={{ marginRight: 6 }} onClick={() => setEditTarget({ ...g })}>编辑</button>
@@ -137,7 +137,7 @@ export default function ProductListPage() {
           <div className="pagination-controls">
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(1)}>«</button>
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(p => p - 1)}>‹</button>
-            <span style={{ fontSize: 13, color: '#64748B', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
+            <span style={{ fontSize: 13, color: '#9CA3AF', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(p => p + 1)}>›</button>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(totalPages)}>»</button>
           </div>

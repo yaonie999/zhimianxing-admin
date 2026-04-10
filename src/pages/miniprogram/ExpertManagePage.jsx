@@ -82,7 +82,7 @@ export default function ExpertManagePage() {
                     </div>
                   </td>
                   <td>{e.title}</td>
-                  <td style={{ color: '#64748B', fontSize: 13 }}>{e.hospital}</td>
+                  <td style={{ color: '#9CA3AF', fontSize: 13 }}>{e.hospital}</td>
                   <td>
                     <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
                       {e.expertise.map(s => <span key={s} className="badge badge-primary" style={{ fontSize: 11 }}>{s}</span>)}
@@ -111,7 +111,7 @@ export default function ExpertManagePage() {
           <div className="pagination-controls">
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(1)}>«</button>
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(p => p - 1)}>‹</button>
-            <span style={{ fontSize: 13, color: '#64748B', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
+            <span style={{ fontSize: 13, color: '#9CA3AF', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(p => p + 1)}>›</button>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(totalPages)}>»</button>
           </div>

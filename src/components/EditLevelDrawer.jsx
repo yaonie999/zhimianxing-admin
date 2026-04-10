@@ -23,7 +23,7 @@ export default function EditLevelDrawer({ level, onClose, onSave }) {
         <button className="btn btn-primary" onClick={handleSave} disabled={loading} style={{ minWidth: 100 }}>{loading ? '保存中...' : '确定保存'}</button>
       </>}
     >
-      <div style={{ fontSize: 12, fontWeight: 700, color: '#374151', marginBottom: 12 }}>等级信息</div>
+      <div style={{ fontSize: 12, fontWeight: 700, color: '#E2E8F0', marginBottom: 12 }}>等级信息</div>
 
       <div className="form-item" style={{ marginBottom: 16 }}>
         <label className="form-label">等级名称</label>
@@ -57,7 +57,7 @@ export default function EditLevelDrawer({ level, onClose, onSave }) {
         </div>
       </div>
 
-      <div style={{ fontSize: 12, fontWeight: 700, color: '#374151', marginBottom: 12, marginTop: 8 }}>等级权益</div>
+      <div style={{ fontSize: 12, fontWeight: 700, color: '#E2E8F0', marginBottom: 12, marginTop: 8 }}>等级权益</div>
 
       <div className="form-item" style={{ marginBottom: 12 }}>
         <label className="form-label">折扣类型</label>

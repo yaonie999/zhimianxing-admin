@@ -145,12 +145,12 @@ export default function DeviceManagePage() {
                 <tr key={item.id}>
                   <td>{(page - 1) * pageSize + idx + 1}</td>
                   <td>{item.deviceType}</td>
-                  <td style={{ fontFamily: 'monospace', color: '#64748B', fontSize: 12 }}>{item.param}</td>
+                  <td style={{ fontFamily: 'monospace', color: '#9CA3AF', fontSize: 12 }}>{item.param}</td>
                   <td style={{ fontWeight: 600, color: '#1E3A5F' }}>{item.paramName}</td>
                   <td>{item.creator}</td>
-                  <td style={{ color: '#94A3B8', fontSize: 12 }}>{item.createTime}</td>
+                  <td style={{ color: '#CBD5E1', fontSize: 12 }}>{item.createTime}</td>
                   <td>{item.updater}</td>
-                  <td style={{ color: '#94A3B8', fontSize: 12 }}>{item.updateTime}</td>
+                  <td style={{ color: '#CBD5E1', fontSize: 12 }}>{item.updateTime}</td>
                   <td>
                     <div className="action-btns">
                       <button className="btn-action btn-edit" onClick={() => openAdd(item)}>编辑</button>
@@ -170,7 +170,7 @@ export default function DeviceManagePage() {
             {pageNumbers.map(n => (
               <button key={n} className={`page-btn ${n === page ? 'active' : ''}`} onClick={() => setPage(n)}>{n}</button>
             ))}
-            <span style={{ fontSize: 13, color: '#64748B', padding: '0 8px' }}>第 {page}/{totalPages} 页</span>
+            <span style={{ fontSize: 13, color: '#9CA3AF', padding: '0 8px' }}>第 {page}/{totalPages} 页</span>
             <select className="filter-select" style={{ width: 90, fontSize: 12 }}
               value={pageSize} onChange={e => { setPageSize(Number(e.target.value)); setPage(1) }}>
               {[10, 20, 50].map(n => <option key={n}>{n} 条/页</option>)}
@@ -230,8 +230,8 @@ export default function DeviceManagePage() {
       >
         <div style={{ border: '2px dashed #CBD5E1', borderRadius: 8, padding: '40px', textAlign: 'center', cursor: 'pointer', background: '#F8FAFC' }}>
           <div style={{ fontSize: 32, marginBottom: 12 }}>📁</div>
-          <div style={{ fontSize: 14, color: '#64748B', marginBottom: 6 }}>点击或将文件拖拽到这里上传</div>
-          <div style={{ fontSize: 12, color: '#94A3B8' }}>支持扩展名：.xls .xlsx</div>
+          <div style={{ fontSize: 14, color: '#9CA3AF', marginBottom: 6 }}>点击或将文件拖拽到这里上传</div>
+          <div style={{ fontSize: 12, color: '#CBD5E1' }}>支持扩展名：.xls .xlsx</div>
         </div>
       </CenterModal>
 
@@ -250,7 +250,7 @@ export default function DeviceManagePage() {
       >
         <div style={{ textAlign: 'center', padding: '16px 0' }}>
           <div style={{ fontSize: 40, marginBottom: 12 }}>⚠️</div>
-          <div style={{ fontSize: 14, color: '#374151', lineHeight: 1.8 }}>
+          <div style={{ fontSize: 14, color: '#E2E8F0', lineHeight: 1.8 }}>
             删除 <strong>{delTarget?.paramName}</strong>，删除后不能恢复，是否继续？
           </div>
         </div>

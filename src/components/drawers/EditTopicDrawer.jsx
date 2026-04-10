@@ -46,7 +46,7 @@ export default function EditTopicDrawer({ topic, onClose, onSave }) {
                 padding: '4px 12px', borderRadius: 16, fontSize: 13, cursor: 'pointer',
                 background: form.tags.includes(tag) ? '#EFF6FF' : '#F1F5F9',
                 border: form.tags.includes(tag) ? '1.5px solid #1E3A5F' : '1.5px solid #E2E8F0',
-                color: form.tags.includes(tag) ? '#1E3A5F' : '#64748B',
+                color: form.tags.includes(tag) ? '#1E3A5F' : '#9CA3AF',
                 fontWeight: form.tags.includes(tag) ? 600 : 400,
               }}
             >{tag}</span>
@@ -57,7 +57,7 @@ export default function EditTopicDrawer({ topic, onClose, onSave }) {
       <div className="form-item" style={{ marginBottom: 16 }}>
         <label className="form-label">排序</label>
         <input className="form-input" type="number" value={form.sort} onChange={e => set('sort', parseInt(e.target.value))} placeholder="1" min={1} />
-        <p style={{ fontSize: 11, color: '#94A3B8', marginTop: 4 }}>💡 数字越小排序越靠前</p>
+        <p style={{ fontSize: 11, color: '#CBD5E1', marginTop: 4 }}>💡 数字越小排序越靠前</p>
       </div>
 
       <div className="form-item">
@@ -66,7 +66,7 @@ export default function EditTopicDrawer({ topic, onClose, onSave }) {
           {['显示', '隐藏'].map(s => (
             <label key={s} style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer', fontSize: 14 }}>
               <input type="radio" name="topic-status" value={s} checked={form.status === s} onChange={() => set('status', s)} />
-              <span style={{ color: form.status === s ? '#1E3A5F' : '#94A3B8', fontWeight: form.status === s ? 600 : 400 }}>
+              <span style={{ color: form.status === s ? '#1E3A5F' : '#CBD5E1', fontWeight: form.status === s ? 600 : 400 }}>
                 {s === '显示' ? '👁 显示' : '🙈 隐藏'}
               </span>
             </label>

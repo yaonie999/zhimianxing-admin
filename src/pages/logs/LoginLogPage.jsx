@@ -55,10 +55,10 @@ export default function LoginLogPage() {
                 <tr key={l.id}>
                   <td style={{ fontWeight: 600 }}>{l.user}</td>
                   <td style={{ fontFamily: 'JetBrains Mono', fontSize: 12 }}>{l.phone}</td>
-                  <td style={{ fontFamily: 'JetBrains Mono', fontSize: 12, color: '#64748B' }}>{l.ip}</td>
+                  <td style={{ fontFamily: 'JetBrains Mono', fontSize: 12, color: '#9CA3AF' }}>{l.ip}</td>
                   <td>{l.action}</td>
                   <td><span className={`badge ${l.result.includes('失败') ? 'badge-danger' : 'badge-success'}`}>{l.result}</span></td>
-                  <td style={{ color: '#94A3B8', fontSize: 12 }}>{l.time}</td>
+                  <td style={{ color: '#CBD5E1', fontSize: 12 }}>{l.time}</td>
                 </tr>
               ))}
             </tbody>
@@ -69,7 +69,7 @@ export default function LoginLogPage() {
           <div className="pagination-controls">
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(1)}>«</button>
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(p => p - 1)}>‹</button>
-            <span style={{ fontSize: 13, color: '#64748B', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
+            <span style={{ fontSize: 13, color: '#9CA3AF', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(p => p + 1)}>›</button>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(totalPages)}>»</button>
           </div>

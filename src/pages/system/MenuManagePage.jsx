@@ -44,9 +44,9 @@ export default function MenuManagePage() {
                 <tr key={m.id}>
                   <td style={{ fontWeight: 600 }}>{m.icon} {m.name}</td>
                   <td style={{ fontSize: 18 }}>{m.icon}</td>
-                  <td style={{ fontFamily: 'JetBrains Mono', fontSize: 12, color: '#64748B' }}>{m.path}</td>
+                  <td style={{ fontFamily: 'JetBrains Mono', fontSize: 12, color: '#9CA3AF' }}>{m.path}</td>
                   <td><span className={`badge ${m.type === '目录' ? 'badge-warning' : 'badge-primary'}`}>{m.type}</span></td>
-                  <td style={{ color: '#94A3B8', fontSize: 13 }}>{m.parent || '—'}</td>
+                  <td style={{ color: '#CBD5E1', fontSize: 13 }}>{m.parent || '—'}</td>
                   <td style={{ fontFamily: 'JetBrains Mono' }}>{m.sort}</td>
                   <td><span className={`badge ${m.status === '启用' ? 'badge-success' : 'badge-default'}`}>{m.status}</span></td>
                   <td>

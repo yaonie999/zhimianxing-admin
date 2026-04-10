@@ -73,7 +73,7 @@ export default function ProductCategoryPage() {
             <tbody>
               {filtered.map((c, idx) => (
                 <tr key={c.id}>
-                  <td style={{ fontFamily: 'JetBrains Mono', color: '#64748B' }}>{idx + 1}</td>
+                  <td style={{ fontFamily: 'JetBrains Mono', color: '#9CA3AF' }}>{idx + 1}</td>
                   <td>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                       <span style={{ fontSize: 20 }}>{c.icon}</span>
@@ -82,16 +82,16 @@ export default function ProductCategoryPage() {
                   </td>
                   <td>
                     <span className={`badge ${c.status === '开启' ? 'badge-success' : 'badge-default'}`}
-                      style={{ background: c.status === '开启' ? '#D1FAE5' : '#F1F5F9', color: c.status === '开启' ? '#059669' : '#94A3B8' }}>
+                      style={{ background: c.status === '开启' ? '#D1FAE5' : '#F1F5F9', color: c.status === '开启' ? '#059669' : '#CBD5E1' }}>
                       {c.status === '开启' ? '✅ 开启' : '🙈 隐藏'}
                     </span>
                   </td>
-                  <td style={{ fontSize: 12, color: '#64748B' }}>
+                  <td style={{ fontSize: 12, color: '#9CA3AF' }}>
                     {c.attrs.filter(a => a).join(' / ')}
                   </td>
                   <td style={{ fontFamily: 'JetBrains Mono' }}>{c.productCount}</td>
-                  <td style={{ color: '#64748B', fontSize: 13 }}>{c.creator}</td>
-                  <td style={{ color: '#94A3B8', fontSize: 12 }}>{c.createTime}</td>
+                  <td style={{ color: '#9CA3AF', fontSize: 13 }}>{c.creator}</td>
+                  <td style={{ color: '#CBD5E1', fontSize: 12 }}>{c.createTime}</td>
                   <td>
                     <button className="btn-action btn-edit" style={{ marginRight: 6 }} onClick={() => setEditTarget({ ...c })}>编辑</button>
                     <button className="btn-action" style={{ marginRight: 6, borderColor: '#10B981', color: '#059669' }} onClick={() => handleToggleStatus(c.id)}>

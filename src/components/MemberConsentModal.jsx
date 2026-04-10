@@ -143,14 +143,14 @@ export default function MemberConsentModal({ member, onClose }) {
           <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
             {/* 左侧患者信息 */}
             <div style={{ width: 220, flexShrink: 0, background: '#F8FAFC', borderRight: '1px solid #E2E8F0', padding: '20px 16px', overflowY: 'auto' }}>
-              <div style={{ fontSize: 11, fontWeight: 700, color: '#94A3B8', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 14 }}>患者信息</div>
+              <div style={{ fontSize: 11, fontWeight: 700, color: '#CBD5E1', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 14 }}>患者信息</div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                 <div style={{ textAlign: 'center', marginBottom: 12 }}>
                   <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'linear-gradient(135deg, #1E3A5F, #3B82F6)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: 24, fontWeight: 700, margin: '0 auto 8px' }}>
                     {member?.name?.charAt(0) || '?'}
                   </div>
                   <div style={{ fontSize: 14, fontWeight: 700, color: '#1E3A5F' }}>{member?.name || '未知'}</div>
-                  <div style={{ fontSize: 12, color: '#64748B' }}>{member?.level || ''}</div>
+                  <div style={{ fontSize: 12, color: '#9CA3AF' }}>{member?.level || ''}</div>
                 </div>
                 <InfoRow label="卡号" value={member?.cardNo || '-'} />
                 <InfoRow label="手机" value={member?.phone || '-'} />
@@ -168,17 +168,17 @@ export default function MemberConsentModal({ member, onClose }) {
             <div style={{ flex: 1, overflowY: 'auto', padding: '28px 36px' }}>
               <div style={{ textAlign: 'center', marginBottom: 20 }}>
                 <div style={{ fontSize: 19, fontWeight: 700, color: '#1E3A5F', marginBottom: 6 }}>{c.mainTitle}</div>
-                <div style={{ fontSize: 11, color: '#94A3B8' }}>文件编号：SM-CBTI-{member?.cardNo || '000000'}-IC</div>
+                <div style={{ fontSize: 11, color: '#CBD5E1' }}>文件编号：SM-CBTI-{member?.cardNo || '000000'}-IC</div>
               </div>
 
-              <div style={{ fontSize: 13, color: '#374151', lineHeight: 1.9, marginBottom: 18, padding: '10px 14px', background: '#F8FAFC', borderLeft: '3px solid #1E3A5F', borderRadius: 4 }}>
+              <div style={{ fontSize: 13, color: '#E2E8F0', lineHeight: 1.9, marginBottom: 18, padding: '10px 14px', background: '#F8FAFC', borderLeft: '3px solid #1E3A5F', borderRadius: 4 }}>
                 {c.intro}
               </div>
 
               {[c.section1, c.section2, c.section3, c.section4, c.section5, c.section6, c.section7].map((sec, i) => (
                 <div key={i} style={{ marginBottom: 18 }}>
                   <div style={{ fontSize: 13, fontWeight: 700, color: '#1E3A5F', marginBottom: 6, paddingBottom: 5, borderBottom: '1px solid #E2E8F0' }}>{sec.title}</div>
-                  <div style={{ fontSize: 12.5, color: '#374151', lineHeight: 2, whiteSpace: 'pre-line' }}>{sec.content}</div>
+                  <div style={{ fontSize: 12.5, color: '#E2E8F0', lineHeight: 2, whiteSpace: 'pre-line' }}>{sec.content}</div>
                 </div>
               ))}
 
@@ -186,19 +186,19 @@ export default function MemberConsentModal({ member, onClose }) {
               <div style={{ marginTop: 28, padding: '16px 20px', background: '#F8FAFC', borderRadius: 8, border: '1px solid #E2E8F0' }}>
                 <div style={{ display: 'flex', gap: 36, marginBottom: 14 }}>
                   <div>
-                    <div style={{ fontSize: 12, color: '#64748B', marginBottom: 5 }}>{c.signature.patientLabel}</div>
-                    <div style={{ fontSize: 13, fontWeight: 700, color: '#1E3A5F', paddingBottom: 5, borderBottom: '1px solid #374151', width: 190 }}>{member?.name || ''}</div>
+                    <div style={{ fontSize: 12, color: '#9CA3AF', marginBottom: 5 }}>{c.signature.patientLabel}</div>
+                    <div style={{ fontSize: 13, fontWeight: 700, color: '#1E3A5F', paddingBottom: 5, borderBottom: '1px solid #E2E8F0', width: 190 }}>{member?.name || ''}</div>
                   </div>
                   <div>
-                    <div style={{ fontSize: 12, color: '#64748B', marginBottom: 5 }}>{c.signature.therapistLabel}</div>
-                    <div style={{ fontSize: 13, fontWeight: 700, color: '#1E3A5F', paddingBottom: 5, borderBottom: '1px solid #374151', width: 150 }}>{member?.advisor || ''}</div>
+                    <div style={{ fontSize: 12, color: '#9CA3AF', marginBottom: 5 }}>{c.signature.therapistLabel}</div>
+                    <div style={{ fontSize: 13, fontWeight: 700, color: '#1E3A5F', paddingBottom: 5, borderBottom: '1px solid #E2E8F0', width: 150 }}>{member?.advisor || ''}</div>
                   </div>
                   <div>
-                    <div style={{ fontSize: 12, color: '#64748B', marginBottom: 5 }}>{c.signature.dateLabel}</div>
-                    <div style={{ fontSize: 13, fontWeight: 700, color: '#1E3A5F', paddingBottom: 5, borderBottom: '1px solid #374151', width: 110 }}>{member?.archiveTime ? member.archiveTime.split(' ')[0] : ''}</div>
+                    <div style={{ fontSize: 12, color: '#9CA3AF', marginBottom: 5 }}>{c.signature.dateLabel}</div>
+                    <div style={{ fontSize: 13, fontWeight: 700, color: '#1E3A5F', paddingBottom: 5, borderBottom: '1px solid #E2E8F0', width: 110 }}>{member?.archiveTime ? member.archiveTime.split(' ')[0] : ''}</div>
                   </div>
                 </div>
-                <div style={{ fontSize: 11, color: '#94A3B8', fontStyle: 'italic' }}>{c.signature.note}</div>
+                <div style={{ fontSize: 11, color: '#CBD5E1', fontStyle: 'italic' }}>{c.signature.note}</div>
               </div>
 
               {!signed ? (
@@ -223,7 +223,7 @@ export default function MemberConsentModal({ member, onClose }) {
 function InfoRow({ label, value }) {
   return (
     <div>
-      <div style={{ fontSize: 10, color: '#94A3B8', marginBottom: 1 }}>{label}</div>
+      <div style={{ fontSize: 10, color: '#CBD5E1', marginBottom: 1 }}>{label}</div>
       <div style={{ fontSize: 12, color: '#1E3A5F', fontWeight: 500, wordBreak: 'break-all' }}>{value}</div>
     </div>
   )

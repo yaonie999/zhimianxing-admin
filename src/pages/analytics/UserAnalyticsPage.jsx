@@ -81,7 +81,7 @@ const LEVEL_DATA = [
   { level: '青铜会员', count: 3201, pct: 38, color: '#CD7F32' },
   { level: '白银会员', count: 2415, pct: 29, color: '#C0C0C0' },
   { level: '黄金会员', count: 1820, pct: 22, color: '#FFD700' },
-  { level: '铂金会员', count: 756, pct: 9, color: '#94A3B8' },
+  { level: '铂金会员', count: 756, pct: 9, color: '#CBD5E1' },
   { level: '钻石会员', count: 240, pct: 3, color: '#9370DB' },
 ]
 
@@ -172,18 +172,18 @@ export default function UserAnalyticsPage() {
         {STAT_CARDS.map((s) => (
           <div key={s.label} className="card" style={{ padding: '20px 24px', borderRadius: 12 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
-              <div style={{ fontSize: 13, color: '#64748B', fontWeight: 500 }}>{s.label}</div>
+              <div style={{ fontSize: 13, color: '#9CA3AF', fontWeight: 500 }}>{s.label}</div>
               <div style={{ fontSize: 18 }}>{s.icon}</div>
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 4, marginBottom: 6 }}>
               <span style={{ fontSize: 26, fontWeight: 800, color: s.color }}>{s.value}</span>
-              <span style={{ fontSize: 13, color: '#94A3B8' }}>{s.unit}</span>
+              <span style={{ fontSize: 13, color: '#CBD5E1' }}>{s.unit}</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: s.progress !== undefined ? 10 : 8 }}>
               <span style={{ color: s.up ? '#059669' : '#EF4444', fontSize: 13, fontWeight: 700 }}>
                 {s.up ? '↑' : '↓'} {s.change}{s.changeUnit}
               </span>
-              <span style={{ fontSize: 12, color: '#94A3B8' }}>{s.compare}</span>
+              <span style={{ fontSize: 12, color: '#CBD5E1' }}>{s.compare}</span>
             </div>
             {s.progress !== undefined ? (
               <div>
@@ -216,7 +216,7 @@ export default function UserAnalyticsPage() {
                 style={{
                   padding: '6px 16px', borderRadius: 8, border: 'none', cursor: 'pointer', fontSize: 13,
                   background: activeTab === tab ? '#1E3A5F' : '#F1F5F9',
-                  color: activeTab === tab ? '#fff' : '#64748B',
+                  color: activeTab === tab ? '#fff' : '#9CA3AF',
                   fontWeight: activeTab === tab ? 600 : 400,
                   transition: 'all 0.15s',
                 }}
@@ -226,7 +226,7 @@ export default function UserAnalyticsPage() {
 
           {/* 快捷时间筛选 */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <span style={{ fontSize: 13, color: '#94A3B8' }}>时间范围</span>
+            <span style={{ fontSize: 13, color: '#CBD5E1' }}>时间范围</span>
             <div style={{ display: 'flex', gap: 4 }}>
               {QUICK_RANGES.map(r => (
                 <button
@@ -235,7 +235,7 @@ export default function UserAnalyticsPage() {
                   style={{
                     padding: '5px 12px', borderRadius: 6, cursor: 'pointer', fontSize: 12,
                     background: timeRange === r ? '#1E3A5F' : '#fff',
-                    color: timeRange === r ? '#fff' : '#64748B',
+                    color: timeRange === r ? '#fff' : '#9CA3AF',
                     fontWeight: timeRange === r ? 600 : 400,
                     border: timeRange === r ? 'none' : '1px solid #E2E8F0',
                   }}
@@ -253,17 +253,17 @@ export default function UserAnalyticsPage() {
               <>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                   <div style={{ width: 10, height: 10, borderRadius: 2, background: '#1E3A5F' }} />
-                  <span style={{ fontSize: 12, color: '#64748B' }}>活跃用户数（人）</span>
+                  <span style={{ fontSize: 12, color: '#9CA3AF' }}>活跃用户数（人）</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                   <div style={{ width: 10, height: 10, borderRadius: 2, background: '#3B82F6' }} />
-                  <span style={{ fontSize: 12, color: '#64748B' }}>启动次数（次）</span>
+                  <span style={{ fontSize: 12, color: '#9CA3AF' }}>启动次数（次）</span>
                 </div>
               </>
             ) : (
               <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                 <div style={{ width: 10, height: 10, borderRadius: 2, background: '#1E3A5F' }} />
-                <span style={{ fontSize: 12, color: '#64748B' }}>启动次数（次）</span>
+                <span style={{ fontSize: 12, color: '#9CA3AF' }}>启动次数（次）</span>
               </div>
             )}
           </div>
@@ -282,9 +282,9 @@ export default function UserAnalyticsPage() {
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="#F1F5F9" />
-                <XAxis dataKey="date" tick={{ fontSize: 12, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
-                <YAxis yAxisId="users" tick={{ fontSize: 12, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
-                <YAxis yAxisId="sessions" orientation="right" tick={{ fontSize: 12, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
+                <XAxis dataKey="date" tick={{ fontSize: 12, fill: '#CBD5E1' }} axisLine={false} tickLine={false} />
+                <YAxis yAxisId="users" tick={{ fontSize: 12, fill: '#CBD5E1' }} axisLine={false} tickLine={false} />
+                <YAxis yAxisId="sessions" orientation="right" tick={{ fontSize: 12, fill: '#CBD5E1' }} axisLine={false} tickLine={false} />
                 <Tooltip content={<ActiveTooltip />} />
                 <Area yAxisId="users" type="monotone" dataKey="users" name="活跃用户" stroke="#1E3A5F" strokeWidth={2} fill="url(#userGrad)" dot={{ r: 4, fill: '#1E3A5F' }} activeDot={{ r: 6 }} />
                 <Area yAxisId="sessions" type="monotone" dataKey="sessions" name="启动次数" stroke="#3B82F6" strokeWidth={2} fill="url(#sessionGrad)" dot={false} activeDot={{ r: 5 }} />
@@ -298,8 +298,8 @@ export default function UserAnalyticsPage() {
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="#F1F5F9" />
-                <XAxis dataKey="date" tick={{ fontSize: 12, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fontSize: 12, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
+                <XAxis dataKey="date" tick={{ fontSize: 12, fill: '#CBD5E1' }} axisLine={false} tickLine={false} />
+                <YAxis tick={{ fontSize: 12, fill: '#CBD5E1' }} axisLine={false} tickLine={false} />
                 <Tooltip content={<ActiveTooltip />} />
                 <Area type="monotone" dataKey="sessions" name="启动次数" stroke="#1E3A5F" strokeWidth={2} fill="url(#sessGrad)" dot={{ r: 4 }} activeDot={{ r: 6 }} />
               </AreaChart>
@@ -312,7 +312,7 @@ export default function UserAnalyticsPage() {
       <div className="card" style={{ marginTop: 16 }}>
         <div style={{ padding: '16px 20px', borderBottom: '1px solid #F1F5F9' }}>
           <div style={{ fontSize: 14, fontWeight: 700, color: '#1E3A5F' }}>🎖 会员等级分布</div>
-          <div style={{ fontSize: 12, color: '#94A3B8', marginTop: 2 }}>各等级会员人数及占比</div>
+          <div style={{ fontSize: 12, color: '#CBD5E1', marginTop: 2 }}>各等级会员人数及占比</div>
         </div>
         <div className="table-wrapper">
           <table className="table">
@@ -334,7 +334,7 @@ export default function UserAnalyticsPage() {
                     </div>
                   </td>
                   <td style={{ fontFamily: 'JetBrains Mono, monospace', color: '#1E3A5F', fontWeight: 600 }}>{l.count.toLocaleString()}</td>
-                  <td style={{ fontFamily: 'JetBrains Mono, monospace', color: '#64748B' }}>{l.pct}%</td>
+                  <td style={{ fontFamily: 'JetBrains Mono, monospace', color: '#9CA3AF' }}>{l.pct}%</td>
                   <td>
                     <div style={{ background: '#E2E8F0', borderRadius: 4, height: 10, width: '100%', overflow: 'hidden' }}>
                       <div style={{ width: `${l.pct}%`, height: '100%', background: l.color, borderRadius: 4, transition: 'width 0.5s ease' }} />

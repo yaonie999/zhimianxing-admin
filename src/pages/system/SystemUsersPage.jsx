@@ -58,10 +58,10 @@ export default function SystemUsersPage() {
                 <tr key={u.id}>
                   <td style={{ fontWeight: 600 }}>{u.name}</td>
                   <td style={{ fontFamily: 'JetBrains Mono', fontSize: 12 }}>{u.phone}</td>
-                  <td style={{ color: '#64748B' }}>{u.dept}</td>
+                  <td style={{ color: '#9CA3AF' }}>{u.dept}</td>
                   <td><span className="badge badge-primary">{u.role}</span></td>
                   <td><span className={`badge ${u.status === '正常' ? 'badge-success' : 'badge-default'}`}>{u.status}</span></td>
-                  <td style={{ color: '#94A3B8', fontSize: 12 }}>{u.lastLogin}</td>
+                  <td style={{ color: '#CBD5E1', fontSize: 12 }}>{u.lastLogin}</td>
                   <td>
                     <button className="btn btn-secondary btn-sm" style={{ marginRight: 4 }}>编辑</button>
                     <button className="btn btn-ghost btn-sm" style={{ color: '#EF4444' }}>删除</button>
@@ -76,7 +76,7 @@ export default function SystemUsersPage() {
           <div className="pagination-controls">
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(1)}>«</button>
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(p => p - 1)}>‹</button>
-            <span style={{ fontSize: 13, color: '#64748B', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
+            <span style={{ fontSize: 13, color: '#9CA3AF', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(p => p + 1)}>›</button>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(totalPages)}>»</button>
           </div>

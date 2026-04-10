@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import '../styles/admin.css'
 import EditLevelDrawer from '../components/EditLevelDrawer'
 
-const LEVEL_COLORS = ['#94A3B8', '#C0C0C0', '#FFD700', '#00CED1', '#9370DB', '#FF69B4']
+const LEVEL_COLORS = ['#CBD5E1', '#C0C0C0', '#FFD700', '#00CED1', '#9370DB', '#FF69B4']
 
 const LEVELS = [
   { id: 1, name: '青铜会员', min: 0, max: 999, color: '#CD7F32', icon: '🥉', rights: ['消费9.8折', '双倍积分'], discount: '98', discountType: '打折', pointsMultiple: 2, bgImage: '' },
@@ -66,7 +66,7 @@ export default function MemberLevelsPage() {
                   <div className="level-icon">{level.icon}</div>
                   <div className="level-name" style={{ color: level.color }}>{level.name}</div>
                   <div className="level-range">成长值 {level.min.toLocaleString()} ~ {level.max >= 999999 ? '无上限' : level.max.toLocaleString()}</div>
-                  <div style={{ fontSize: 12, color: '#64748B', marginTop: 6 }}>折扣: {level.discount}折</div>
+                  <div style={{ fontSize: 12, color: '#9CA3AF', marginTop: 6 }}>折扣: {level.discount}折</div>
                   <div className="level-count">{count} 名会员</div>
                   <div style={{ marginTop: 10, display: 'flex', gap: 6, justifyContent: 'center' }}>
                     <button className="btn btn-secondary btn-sm" onClick={e => { e.stopPropagation(); setEditLevel({ ...level }) }}>编辑</button>
@@ -121,7 +121,7 @@ export default function MemberLevelsPage() {
                       </span>
                     </td>
                     <td style={{ fontFamily: 'JetBrains Mono', color: '#1E3A5F', fontWeight: 700 }}>{m.growth.toLocaleString()}</td>
-                    <td style={{ color: '#64748B', fontSize: 12 }}>{lv.min.toLocaleString()} ~ {lv.max >= 999999 ? '无上限' : lv.max.toLocaleString()}</td>
+                    <td style={{ color: '#9CA3AF', fontSize: 12 }}>{lv.min.toLocaleString()} ~ {lv.max >= 999999 ? '无上限' : lv.max.toLocaleString()}</td>
                     <td>{lv.discount}折</td>
                     <td>
                       <button className="btn btn-secondary btn-sm" onClick={() => setEditLevel({ ...lv })}>编辑</button>

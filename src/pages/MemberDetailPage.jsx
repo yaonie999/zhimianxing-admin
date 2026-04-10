@@ -127,7 +127,7 @@ export default function MemberDetailPage() {
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
         <button
           onClick={() => navigate(-1)}
-          style={{ background: '#F1F5F9', border: 'none', borderRadius: 8, padding: '8px 16px', cursor: 'pointer', fontSize: 14, color: '#374151', display: 'flex', alignItems: 'center', gap: 6 }}
+          style={{ background: '#F1F5F9', border: 'none', borderRadius: 8, padding: '8px 16px', cursor: 'pointer', fontSize: 14, color: '#E2E8F0', display: 'flex', alignItems: 'center', gap: 6 }}
         >
           ← 返回
         </button>
@@ -151,7 +151,7 @@ export default function MemberDetailPage() {
               <span style={{ background: '#DBEAFE', color: '#1D4ED8', padding: '2px 10px', borderRadius: 12, fontSize: 12, fontWeight: 600 }}>{member.level}</span>
               <span style={{ background: '#D1FAE5', color: '#059669', padding: '2px 10px', borderRadius: 12, fontSize: 12 }}>已打卡 {member.checkinDays} 天</span>
             </div>
-            <div style={{ display: 'flex', gap: 20, fontSize: 14, color: '#64748B' }}>
+            <div style={{ display: 'flex', gap: 20, fontSize: 14, color: '#9CA3AF' }}>
               <span>👤 {member.gender} | {member.age}岁 | {member.marriage}</span>
               <span>📱 {member.phone}</span>
               <span>🏥 {member.studio}</span>
@@ -175,7 +175,7 @@ export default function MemberDetailPage() {
                 style={{
                   padding: '12px 20px', cursor: 'pointer', fontSize: 14,
                   fontWeight: activeSection === s.key ? 700 : 400,
-                  color: activeSection === s.key ? '#1E3A5F' : '#64748B',
+                  color: activeSection === s.key ? '#1E3A5F' : '#9CA3AF',
                   background: activeSection === s.key ? '#EFF6FF' : 'transparent',
                   borderLeft: activeSection === s.key ? '3px solid #1E3A5F' : '3px solid transparent',
                   transition: 'all 0.15s',
@@ -217,15 +217,15 @@ function BasicSection({ member }) {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
           {items.map(item => (
             <div key={item.label} style={{ padding: '12px 16px', background: '#F8FAFC', borderRadius: 8 }}>
-              <div style={{ fontSize: 12, color: '#94A3B8', marginBottom: 4 }}>{item.label}</div>
+              <div style={{ fontSize: 12, color: '#CBD5E1', marginBottom: 4 }}>{item.label}</div>
               {item.label === '入组/问询/评估' ? (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                   {member.assessments.map(a => (
                     <div key={a.label} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                      <span style={{ fontSize: 14, color: '#374151' }}>{a.label}</span>
+                      <span style={{ fontSize: 14, color: '#E2E8F0' }}>{a.label}</span>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                         <span className="badge badge-success" style={{ fontSize: 11 }}>{a.status}</span>
-                        <span style={{ fontSize: 11, color: '#94A3B8' }}>{a.time}</span>
+                        <span style={{ fontSize: 11, color: '#CBD5E1' }}>{a.time}</span>
                       </div>
                     </div>
                   ))}
@@ -241,7 +241,7 @@ function BasicSection({ member }) {
 
         {/* 推送量表 */}
         <div style={{ marginTop: 20 }}>
-          <div style={{ fontSize: 12, color: '#94A3B8', marginBottom: 8 }}>推送量表</div>
+          <div style={{ fontSize: 12, color: '#CBD5E1', marginBottom: 8 }}>推送量表</div>
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
             {member.pushedScales.map(s => (
               <span key={s} className="badge badge-primary">{s}</span>
@@ -251,15 +251,15 @@ function BasicSection({ member }) {
 
         {/* 测评记录 */}
         <div style={{ marginTop: 20 }}>
-          <div style={{ fontSize: 12, color: '#94A3B8', marginBottom: 8 }}>测评记录</div>
+          <div style={{ fontSize: 12, color: '#CBD5E1', marginBottom: 8 }}>测评记录</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             {member.evalRecords.map((r, i) => (
               <div key={i} style={{ background: '#F8FAFC', borderRadius: 8, padding: '12px 16px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
                   <span style={{ fontWeight: 600, fontSize: 13 }}>{r.doctor}</span>
-                  <span style={{ color: '#94A3B8', fontSize: 12 }}>{r.date}</span>
+                  <span style={{ color: '#CBD5E1', fontSize: 12 }}>{r.date}</span>
                 </div>
-                <div style={{ fontSize: 13, color: '#374151' }}>{r.content}</div>
+                <div style={{ fontSize: 13, color: '#E2E8F0' }}>{r.content}</div>
               </div>
             ))}
           </div>
@@ -285,7 +285,7 @@ function ConsentSection({ member }) {
           <div style={{ textAlign: 'center', fontSize: 18, fontWeight: 700, color: '#1E3A5F', marginBottom: 16 }}>
             短程行为治疗入组知情同意书
           </div>
-          <div style={{ fontSize: 14, color: '#374151', lineHeight: 2 }}>
+          <div style={{ fontSize: 14, color: '#E2E8F0', lineHeight: 2 }}>
             <p style={{ marginBottom: 12 }}>
               <strong>姓名：{member.name}</strong> &nbsp;&nbsp;
               <strong>性别：{member.gender}</strong> &nbsp;&nbsp;
@@ -339,7 +339,7 @@ function PlansSection({ member }) {
           <div key={item.title} style={{ background: item.color, border: `1px solid ${item.borderColor}`, borderRadius: 12, padding: 24 }}>
             <div style={{ fontSize: 40, marginBottom: 12 }}>{item.icon}</div>
             <div style={{ fontSize: 16, fontWeight: 700, color: '#1E3A5F', marginBottom: 6 }}>{item.title}</div>
-            <div style={{ fontSize: 13, color: '#64748B', marginBottom: 16 }}>{item.desc}</div>
+            <div style={{ fontSize: 13, color: '#9CA3AF', marginBottom: 16 }}>{item.desc}</div>
             <button className="btn btn-primary btn-sm">{item.btn}</button>
           </div>
         ))}
@@ -375,7 +375,7 @@ function CheckinSection({ records }) {
                     {r.status}
                   </span>
                 </td>
-                <td style={{ fontFamily: 'JetBrains Mono', color: r.sleepHours === '-' ? '#94A3B8' : '#1E3A5F' }}>{r.sleepHours}</td>
+                <td style={{ fontFamily: 'JetBrains Mono', color: r.sleepHours === '-' ? '#CBD5E1' : '#1E3A5F' }}>{r.sleepHours}</td>
                 <td>
                   {r.quality !== '-' && (
                     <span style={{
@@ -416,7 +416,7 @@ function TimelineSection({ events }) {
           <div style={{ position: 'absolute', left: 11, top: 0, bottom: 0, width: 2, background: '#E2E8F0' }} />
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
             {events.map((e, i) => {
-              const tc = typeColors[e.type] || { bg: '#F1F5F9', color: '#64748B' }
+              const tc = typeColors[e.type] || { bg: '#F1F5F9', color: '#9CA3AF' }
               return (
                 <div key={i} style={{ display: 'flex', gap: 16, paddingBottom: i < events.length - 1 ? 20 : 0 }}>
                   {/* 圆点 */}
@@ -427,9 +427,9 @@ function TimelineSection({ events }) {
                   <div style={{ flex: 1, background: '#F8FAFC', borderRadius: 10, padding: '12px 16px', border: '1px solid #E2E8F0' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
                       <span style={{ fontSize: 12, fontWeight: 700, color: tc.color }}>{e.type}</span>
-                      <span style={{ fontSize: 12, color: '#94A3B8', fontFamily: 'JetBrains Mono' }}>{e.date}</span>
+                      <span style={{ fontSize: 12, color: '#CBD5E1', fontFamily: 'JetBrains Mono' }}>{e.date}</span>
                     </div>
-                    <div style={{ fontSize: 14, color: '#374151' }}>{e.event}</div>
+                    <div style={{ fontSize: 14, color: '#E2E8F0' }}>{e.event}</div>
                   </div>
                 </div>
               )

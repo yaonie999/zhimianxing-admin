@@ -153,7 +153,7 @@ export default function TenantListPage() {
               <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                 <input type="date" className="form-input" style={{ width: 140, padding: '6px 10px', fontSize: 13 }}
                   value={startDate} onChange={e => setStartDate(e.target.value)} />
-                <span style={{ color: '#94A3B8', fontSize: 12 }}>~</span>
+                <span style={{ color: '#CBD5E1', fontSize: 12 }}>~</span>
                 <input type="date" className="form-input" style={{ width: 140, padding: '6px 10px', fontSize: 13 }}
                   value={endDate} onChange={e => setEndDate(e.target.value)} />
               </div>
@@ -220,11 +220,11 @@ export default function TenantListPage() {
                       setSelected(prev => prev.includes(t.id) ? prev.filter(i => i !== t.id) : [...prev, t.id])
                     }} /></td>
                   <td>{(page - 1) * pageSize + idx + 1}</td>
-                  <td style={{ fontFamily: 'monospace', color: '#64748B', fontSize: 12 }}>{t.code}</td>
+                  <td style={{ fontFamily: 'monospace', color: '#9CA3AF', fontSize: 12 }}>{t.code}</td>
                   <td><span style={{ fontWeight: 600 }}>{t.name}</span></td>
                   <td><span className="badge badge-primary">{t.package}</span></td>
                   <td>{t.contact}</td>
-                  <td style={{ fontFamily: 'monospace', fontSize: 12, color: '#64748B' }}>{t.phone}</td>
+                  <td style={{ fontFamily: 'monospace', fontSize: 12, color: '#9CA3AF' }}>{t.phone}</td>
                   <td>
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5 }}>
                       <span style={{ width: 8, height: 8, borderRadius: '50%', background: t.status === '开启' ? '#00CC88' : '#EF4444', display: 'inline-block' }} />
@@ -233,9 +233,9 @@ export default function TenantListPage() {
                   </td>
                   <td>{t.operator}</td>
                   <td>{t.creator}</td>
-                  <td style={{ color: '#94A3B8', fontSize: 12 }}>{t.createTime}</td>
+                  <td style={{ color: '#CBD5E1', fontSize: 12 }}>{t.createTime}</td>
                   <td>{t.updater}</td>
-                  <td style={{ color: '#94A3B8', fontSize: 12 }}>{t.updateTime}</td>
+                  <td style={{ color: '#CBD5E1', fontSize: 12 }}>{t.updateTime}</td>
                   <td>
                     <div className="action-btns">
                       <button className="btn-action btn-edit" style={{ fontSize: 12, padding: '0 8px', height: 26, minWidth: 0 }} onClick={() => openEdit(t)}>编辑</button>
@@ -258,8 +258,8 @@ export default function TenantListPage() {
               <button key={n} className={`page-btn ${n === page ? 'active' : ''}`}
                 onClick={() => setPage(n)}>{n}</button>
             ))}
-            <span style={{ fontSize: 12, color: '#64748B', padding: '0 6px' }}>...</span>
-            <span style={{ fontSize: 13, color: '#64748B', padding: '0 8px' }}>第 {page}/{totalPages} 页</span>
+            <span style={{ fontSize: 12, color: '#9CA3AF', padding: '0 6px' }}>...</span>
+            <span style={{ fontSize: 13, color: '#9CA3AF', padding: '0 8px' }}>第 {page}/{totalPages} 页</span>
             <select className="filter-select" style={{ width: 90, fontSize: 12 }}
               value={pageSize} onChange={e => { setPageSize(Number(e.target.value)); setPage(1) }}>
               <option value="10">10 条/页</option>
@@ -267,11 +267,11 @@ export default function TenantListPage() {
               <option value="50">50 条/页</option>
             </select>
             <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-              <span style={{ fontSize: 12, color: '#64748B' }}>跳至</span>
+              <span style={{ fontSize: 12, color: '#9CA3AF' }}>跳至</span>
               <input style={{ width: 48, padding: '4px 8px', border: '1.5px solid #E2E8F0', borderRadius: 6, fontSize: 12, outline: 'none' }}
                 defaultValue={5}
                 onKeyDown={e => { if (e.key === 'Enter') setPage(Number(e.target.value)) }} />
-              <span style={{ fontSize: 12, color: '#64748B' }}>页</span>
+              <span style={{ fontSize: 12, color: '#9CA3AF' }}>页</span>
             </span>
           </div>
         </div>
@@ -356,7 +356,7 @@ export default function TenantListPage() {
       >
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           <div style={{ padding: '12px 16px', background: '#F8FAFC', borderRadius: 8, border: '1px solid #E2E8F0' }}>
-            <div style={{ fontSize: 12, color: '#94A3B8', marginBottom: 4 }}>租户名称</div>
+            <div style={{ fontSize: 12, color: '#CBD5E1', marginBottom: 4 }}>租户名称</div>
             <div style={{ fontSize: 14, fontWeight: 600 }}>{accountTenant?.name}</div>
           </div>
           <div className="form-item">
@@ -391,7 +391,7 @@ export default function TenantListPage() {
       >
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           <div style={{ padding: '12px 16px', background: '#F8FAFC', borderRadius: 8, border: '1px solid #E2E8F0' }}>
-            <div style={{ fontSize: 12, color: '#94A3B8', marginBottom: 4 }}>租户名称</div>
+            <div style={{ fontSize: 12, color: '#CBD5E1', marginBottom: 4 }}>租户名称</div>
             <div style={{ fontSize: 14, fontWeight: 600 }}>{splitTenant?.name}</div>
           </div>
           <div className="form-item">
@@ -430,7 +430,7 @@ export default function TenantListPage() {
       >
         <div style={{ textAlign: 'center', padding: '16px 0' }}>
           <div style={{ fontSize: 40, marginBottom: 12 }}>⚠️</div>
-          <div style={{ fontSize: 14, color: '#374151', lineHeight: 1.8 }}>
+          <div style={{ fontSize: 14, color: '#E2E8F0', lineHeight: 1.8 }}>
             删除 <strong>{delName}</strong>，删除后不能恢复，是否继续？
           </div>
         </div>

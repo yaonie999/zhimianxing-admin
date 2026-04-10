@@ -39,10 +39,10 @@ export default function RoleManagePage() {
                 <tr key={r.id}>
                   <td style={{ fontWeight: 600 }}>{r.name}</td>
                   <td><span className="badge badge-default" style={{ fontFamily: 'JetBrains Mono' }}>{r.code}</span></td>
-                  <td style={{ color: '#64748B', fontSize: 13 }}>{r.desc}</td>
+                  <td style={{ color: '#9CA3AF', fontSize: 13 }}>{r.desc}</td>
                   <td style={{ fontFamily: 'JetBrains Mono', color: '#1E3A5F' }}>{r.userCount} 人</td>
                   <td><span className={`badge ${r.status === '启用' ? 'badge-success' : 'badge-default'}`}>{r.status}</span></td>
-                  <td style={{ color: '#94A3B8', fontSize: 12 }}>{r.createTime}</td>
+                  <td style={{ color: '#CBD5E1', fontSize: 12 }}>{r.createTime}</td>
                   <td>
                     <button className="btn btn-secondary btn-sm" style={{ marginRight: 4 }}>编辑</button>
                     <button className="btn btn-ghost btn-sm" style={{ color: '#EF4444' }}>删除</button>

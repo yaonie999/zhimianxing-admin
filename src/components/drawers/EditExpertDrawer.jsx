@@ -39,7 +39,7 @@ export default function EditExpertDrawer({ expert, onClose, onSave }) {
           width: 72, height: 72, borderRadius: '50%',
           background: avatarPreview ? `url(${avatarPreview}) center/cover` : '#E2E8F0',
           border: '2px dashed #CBD5E1', display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontSize: 28, color: '#94A3B8', overflow: 'hidden', flexShrink: 0
+          fontSize: 28, color: '#CBD5E1', overflow: 'hidden', flexShrink: 0
         }}>
           {!avatarPreview && (form.name?.charAt(0) || '👤')}
         </div>
@@ -84,7 +84,7 @@ export default function EditExpertDrawer({ expert, onClose, onSave }) {
                 padding: '4px 12px', borderRadius: 16, fontSize: 13, cursor: 'pointer',
                 background: (form.expertise || []).includes(tag) ? '#EFF6FF' : '#F1F5F9',
                 border: (form.expertise || []).includes(tag) ? '1.5px solid #1E3A5F' : '1.5px solid #E2E8F0',
-                color: (form.expertise || []).includes(tag) ? '#1E3A5F' : '#64748B',
+                color: (form.expertise || []).includes(tag) ? '#1E3A5F' : '#9CA3AF',
                 fontWeight: (form.expertise || []).includes(tag) ? 600 : 400,
               }}
             >{tag}</span>

@@ -64,11 +64,11 @@ export default function ModelManagePage() {
                       <div style={{ background: '#E2E8F0', borderRadius: 4, height: 8, width: 60 }}>
                         <div style={{ background: m.accuracy > 90 ? '#059669' : '#F59E0B', borderRadius: 4, height: 8, width: `${m.accuracy}%` }} />
                       </div>
-                      <span style={{ fontFamily: 'JetBrains Mono', fontSize: 12, color: '#64748B' }}>{m.accuracy}%</span>
+                      <span style={{ fontFamily: 'JetBrains Mono', fontSize: 12, color: '#9CA3AF' }}>{m.accuracy}%</span>
                     </div>
                   </td>
                   <td><span className={`badge ${m.status === '上线中' ? 'badge-success' : m.status === '测试中' ? 'badge-warning' : 'badge-default'}`}>{m.status}</span></td>
-                  <td style={{ color: '#94A3B8', fontSize: 12 }}>{m.updateTime}</td>
+                  <td style={{ color: '#CBD5E1', fontSize: 12 }}>{m.updateTime}</td>
                   <td>
                     <button className="btn btn-secondary btn-sm" style={{ marginRight: 4 }}>详情</button>
                     <button className="btn btn-ghost btn-sm" style={{ color: '#EF4444' }}>删除</button>
@@ -83,7 +83,7 @@ export default function ModelManagePage() {
           <div className="pagination-controls">
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(1)}>«</button>
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(p => p - 1)}>‹</button>
-            <span style={{ fontSize: 13, color: '#64748B', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
+            <span style={{ fontSize: 13, color: '#9CA3AF', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(p => p + 1)}>›</button>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(totalPages)}>»</button>
           </div>

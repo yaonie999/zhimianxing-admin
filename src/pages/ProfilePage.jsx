@@ -261,7 +261,7 @@ function BasicInfoTab() {
                 background: saved
                   ? 'linear-gradient(135deg, var(--green-online), #059669)'
                   : loading
-                    ? 'linear-gradient(135deg, #64748B, #475569)'
+                    ? 'linear-gradient(135deg, #9CA3AF, #475569)'
                     : 'linear-gradient(135deg, var(--blue-primary), var(--blue-hover))',
                 boxShadow: saved
                   ? '0 4px 16px rgba(16,185,129,0.4)'

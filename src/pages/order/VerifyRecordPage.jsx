@@ -17,7 +17,7 @@ export default function VerifyRecordPage() {
   const [detailTarget, setDetailTarget] = useState(null)
 
   const TABS = ['全部', '待确认', '已核销', '已取消']
-  const TAB_COLORS = { '全部': '#1E3A5F', '待确认': '#D97706', '已核销': '#059669', '已取消': '#64748B' }
+  const TAB_COLORS = { '全部': '#1E3A5F', '待确认': '#D97706', '已核销': '#059669', '已取消': '#9CA3AF' }
 
   const counts = {
     '待确认': RECORDS.filter(r => r.status === '待确认').length,
@@ -39,10 +39,10 @@ export default function VerifyRecordPage() {
     const map = {
       '待确认': { bg: '#FEF3C7', color: '#D97706' },
       '已核销': { bg: '#D1FAE5', color: '#059669' },
-      '已取消': { bg: '#F1F5F9', color: '#64748B' },
+      '已取消': { bg: '#F1F5F9', color: '#9CA3AF' },
       '使用中': { bg: '#DBEAFE', color: '#1D4ED8' },
     }
-    const s_ = map[s] || { bg: '#F1F5F9', color: '#64748B' }
+    const s_ = map[s] || { bg: '#F1F5F9', color: '#9CA3AF' }
     return <span className="badge" style={{ background: s_.bg, color: s_.color }}>{s}</span>
   }
 
@@ -67,7 +67,7 @@ export default function VerifyRecordPage() {
                 transition: 'all 0.2s'
               }}
             >
-              <div style={{ fontSize: 12, color: '#64748B', marginBottom: 4 }}>{t}</div>
+              <div style={{ fontSize: 12, color: '#9CA3AF', marginBottom: 4 }}>{t}</div>
               <div style={{ fontSize: 24, fontWeight: 700, color: tab === t ? TAB_COLORS[t] : '#1E3A5F' }}>
                 {t === '全部' ? RECORDS.length : counts[t] || 0}
                 <span style={{ fontSize: 12, fontWeight: 400, marginLeft: 4 }}>笔</span>
@@ -106,18 +106,18 @@ export default function VerifyRecordPage() {
             <tbody>
               {data.map((r, idx) => (
                 <tr key={r.id}>
-                  <td style={{ fontFamily: 'JetBrains Mono', color: '#64748B' }}>{(page - 1) * PAGE_SIZE + idx + 1}</td>
+                  <td style={{ fontFamily: 'JetBrains Mono', color: '#9CA3AF' }}>{(page - 1) * PAGE_SIZE + idx + 1}</td>
                   <td style={{ fontFamily: 'JetBrains Mono', fontSize: 12, color: '#1E3A5F' }}>{r.verifyId}</td>
-                  <td style={{ fontFamily: 'JetBrains Mono', fontSize: 12, color: '#64748B' }}>{r.orderNo}</td>
+                  <td style={{ fontFamily: 'JetBrains Mono', fontSize: 12, color: '#9CA3AF' }}>{r.orderNo}</td>
                   <td>
                     <div style={{ fontWeight: 600 }}>{r.member}</div>
-                    <div style={{ fontSize: 11, color: '#94A3B8', fontFamily: 'JetBrains Mono' }}>{r.phone}</div>
+                    <div style={{ fontSize: 11, color: '#CBD5E1', fontFamily: 'JetBrains Mono' }}>{r.phone}</div>
                   </td>
                   <td style={{ fontSize: 13 }}>{r.product}</td>
-                  <td style={{ color: '#94A3B8', fontSize: 12 }}>{r.applyTime}</td>
-                  <td style={{ color: '#64748B', fontSize: 13 }}>{r.operator}</td>
-                  <td style={{ color: '#94A3B8', fontSize: 12 }}>{r.confirmTime || '—'}</td>
-                  <td style={{ color: '#64748B', fontSize: 13 }}>{r.studio}</td>
+                  <td style={{ color: '#CBD5E1', fontSize: 12 }}>{r.applyTime}</td>
+                  <td style={{ color: '#9CA3AF', fontSize: 13 }}>{r.operator}</td>
+                  <td style={{ color: '#CBD5E1', fontSize: 12 }}>{r.confirmTime || '—'}</td>
+                  <td style={{ color: '#9CA3AF', fontSize: 13 }}>{r.studio}</td>
                   <td>{statusBadge(r.status)}</td>
                   <td>
                     <button className="btn-action" style={{ borderColor: '#1E3A5F', color: '#1E3A5F' }} onClick={() => setDetailTarget(r)}>查看详情</button>
@@ -133,7 +133,7 @@ export default function VerifyRecordPage() {
           <div className="pagination-controls">
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(1)}>«</button>
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(p => p - 1)}>‹</button>
-            <span style={{ fontSize: 13, color: '#64748B', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
+            <span style={{ fontSize: 13, color: '#9CA3AF', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(p => p + 1)}>›</button>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(totalPages)}>»</button>
           </div>
@@ -155,11 +155,11 @@ export default function VerifyRecordPage() {
           </div>
           <div className="form-item" style={{ marginBottom: 16 }}>
             <label className="form-label">关联订单号</label>
-            <div style={{ fontFamily: 'JetBrains Mono', color: '#64748B' }}>{detailTarget.orderNo}</div>
+            <div style={{ fontFamily: 'JetBrains Mono', color: '#9CA3AF' }}>{detailTarget.orderNo}</div>
           </div>
           <div className="form-item" style={{ marginBottom: 16 }}>
             <label className="form-label">用户信息</label>
-            <div>{detailTarget.member} <span style={{ color: '#94A3B8' }}>{detailTarget.phone}</span></div>
+            <div>{detailTarget.member} <span style={{ color: '#CBD5E1' }}>{detailTarget.phone}</span></div>
           </div>
           <div className="form-item" style={{ marginBottom: 16 }}>
             <label className="form-label">服务内容</label>
@@ -175,11 +175,11 @@ export default function VerifyRecordPage() {
           </div>
           <div className="form-item" style={{ marginBottom: 16 }}>
             <label className="form-label">申请核销时间</label>
-            <div style={{ color: '#64748B' }}>{detailTarget.applyTime}</div>
+            <div style={{ color: '#9CA3AF' }}>{detailTarget.applyTime}</div>
           </div>
           <div className="form-item" style={{ marginBottom: 16 }}>
             <label className="form-label">确认核销时间</label>
-            <div style={{ color: '#64748B' }}>{detailTarget.confirmTime || '—'}</div>
+            <div style={{ color: '#9CA3AF' }}>{detailTarget.confirmTime || '—'}</div>
           </div>
           <div className="form-item">
             <label className="form-label">核销状态</label>

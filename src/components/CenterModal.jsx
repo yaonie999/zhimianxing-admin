@@ -74,9 +74,9 @@ export default function CenterModal({ open, onClose, title, width = 520, childre
               <div style={{ fontSize: 15, fontWeight: 700, color: '#1E3A5F' }}>{title}</div>
               <button
                 onClick={onClose}
-                style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 18, color: '#94A3B8', lineHeight: 1, padding: '2px 6px', borderRadius: 4 }}
-                onMouseEnter={e => e.target.style.color = '#374151'}
-                onMouseLeave={e => e.target.style.color = '#94A3B8'}
+                style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 18, color: '#CBD5E1', lineHeight: 1, padding: '2px 6px', borderRadius: 4 }}
+                onMouseEnter={e => e.target.style.color = '#E2E8F0'}
+                onMouseLeave={e => e.target.style.color = '#CBD5E1'}
               >✕</button>
             </div>
           )}

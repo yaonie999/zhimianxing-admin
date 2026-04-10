@@ -39,10 +39,10 @@ export default function OrderListPage() {
       '待支付': { bg: '#FEF3C7', color: '#D97706' },
       '待发货': { bg: '#FEE2E2', color: '#DC2626' },
       '已发货': { bg: '#E0E7FF', color: '#4338CA' },
-      '已取消': { bg: '#F1F5F9', color: '#64748B' },
+      '已取消': { bg: '#F1F5F9', color: '#9CA3AF' },
       '已退款': { bg: '#FEF3C7', color: '#B45309' },
     }
-    const s_ = map[s] || { bg: '#F1F5F9', color: '#64748B' }
+    const s_ = map[s] || { bg: '#F1F5F9', color: '#9CA3AF' }
     return <span className="badge" style={{ background: s_.bg, color: s_.color }}>{s}</span>
   }
 
@@ -63,7 +63,7 @@ export default function OrderListPage() {
               style={{
                 padding: '12px 20px', border: 'none', background: 'transparent',
                 fontSize: 14, fontWeight: tab === t ? 700 : 400,
-                color: tab === t ? '#1E3A5F' : '#64748B',
+                color: tab === t ? '#1E3A5F' : '#9CA3AF',
                 cursor: 'pointer', borderBottom: tab === t ? '2px solid #1E3A5F' : '2px solid transparent',
                 marginBottom: -1, whiteSpace: 'nowrap', transition: 'all 0.2s'
               }}
@@ -107,19 +107,19 @@ export default function OrderListPage() {
             <tbody>
               {data.map((o, idx) => (
                 <tr key={o.id}>
-                  <td style={{ fontFamily: 'JetBrains Mono', color: '#64748B' }}>{(page - 1) * PAGE_SIZE + idx + 1}</td>
+                  <td style={{ fontFamily: 'JetBrains Mono', color: '#9CA3AF' }}>{(page - 1) * PAGE_SIZE + idx + 1}</td>
                   <td style={{ fontFamily: 'JetBrains Mono', fontSize: 12, color: '#1E3A5F' }}>{o.orderNo}</td>
                   <td>
                     <div style={{ fontWeight: 600 }}>{o.member}</div>
-                    <div style={{ fontSize: 11, color: '#94A3B8', fontFamily: 'JetBrains Mono' }}>{o.phone}</div>
+                    <div style={{ fontSize: 11, color: '#CBD5E1', fontFamily: 'JetBrains Mono' }}>{o.phone}</div>
                   </td>
                   <td style={{ fontWeight: 600, maxWidth: 160 }}>{o.product}</td>
-                  <td style={{ fontSize: 12, color: '#64748B' }}>{o.productInfo}</td>
-                  <td style={{ fontFamily: 'JetBrains Mono', textDecoration: o.paidAmount === 0 ? 'line-through' : 'none', color: '#94A3B8' }}>¥{o.orderAmount}</td>
+                  <td style={{ fontSize: 12, color: '#9CA3AF' }}>{o.productInfo}</td>
+                  <td style={{ fontFamily: 'JetBrains Mono', textDecoration: o.paidAmount === 0 ? 'line-through' : 'none', color: '#CBD5E1' }}>¥{o.orderAmount}</td>
                   <td style={{ fontFamily: 'JetBrains Mono', color: '#E67E22', fontWeight: 700 }}>¥{o.paidAmount}</td>
-                  <td style={{ fontFamily: 'JetBrains Mono', color: '#64748B', fontSize: 12 }}>¥{o.platformFee}</td>
+                  <td style={{ fontFamily: 'JetBrains Mono', color: '#9CA3AF', fontSize: 12 }}>¥{o.platformFee}</td>
                   <td style={{ fontFamily: 'JetBrains Mono', color: '#059669', fontSize: 12 }}>¥{o.tenantFee}</td>
-                  <td style={{ color: '#94A3B8', fontSize: 12 }}>{o.time}</td>
+                  <td style={{ color: '#CBD5E1', fontSize: 12 }}>{o.time}</td>
                 </tr>
               ))}
             </tbody>
@@ -131,7 +131,7 @@ export default function OrderListPage() {
           <div className="pagination-controls">
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(1)}>«</button>
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(p => p - 1)}>‹</button>
-            <span style={{ fontSize: 13, color: '#64748B', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
+            <span style={{ fontSize: 13, color: '#9CA3AF', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(p => p + 1)}>›</button>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(totalPages)}>»</button>
           </div>

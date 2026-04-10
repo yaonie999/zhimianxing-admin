@@ -20,8 +20,8 @@
 
   /* 文字 */
   --text-primary: #F1F5F9;       /* 主文字-亮白 */
-  --text-secondary: #94A3B8;     /* 次要文字 */
-  --text-muted: #64748B;         /* 暗淡文字 */
+  --text-secondary: #CBD5E1;     /* 次要文字 */
+  --text-muted: #9CA3AF;         /* 暗淡文字 */
   --text-dim: #475569;           /* 极淡文字 */
 
   /* 品牌色 - 月光金 */
@@ -556,9 +556,9 @@ body {
 }
 
 .badge-gray {
-  background: rgba(100, 116, 139, 0.15);
-  color: #94A3B8;
-  border: 1px solid rgba(100, 116, 139, 0.25);
+  background: rgba(203, 213, 225, 0.12);
+  color: #CBD5E1;
+  border: 1px solid rgba(203, 213, 225, 0.25);
 }
 
 .action-btns { display: flex; gap: 6px; }

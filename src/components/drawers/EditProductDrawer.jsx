@@ -62,7 +62,7 @@ export default function EditProductDrawer({ product, onClose, onSave }) {
           {form.imagePreview ? (
             <img src={form.imagePreview} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="preview" />
           ) : (
-            <div style={{ textAlign: 'center', color: '#94A3B8' }}>
+            <div style={{ textAlign: 'center', color: '#CBD5E1' }}>
               <div style={{ fontSize: 32, marginBottom: 8 }}>📷</div>
               <div style={{ fontSize: 13 }}>点击上传商品图片</div>
               <div style={{ fontSize: 11, marginTop: 4 }}>建议尺寸 400×400</div>
@@ -93,7 +93,7 @@ export default function EditProductDrawer({ product, onClose, onSave }) {
           {STATUS_OPTIONS.map(s => (
             <label key={s} style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer', fontSize: 14 }}>
               <input type="radio" name="product-status" value={s} checked={form.status === s} onChange={() => set('status', s)} />
-              <span style={{ color: form.status === s ? (s === '上架' ? '#059669' : '#EF4444') : '#94A3B8', fontWeight: form.status === s ? 600 : 400 }}>
+              <span style={{ color: form.status === s ? (s === '上架' ? '#059669' : '#EF4444') : '#CBD5E1', fontWeight: form.status === s ? 600 : 400 }}>
                 {s === '上架' ? '✅ 上架' : '⛔ 下架'}
               </span>
             </label>

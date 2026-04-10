@@ -75,10 +75,10 @@ export default function CouponPage() {
                   <td style={{ fontFamily: 'JetBrains Mono', color: '#E67E22', fontWeight: 700 }}>
                     {c.type === '折扣券' ? `${c.faceValue}% OFF` : `¥${c.faceValue}`}
                   </td>
-                  <td style={{ fontFamily: 'JetBrains Mono', color: '#64748B' }}>满{c.threshold}元</td>
+                  <td style={{ fontFamily: 'JetBrains Mono', color: '#9CA3AF' }}>满{c.threshold}元</td>
                   <td style={{ fontFamily: 'JetBrains Mono' }}>{c.stock.toLocaleString()}</td>
                   <td style={{ fontFamily: 'JetBrains Mono', color: '#059669' }}>{c.used.toLocaleString()}</td>
-                  <td style={{ fontSize: 12, color: '#64748B' }}>{c.validFrom} ~ {c.validTo}</td>
+                  <td style={{ fontSize: 12, color: '#9CA3AF' }}>{c.validFrom} ~ {c.validTo}</td>
                   <td>{statusBadge(c.status)}</td>
                   <td>
                     <button className="btn btn-secondary btn-sm" style={{ marginRight: 4 }}>编辑</button>
@@ -94,7 +94,7 @@ export default function CouponPage() {
           <div className="pagination-controls">
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(1)}>«</button>
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(p => p - 1)}>‹</button>
-            <span style={{ fontSize: 13, color: '#64748B', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
+            <span style={{ fontSize: 13, color: '#9CA3AF', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(p => p + 1)}>›</button>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(totalPages)}>»</button>
           </div>

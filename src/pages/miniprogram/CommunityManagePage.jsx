@@ -74,13 +74,13 @@ export default function CommunityManagePage() {
               {data.map(p => (
                 <tr key={p.id}>
                   <td style={{ fontWeight: 600 }}>{p.author}</td>
-                  <td style={{ maxWidth: 280, color: '#374151', fontSize: 13 }}>{p.content.slice(0, 40)}...</td>
+                  <td style={{ maxWidth: 280, color: '#E2E8F0', fontSize: 13 }}>{p.content.slice(0, 40)}...</td>
                   <td><span className="badge badge-primary">{p.type}</span></td>
                   <td style={{ fontFamily: 'JetBrains Mono', color: '#E74C3C' }}>❤️ {p.likes}</td>
                   <td style={{ fontFamily: 'JetBrains Mono', color: '#3498DB' }}>💬 {p.comments}</td>
-                  <td style={{ fontFamily: 'JetBrains Mono', color: '#64748B' }}>{p.shares}</td>
+                  <td style={{ fontFamily: 'JetBrains Mono', color: '#9CA3AF' }}>{p.shares}</td>
                   <td><span className={`badge ${p.status === '已发布' ? 'badge-success' : 'badge-warning'}`}>{p.status}</span></td>
-                  <td style={{ color: '#94A3B8', fontSize: 12 }}>{p.time}</td>
+                  <td style={{ color: '#CBD5E1', fontSize: 12 }}>{p.time}</td>
                   <td>
                     <button className="btn-action" style={{ borderColor: '#1E3A5F', color: '#1E3A5F', marginRight: 6 }} onClick={() => setDetailTarget(p)}>查看详情</button>
                     <button className="btn-action btn-delete" onClick={() => { if (confirm('确定删除该动态？')) setPage(page) }}>删除</button>
@@ -96,7 +96,7 @@ export default function CommunityManagePage() {
           <div className="pagination-controls">
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(1)}>«</button>
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(p => p - 1)}>‹</button>
-            <span style={{ fontSize: 13, color: '#64748B', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
+            <span style={{ fontSize: 13, color: '#9CA3AF', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(p => p + 1)}>›</button>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(totalPages)}>»</button>
           </div>
@@ -122,7 +122,7 @@ export default function CommunityManagePage() {
           </div>
           <div className="form-item" style={{ marginBottom: 16 }}>
             <label className="form-label">发布时间</label>
-            <div style={{ color: '#64748B' }}>{detailTarget.time}</div>
+            <div style={{ color: '#9CA3AF' }}>{detailTarget.time}</div>
           </div>
           <div className="form-item" style={{ marginBottom: 16 }}>
             <label className="form-label">互动数据</label>
@@ -134,7 +134,7 @@ export default function CommunityManagePage() {
           </div>
           <div className="form-item">
             <label className="form-label">正文内容</label>
-            <div style={{ background: '#F8FAFC', borderRadius: 8, padding: 12, color: '#374151', fontSize: 14, lineHeight: 1.7 }}>
+            <div style={{ background: '#F8FAFC', borderRadius: 8, padding: 12, color: '#E2E8F0', fontSize: 14, lineHeight: 1.7 }}>
               {detailTarget.content}
             </div>
           </div>

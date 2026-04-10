@@ -54,14 +54,14 @@ function DetailModal({ activity, onClose }) {
 
       {/* 详细地址 */}
       <div style={{ marginBottom: 16 }}>
-        <div style={{ fontSize: 12, color: '#94A3B8', marginBottom: 4 }}>详细地址</div>
-        <div style={{ fontSize: 14, color: '#374151' }}>{activity.address}</div>
+        <div style={{ fontSize: 12, color: '#CBD5E1', marginBottom: 4 }}>详细地址</div>
+        <div style={{ fontSize: 14, color: '#E2E8F0' }}>{activity.address}</div>
       </div>
 
       {/* 活动介绍 */}
       <div>
-        <div style={{ fontSize: 12, color: '#94A3B8', marginBottom: 6 }}>活动介绍</div>
-        <div style={{ background: '#F8FAFC', borderRadius: 8, padding: '12px 16px', fontSize: 13, color: '#374151', lineHeight: 1.8 }}>
+        <div style={{ fontSize: 12, color: '#CBD5E1', marginBottom: 6 }}>活动介绍</div>
+        <div style={{ background: '#F8FAFC', borderRadius: 8, padding: '12px 16px', fontSize: 13, color: '#E2E8F0', lineHeight: 1.8 }}>
           {activity.type === '满减活动' && '本活动为满减优惠活动，用户购买指定商品可享受满减优惠，详询客服。'}
           {activity.type === '折扣活动' && '新品首发期间享受限时折扣优惠，折扣力度大，不容错过。'}
           {activity.type === '积分加倍' && '活动期间用户消费可获得双倍积分，积分可兑换精美礼品。'}
@@ -76,7 +76,7 @@ function DetailModal({ activity, onClose }) {
 function InfoItem({ label, value }) {
   return (
     <div>
-      <div style={{ fontSize: 11, color: '#94A3B8', marginBottom: 2 }}>{label}</div>
+      <div style={{ fontSize: 11, color: '#CBD5E1', marginBottom: 2 }}>{label}</div>
       <div style={{ fontSize: 13, color: '#1E3A5F', fontWeight: 600 }}>{value}</div>
     </div>
   )
@@ -148,7 +148,7 @@ export default function ActivityPage() {
       <div className="card" style={{ marginBottom: 16 }}>
         <div style={{ padding: '16px 24px', borderBottom: '1px solid #E2E8F0', background: '#F8FAFC', borderRadius: '12px 12px 0 0' }}>
           <div style={{ fontSize: 15, fontWeight: 700, color: '#1E3A5F' }}>➕ 创建活动</div>
-          <div style={{ fontSize: 12, color: '#94A3B8', marginTop: 2 }}>填写活动基本信息，创建新的营销活动</div>
+          <div style={{ fontSize: 12, color: '#CBD5E1', marginTop: 2 }}>填写活动基本信息，创建新的营销活动</div>
         </div>
         <div style={{ padding: '24px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
 
@@ -168,7 +168,7 @@ export default function ActivityPage() {
                 {form.imagePreview ? (
                   <img src={form.imagePreview} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="preview" />
                 ) : (
-                  <div style={{ textAlign: 'center', color: '#94A3B8' }}>
+                  <div style={{ textAlign: 'center', color: '#CBD5E1' }}>
                     <div style={{ fontSize: 36, marginBottom: 6 }}>📷</div>
                     <div style={{ fontSize: 13 }}>点击上传活动封面</div>
                     <div style={{ fontSize: 11, marginTop: 4 }}>建议尺寸 750×400</div>
@@ -232,15 +232,15 @@ export default function ActivityPage() {
               <label className="form-label">活动价格</label>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
                 <div>
-                  <div style={{ fontSize: 12, color: '#94A3B8', marginBottom: 4 }}>金额（元）</div>
+                  <div style={{ fontSize: 12, color: '#CBD5E1', marginBottom: 4 }}>金额（元）</div>
                   <input className="form-input" type="number" placeholder="填0表示免费" value={form.price} onChange={e => set('price', e.target.value)} style={{ textAlign: 'right' }} />
                 </div>
                 <div>
-                  <div style={{ fontSize: 12, color: '#94A3B8', marginBottom: 4 }}>积分（选填）</div>
+                  <div style={{ fontSize: 12, color: '#CBD5E1', marginBottom: 4 }}>积分（选填）</div>
                   <input className="form-input" type="number" placeholder="可抵用积分" value={form.points} onChange={e => set('points', e.target.value)} style={{ textAlign: 'right' }} />
                 </div>
               </div>
-              <div style={{ fontSize: 11, color: '#94A3B8', marginTop: 4 }}>💡 价格为0或空时表示免费参与活动</div>
+              <div style={{ fontSize: 11, color: '#CBD5E1', marginTop: 4 }}>💡 价格为0或空时表示免费参与活动</div>
             </div>
 
             {/* 详细地址 */}
@@ -275,7 +275,7 @@ export default function ActivityPage() {
       <div className="card">
         <div style={{ padding: '16px 20px', borderBottom: '1px solid #E2E8F0', background: '#F8FAFC', borderRadius: '12px 12px 0 0' }}>
           <div style={{ fontSize: 15, fontWeight: 700, color: '#1E3A5F' }}>📋 活动列表</div>
-          <div style={{ fontSize: 12, color: '#94A3B8', marginTop: 2 }}>管理所有营销活动，支持编辑、删除、查看详情</div>
+          <div style={{ fontSize: 12, color: '#CBD5E1', marginTop: 2 }}>管理所有营销活动，支持编辑、删除、查看详情</div>
         </div>
 
         {/* 工具栏 */}
@@ -307,16 +307,16 @@ export default function ActivityPage() {
             </thead>
             <tbody>
               {data.length === 0 ? (
-                <tr><td colSpan={7} style={{ textAlign: 'center', color: '#94A3B8', padding: '40px 0' }}>暂无活动数据</td></tr>
+                <tr><td colSpan={7} style={{ textAlign: 'center', color: '#CBD5E1', padding: '40px 0' }}>暂无活动数据</td></tr>
               ) : data.map(a => (
                 <tr key={a.id}>
                   <td style={{ fontWeight: 700, color: '#1E3A5F', maxWidth: 200 }}>{a.name}</td>
                   <td>{typeBadge(a.type)}</td>
-                  <td style={{ fontSize: 12, color: '#64748B', whiteSpace: 'nowrap' }}>{a.startDate}<br />~ {a.endDate}</td>
+                  <td style={{ fontSize: 12, color: '#9CA3AF', whiteSpace: 'nowrap' }}>{a.startDate}<br />~ {a.endDate}</td>
                   <td style={{ fontFamily: 'JetBrains Mono', color: a.price === 0 ? '#059669' : '#D97706', fontWeight: 600 }}>
                     {a.price === 0 ? '免费' : `¥${a.price}`}
                   </td>
-                  <td style={{ fontFamily: 'JetBrains Mono', color: '#64748B' }}>{a.participants.toLocaleString()}</td>
+                  <td style={{ fontFamily: 'JetBrains Mono', color: '#9CA3AF' }}>{a.participants.toLocaleString()}</td>
                   <td>{statusBadge(a.status)}</td>
                   <td>
                     <button className="btn-action" style={{ borderColor: '#1E3A5F', color: '#1E3A5F', marginRight: 6 }} onClick={() => setDetailTarget(a)}>查看详情</button>
@@ -334,7 +334,7 @@ export default function ActivityPage() {
           <div className="pagination-controls">
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(1)}>«</button>
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(p => p - 1)}>‹</button>
-            <span style={{ fontSize: 13, color: '#64748B', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
+            <span style={{ fontSize: 13, color: '#9CA3AF', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(p => p + 1)}>›</button>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(totalPages)}>»</button>
           </div>

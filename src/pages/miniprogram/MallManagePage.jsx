@@ -72,7 +72,7 @@ export default function MallManagePage() {
                   <td style={{ fontWeight: 600 }}>{b.name}</td>
                   <td><span className="badge badge-primary">{b.position}</span></td>
                   <td>
-                    <span style={{ fontSize: 12, color: '#64748B' }}>
+                    <span style={{ fontSize: 12, color: '#9CA3AF' }}>
                       {b.jumpType === '无跳转' ? '—' : b.jumpType === '链接地址' ? `🔗 链接` : '📝 文本'}
                     </span>
                   </td>
@@ -81,7 +81,7 @@ export default function MallManagePage() {
                       {b.status === '启用' ? '✅ 启用' : '⛔ 停用'}
                     </span>
                   </td>
-                  <td style={{ color: '#64748B', fontSize: 13, maxWidth: 250 }}>{b.content}</td>
+                  <td style={{ color: '#9CA3AF', fontSize: 13, maxWidth: 250 }}>{b.content}</td>
                   <td>
                     <button className="btn btn-secondary btn-sm" style={{ marginRight: 4 }} onClick={() => setEditTarget({ ...b })}>编辑</button>
                     <button className="btn btn-ghost btn-sm" style={{ color: '#EF4444' }}>删除</button>

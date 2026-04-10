@@ -57,7 +57,7 @@ export default function HotTopicsPage() {
               style={{
                 padding: '12px 24px', border: 'none', background: 'transparent',
                 fontSize: 14, fontWeight: tab === t ? 700 : 400,
-                color: tab === t ? '#1E3A5F' : '#64748B',
+                color: tab === t ? '#1E3A5F' : '#9CA3AF',
                 cursor: 'pointer', borderBottom: tab === t ? '2px solid #1E3A5F' : '2px solid transparent',
                 marginBottom: -1, transition: 'all 0.2s'
               }}
@@ -104,7 +104,7 @@ export default function HotTopicsPage() {
             <tbody>
               {filtered.map(t => (
                 <tr key={t.id}>
-                  <td style={{ fontFamily: 'JetBrains Mono', color: '#64748B' }}>{t.sort}</td>
+                  <td style={{ fontFamily: 'JetBrains Mono', color: '#9CA3AF' }}>{t.sort}</td>
                   <td style={{ fontWeight: 600, maxWidth: 280 }}>{t.name}</td>
                   <td>
                     <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
@@ -117,7 +117,7 @@ export default function HotTopicsPage() {
                       <span style={{ fontFamily: 'JetBrains Mono', color: '#EF4444', fontWeight: 700 }}>{t.heat}</span>
                     </div>
                   </td>
-                  <td style={{ fontFamily: 'JetBrains Mono', color: '#64748B' }}>
+                  <td style={{ fontFamily: 'JetBrains Mono', color: '#9CA3AF' }}>
                     {tab === '热议榜' ? t.posts?.toLocaleString() : t.answers}
                   </td>
                   <td>

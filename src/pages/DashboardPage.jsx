@@ -102,13 +102,13 @@ export default function DashboardPage() {
                 fontSize: 10,
                 fontWeight: 700,
                 color: 'white',
-                background: item.hot ? '#F97316' : '#94A3B8',
+                background: item.hot ? '#F97316' : '#CBD5E1',
                 padding: '2px 8px',
                 borderRadius: 4,
                 flexShrink: 0,
               }}>NEW</span>
               <span style={{ fontSize: 13, color: '#475569', flex: 1 }}>{item.text}</span>
-              <span style={{ fontSize: 12, color: '#94A3B8', flexShrink: 0 }}>{item.time}</span>
+              <span style={{ fontSize: 12, color: '#CBD5E1', flexShrink: 0 }}>{item.time}</span>
             </div>
           ))}
         </div>
@@ -135,7 +135,7 @@ export default function DashboardPage() {
               alignItems: 'center',
               gap: 10,
               fontSize: 13,
-              color: item.done ? '#94A3B8' : '#334155',
+              color: item.done ? '#CBD5E1' : '#334155',
               textDecoration: item.done ? 'line-through' : 'none',
             }}>
               <span style={{ fontSize: 14 }}>{item.done ? '✅' : '⬜'}</span>

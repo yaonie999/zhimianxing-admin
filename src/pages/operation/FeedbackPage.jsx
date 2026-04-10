@@ -53,33 +53,33 @@ function DetailModal({ feedback, onClose }) {
         {/* 状态标签 */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
           {statusBadge(feedback.status)}
-          <span style={{ fontSize: 12, color: '#94A3B8' }}>反馈ID：#{feedback.id}</span>
+          <span style={{ fontSize: 12, color: '#CBD5E1' }}>反馈ID：#{feedback.id}</span>
         </div>
 
         {/* 用户信息 */}
         <div style={{ background: '#F8FAFC', borderRadius: 8, padding: '12px 16px', marginBottom: 16, display: 'flex', gap: 24 }}>
           <div>
-            <div style={{ fontSize: 11, color: '#94A3B8', marginBottom: 2 }}>提交人</div>
+            <div style={{ fontSize: 11, color: '#CBD5E1', marginBottom: 2 }}>提交人</div>
             <div style={{ fontSize: 14, fontWeight: 700, color: '#1E3A5F' }}>{feedback.user}</div>
           </div>
           <div>
-            <div style={{ fontSize: 11, color: '#94A3B8', marginBottom: 2 }}>联系方式</div>
-            <div style={{ fontSize: 14, color: '#374151', fontFamily: 'JetBrains Mono' }}>{feedback.phone}</div>
+            <div style={{ fontSize: 11, color: '#CBD5E1', marginBottom: 2 }}>联系方式</div>
+            <div style={{ fontSize: 14, color: '#E2E8F0', fontFamily: 'JetBrains Mono' }}>{feedback.phone}</div>
           </div>
           <div>
-            <div style={{ fontSize: 11, color: '#94A3B8', marginBottom: 2 }}>反馈类型</div>
+            <div style={{ fontSize: 11, color: '#CBD5E1', marginBottom: 2 }}>反馈类型</div>
             <div style={{ fontSize: 14 }}>{typeBadge(feedback.type)}</div>
           </div>
           <div>
-            <div style={{ fontSize: 11, color: '#94A3B8', marginBottom: 2 }}>提交时间</div>
-            <div style={{ fontSize: 14, color: '#64748B' }}>{feedback.time}</div>
+            <div style={{ fontSize: 11, color: '#CBD5E1', marginBottom: 2 }}>提交时间</div>
+            <div style={{ fontSize: 14, color: '#9CA3AF' }}>{feedback.time}</div>
           </div>
         </div>
 
         {/* 问题描述 */}
         <div style={{ marginBottom: 16 }}>
-          <div style={{ fontSize: 12, fontWeight: 700, color: '#374151', marginBottom: 8 }}>问题描述</div>
-          <div style={{ background: '#F8FAFC', borderRadius: 8, padding: '12px 16px', fontSize: 14, color: '#374151', lineHeight: 1.8, whiteSpace: 'pre-wrap' }}>
+          <div style={{ fontSize: 12, fontWeight: 700, color: '#E2E8F0', marginBottom: 8 }}>问题描述</div>
+          <div style={{ background: '#F8FAFC', borderRadius: 8, padding: '12px 16px', fontSize: 14, color: '#E2E8F0', lineHeight: 1.8, whiteSpace: 'pre-wrap' }}>
             {feedback.content}
           </div>
         </div>
@@ -87,7 +87,7 @@ function DetailModal({ feedback, onClose }) {
         {/* 附件图片 */}
         {feedback.images && feedback.images.length > 0 && (
           <div>
-            <div style={{ fontSize: 12, fontWeight: 700, color: '#374151', marginBottom: 8 }}>附件图片（{feedback.images.length}张）</div>
+            <div style={{ fontSize: 12, fontWeight: 700, color: '#E2E8F0', marginBottom: 8 }}>附件图片（{feedback.images.length}张）</div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginBottom: 8 }}>
               {feedback.images.map((img, i) => (
                 <div
@@ -99,7 +99,7 @@ function DetailModal({ feedback, onClose }) {
                 </div>
               ))}
             </div>
-            <div style={{ fontSize: 12, color: '#94A3B8' }}>💡 点击图片可放大查看</div>
+            <div style={{ fontSize: 12, color: '#CBD5E1' }}>💡 点击图片可放大查看</div>
           </div>
         )}
 
@@ -160,7 +160,7 @@ export default function FeedbackPage() {
       <div className="card">
         <div style={{ padding: '16px 20px', borderBottom: '1px solid #E2E8F0', background: '#F8FAFC', borderRadius: '12px 12px 0 0' }}>
           <div style={{ fontSize: 15, fontWeight: 700, color: '#1E3A5F' }}>💡 意见建议</div>
-          <div style={{ fontSize: 12, color: '#94A3B8', marginTop: 2 }}>收集用户反馈、投诉和建议，持续优化产品体验</div>
+          <div style={{ fontSize: 12, color: '#CBD5E1', marginTop: 2 }}>收集用户反馈、投诉和建议，持续优化产品体验</div>
         </div>
 
         {/* 工具栏 */}
@@ -195,15 +195,15 @@ export default function FeedbackPage() {
             </thead>
             <tbody>
               {data.length === 0 ? (
-                <tr><td colSpan={7} style={{ textAlign: 'center', color: '#94A3B8', padding: '40px 0' }}>暂无数据</td></tr>
+                <tr><td colSpan={7} style={{ textAlign: 'center', color: '#CBD5E1', padding: '40px 0' }}>暂无数据</td></tr>
               ) : data.map(f => (
                 <tr key={f.id}>
                   <td style={{ fontWeight: 700, color: '#1E3A5F' }}>{f.user}</td>
-                  <td style={{ fontFamily: 'JetBrains Mono', fontSize: 12, color: '#64748B' }}>{f.phone}</td>
+                  <td style={{ fontFamily: 'JetBrains Mono', fontSize: 12, color: '#9CA3AF' }}>{f.phone}</td>
                   <td>{typeBadge(f.type)}</td>
-                  <td style={{ color: '#374151', fontSize: 13, maxWidth: 260, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{f.content}</td>
+                  <td style={{ color: '#E2E8F0', fontSize: 13, maxWidth: 260, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{f.content}</td>
                   <td>{statusBadge(f.status)}</td>
-                  <td style={{ color: '#94A3B8', fontSize: 12 }}>{f.time}</td>
+                  <td style={{ color: '#CBD5E1', fontSize: 12 }}>{f.time}</td>
                   <td>
                     <button className="btn-action" style={{ borderColor: '#1E3A5F', color: '#1E3A5F', marginRight: 6 }} onClick={() => setDetailTarget(f)}>查看详情</button>
                     <button className="btn-action btn-delete" disabled={f.status === '已回复'} style={{ opacity: f.status === '已回复' ? 0.5 : 1 }} onClick={() => { if (confirm('确定删除该反馈？')) FEEDBACKS.filter(f2 => f2.id !== f.id) }}>删除</button>
@@ -220,7 +220,7 @@ export default function FeedbackPage() {
           <div className="pagination-controls">
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(1)}>«</button>
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(p => p - 1)}>‹</button>
-            <span style={{ fontSize: 13, color: '#64748B', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
+            <span style={{ fontSize: 13, color: '#9CA3AF', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(p => p + 1)}>›</button>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(totalPages)}>»</button>
           </div>

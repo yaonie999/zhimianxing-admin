@@ -94,14 +94,14 @@ function MemberListTab() {
                 <td style={{ fontFamily: 'JetBrains Mono', fontSize: 12 }}>{m.phone}</td>
                 <td>{m.gender}</td>
                 <td>{m.age}</td>
-                <td style={{ fontSize: 13, color: '#64748B' }}>{m.job}</td>
+                <td style={{ fontSize: 13, color: '#9CA3AF' }}>{m.job}</td>
                 <td>{m.marriage}</td>
                 <td style={{ fontSize: 13 }}>{m.studio}</td>
                 <td style={{ fontSize: 13 }}>{m.advisor}</td>
                 <td><span className="badge badge-warning">{m.level}</span></td>
                 <td style={{ fontFamily: 'JetBrains Mono', color: '#1E3A5F', fontWeight: 700 }}>{m.points.toLocaleString()}</td>
                 <td style={{ fontFamily: 'JetBrains Mono', color: '#059669' }}>+{m.growth}</td>
-                <td style={{ color: '#94A3B8', fontSize: 12 }}>{m.createdAt}</td>
+                <td style={{ color: '#CBD5E1', fontSize: 12 }}>{m.createdAt}</td>
                 <td>
                   <button className="btn-action" style={{ borderColor: '#1E3A5F', color: '#1E3A5F', marginRight: 6 }} onClick={() => setDetailTarget(m)}>查看详情</button>
                   <button className="btn-action btn-edit" style={{ marginRight: 6 }} onClick={() => setEditTarget({ ...m })}>编辑</button>
@@ -118,7 +118,7 @@ function MemberListTab() {
         <div className="pagination-controls">
           <button className="page-btn" disabled={page === 1} onClick={() => setPage(1)}>«</button>
           <button className="page-btn" disabled={page === 1} onClick={() => setPage(p => p - 1)}>‹</button>
-          <span style={{ fontSize: 13, color: '#64748B', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
+          <span style={{ fontSize: 13, color: '#9CA3AF', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
           <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(p => p + 1)}>›</button>
           <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(totalPages)}>»</button>
         </div>
@@ -189,10 +189,10 @@ function PointsQueryTab() {
                 <td style={{ fontFamily: 'JetBrains Mono', fontSize: 12 }}>{m.phone}</td>
                 <td style={{ fontFamily: 'JetBrains Mono', fontSize: 14, color: '#1E3A5F', fontWeight: 700 }}>{m.points.toLocaleString()}</td>
                 <td><span className="badge badge-warning">{m.level}</span></td>
-                <td style={{ color: '#64748B', fontSize: 13 }}>{m.growth}</td>
+                <td style={{ color: '#9CA3AF', fontSize: 13 }}>{m.growth}</td>
                 <td><span className="badge badge-success">{m.sourceDetail}</span></td>
                 <td><span className="badge badge-primary">{m.source}</span></td>
-                <td style={{ color: '#94A3B8', fontSize: 12 }}>{m.sourceTime}</td>
+                <td style={{ color: '#CBD5E1', fontSize: 12 }}>{m.sourceTime}</td>
               </tr>
             ))}
           </tbody>
@@ -203,7 +203,7 @@ function PointsQueryTab() {
         <div className="pagination-controls">
           <button className="page-btn" disabled={page === 1} onClick={() => setPage(1)}>«</button>
           <button className="page-btn" disabled={page === 1} onClick={() => setPage(p => p - 1)}>‹</button>
-          <span style={{ fontSize: 13, color: '#64748B', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
+          <span style={{ fontSize: 13, color: '#9CA3AF', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
           <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(p => p + 1)}>›</button>
           <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(totalPages)}>»</button>
         </div>
@@ -217,7 +217,7 @@ const LEVELS = [
   { id: 1, name: '青铜会员', min: 0, max: 999, color: '#CD7F32', icon: '🥉', discount: '98', rights: ['消费9.8折', '双倍积分'] },
   { id: 2, name: '白银会员', min: 1000, max: 2999, color: '#C0C0C0', icon: '🥈', discount: '95', rights: ['消费9.5折', '双倍积分'] },
   { id: 3, name: '黄金会员', min: 3000, max: 5999, color: '#FFD700', icon: '🥇', discount: '90', rights: ['消费9折', '双倍积分'] },
-  { id: 4, name: '铂金会员', min: 6000, max: 9999, color: '#94A3B8', icon: '💎', discount: '85', rights: ['消费8.5折', '双倍积分'] },
+  { id: 4, name: '铂金会员', min: 6000, max: 9999, color: '#CBD5E1', icon: '💎', discount: '85', rights: ['消费8.5折', '双倍积分'] },
   { id: 5, name: '钻石会员', min: 10000, max: 999999, color: '#9370DB', icon: '💠', discount: '80', rights: ['消费8折', '双倍积分'] },
 ]
 
@@ -239,7 +239,7 @@ function MemberLevelsTab() {
               <div className="level-icon">{level.icon}</div>
               <div className="level-name" style={{ color: level.color }}>{level.name}</div>
               <div className="level-range">成长值 {level.min.toLocaleString()} ~ {level.max >= 999999 ? '无上限' : level.max.toLocaleString()}</div>
-              <div style={{ fontSize: 12, color: '#64748B', marginTop: 6 }}>折扣: {level.discount}折</div>
+              <div style={{ fontSize: 12, color: '#9CA3AF', marginTop: 6 }}>折扣: {level.discount}折</div>
               <div className="level-count">{count} 名会员</div>
               <div style={{ marginTop: 10, display: 'flex', gap: 6, justifyContent: 'center' }}>
                 <button className="btn btn-secondary btn-sm" onClick={() => setEditLevel({ ...level })}>编辑</button>
@@ -335,12 +335,12 @@ function PointsSettingsTab() {
           </div>
           {settings.deductionEnabled && (
             <div style={{ padding: '12px 0' }}>
-              <p style={{ fontSize: 13, fontWeight: 600, color: '#374151', marginBottom: 12 }}>抵扣规则</p>
+              <p style={{ fontSize: 13, fontWeight: 600, color: '#E2E8F0', marginBottom: 12 }}>抵扣规则</p>
               <div className="rules-list">
                 {settings.deductionRules.map((rule, idx) => (
                   <div key={idx} className="rule-item">
                     <span className="rule-text"><span style={{ color: '#1E3A5F', fontWeight: 700, fontFamily: 'JetBrains Mono' }}>{rule.points}</span> 积分</span>
-                    <span style={{ color: '#64748B' }}>可抵扣</span>
+                    <span style={{ color: '#9CA3AF' }}>可抵扣</span>
                     <input className="points-rule-input" type="number" value={rule.money} onChange={e => setRule(idx, 'money', parseFloat(e.target.value))} style={{ width: 80 }} min={0.01} step={0.01} />
                     <span className="rule-text">元</span>
                     <button className="rule-delete" onClick={() => deleteRule(idx)}>✕</button>
@@ -361,18 +361,18 @@ function PointsSettingsTab() {
             <div className="form-item">
               <label className="form-label">每消费多少元获取 1 积分</label>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <span style={{ color: '#64748B' }}>每消费</span>
+                <span style={{ color: '#9CA3AF' }}>每消费</span>
                 <input className="form-input" type="number" value={settings.pointsPerMoney || 1} onChange={e => set('pointsPerMoney', parseFloat(e.target.value))} style={{ width: 100, textAlign: 'center' }} min={0.1} step={0.1} />
-                <span style={{ color: '#64748B' }}>元获取 1 积分</span>
+                <span style={{ color: '#9CA3AF' }}>元获取 1 积分</span>
               </div>
             </div>
             <div className="form-item">
               <label className="form-label">每天最多获取积分上限</label>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <input className="form-input" type="number" value={settings.maxPointsPerDay || 500} onChange={e => set('maxPointsPerDay', parseInt(e.target.value))} style={{ width: 120, textAlign: 'center' }} min={0} />
-                <span style={{ color: '#64748B' }}>积分/天</span>
+                <span style={{ color: '#9CA3AF' }}>积分/天</span>
               </div>
-              <p style={{ fontSize: 11, color: '#94A3B8', marginTop: 4 }}>设置0表示不设上限</p>
+              <p style={{ fontSize: 11, color: '#CBD5E1', marginTop: 4 }}>设置0表示不设上限</p>
             </div>
           </div>
         </div>

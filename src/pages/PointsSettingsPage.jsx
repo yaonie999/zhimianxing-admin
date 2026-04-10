@@ -157,7 +157,7 @@ export default function PointsSettingsPage() {
 
               {settings.deductionEnabled && (
                 <div style={{ padding: '12px 0' }}>
-                  <p style={{ fontSize: 13, fontWeight: 600, color: '#374151', marginBottom: 12 }}>抵扣规则</p>
+                  <p style={{ fontSize: 13, fontWeight: 600, color: '#E2E8F0', marginBottom: 12 }}>抵扣规则</p>
 
                   <div className="rules-list">
                     {settings.deductionRules.map((rule, idx) => (
@@ -166,7 +166,7 @@ export default function PointsSettingsPage() {
                           <span style={{ color: '#1E3A5F', fontWeight: 700, fontFamily: 'JetBrains Mono' }}>{rule.points}</span>
                           {' '}积分
                         </span>
-                        <span style={{ color: '#64748B' }}>可抵扣</span>
+                        <span style={{ color: '#9CA3AF' }}>可抵扣</span>
                         <input
                           className="points-rule-input"
                           type="number"
@@ -211,7 +211,7 @@ export default function PointsSettingsPage() {
                 <div className="form-item">
                   <label className="form-label">每消费多少元获取 1 积分</label>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                    <span style={{ color: '#64748B' }}>每消费</span>
+                    <span style={{ color: '#9CA3AF' }}>每消费</span>
                     <input
                       className="form-input"
                       type="number"
@@ -221,7 +221,7 @@ export default function PointsSettingsPage() {
                       min={0.1}
                       step={0.1}
                     />
-                    <span style={{ color: '#64748B' }}>元获取 1 积分</span>
+                    <span style={{ color: '#9CA3AF' }}>元获取 1 积分</span>
                   </div>
                 </div>
                 <div className="form-item">
@@ -235,9 +235,9 @@ export default function PointsSettingsPage() {
                       style={{ width: 120, textAlign: 'center' }}
                       min={0}
                     />
-                    <span style={{ color: '#64748B' }}>积分/天</span>
+                    <span style={{ color: '#9CA3AF' }}>积分/天</span>
                   </div>
-                  <p style={{ fontSize: 11, color: '#94A3B8', marginTop: 4 }}>设置0表示不设上限</p>
+                  <p style={{ fontSize: 11, color: '#CBD5E1', marginTop: 4 }}>设置0表示不设上限</p>
                 </div>
               </div>
 

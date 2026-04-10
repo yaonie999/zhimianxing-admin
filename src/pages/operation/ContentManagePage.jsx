@@ -52,13 +52,13 @@ function makeData() {
 function BoolBadge({ value, trueLabel = '是', falseLabel = '否' }) {
   return value
     ? <span style={{ background: '#D1FAE5', color: '#065F46', padding: '2px 8px', borderRadius: 4, fontSize: 12, fontWeight: 600 }}>{trueLabel}</span>
-    : <span style={{ background: '#F1F5F9', color: '#64748B', padding: '2px 8px', borderRadius: 4, fontSize: 12, fontWeight: 600 }}>{falseLabel}</span>
+    : <span style={{ background: '#F1F5F9', color: '#9CA3AF', padding: '2px 8px', borderRadius: 4, fontSize: 12, fontWeight: 600 }}>{falseLabel}</span>
 }
 
 function StatusBadge({ s }) {
   return s === '显示'
     ? <span style={{ background: '#D1FAE5', color: '#065F46', padding: '2px 8px', borderRadius: 4, fontSize: 12, fontWeight: 600 }}>显示</span>
-    : <span style={{ background: '#F1F5F9', color: '#64748B', padding: '2px 8px', borderRadius: 4, fontSize: 12, fontWeight: 600 }}>隐藏</span>
+    : <span style={{ background: '#F1F5F9', color: '#9CA3AF', padding: '2px 8px', borderRadius: 4, fontSize: 12, fontWeight: 600 }}>隐藏</span>
 }
 
 // ===================== 新增/编辑弹窗 =====================
@@ -108,7 +108,7 @@ function ContentModal({ tab, editTarget, onClose, onSave }) {
     >
       {/* 封面图 */}
       <div style={{ marginBottom: 18 }}>
-        <div style={{ fontSize: 13, fontWeight: 700, color: '#374151', marginBottom: 8 }}>封面图</div>
+        <div style={{ fontSize: 13, fontWeight: 700, color: '#E2E8F0', marginBottom: 8 }}>封面图</div>
         <div
           style={{
             width: 120, height: 120, border: '2px dashed #E2E8F0', borderRadius: 8,
@@ -121,18 +121,18 @@ function ContentModal({ tab, editTarget, onClose, onSave }) {
             <img src={form.imagePreview} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="封面" />
           ) : (
             <>
-              <div style={{ fontSize: 28, color: '#94A3B8' }}>+</div>
-              <div style={{ fontSize: 11, color: '#94A3B8', marginTop: 4 }}>上传图片</div>
+              <div style={{ fontSize: 28, color: '#CBD5E1' }}>+</div>
+              <div style={{ fontSize: 11, color: '#CBD5E1', marginTop: 4 }}>上传图片</div>
             </>
           )}
           <input id="content-img-input" type="file" accept="image/*" onChange={handleImageChange} style={{ display: 'none' }} />
         </div>
-        <div style={{ fontSize: 11, color: '#94A3B8', marginTop: 6 }}>推荐尺寸 750×400 px</div>
+        <div style={{ fontSize: 11, color: '#CBD5E1', marginTop: 6 }}>推荐尺寸 750×400 px</div>
       </div>
 
       {/* 标题 */}
       <div style={{ marginBottom: 16 }}>
-        <div style={{ fontSize: 13, fontWeight: 700, color: '#374151', marginBottom: 8 }}>
+        <div style={{ fontSize: 13, fontWeight: 700, color: '#E2E8F0', marginBottom: 8 }}>
           <span style={{ color: '#EF4444', marginRight: 3 }}>*</span>标题
         </div>
         <input
@@ -145,7 +145,7 @@ function ContentModal({ tab, editTarget, onClose, onSave }) {
 
       {/* 标签 */}
       <div style={{ marginBottom: 16 }}>
-        <div style={{ fontSize: 13, fontWeight: 700, color: '#374151', marginBottom: 8 }}>标签</div>
+        <div style={{ fontSize: 13, fontWeight: 700, color: '#E2E8F0', marginBottom: 8 }}>标签</div>
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
           {TAG_OPTIONS.map(tag => (
             <span
@@ -155,7 +155,7 @@ function ContentModal({ tab, editTarget, onClose, onSave }) {
                 padding: '4px 12px', borderRadius: 16, fontSize: 13, cursor: 'pointer',
                 background: form.tags.includes(tag) ? '#EFF6FF' : '#F1F5F9',
                 border: form.tags.includes(tag) ? '1.5px solid #1E3A5F' : '1.5px solid #E2E8F0',
-                color: form.tags.includes(tag) ? '#1E3A5F' : '#64748B',
+                color: form.tags.includes(tag) ? '#1E3A5F' : '#9CA3AF',
                 fontWeight: form.tags.includes(tag) ? 600 : 400,
                 transition: 'all 0.15s',
               }}
@@ -166,12 +166,12 @@ function ContentModal({ tab, editTarget, onClose, onSave }) {
 
       {/* 内容编辑器 */}
       <div style={{ marginBottom: 16 }}>
-        <div style={{ fontSize: 13, fontWeight: 700, color: '#374151', marginBottom: 8 }}>内容</div>
+        <div style={{ fontSize: 13, fontWeight: 700, color: '#E2E8F0', marginBottom: 8 }}>内容</div>
         {/* 工具栏 */}
         <div style={{ display: 'flex', gap: 2, padding: '6px 8px', background: '#F8FAFC', border: '1px solid #E2E8F0', borderBottom: 'none', borderRadius: '8px 8px 0 0', flexWrap: 'wrap' }}>
           {['加粗', '斜体', '下划线', '字体', '字号', '文字颜色', '背景色', '对齐', '列表', '缩进', '链接', '图片', '表格', '表情', '源码', '插入'].map(tool => (
             <button key={tool}
-              style={{ padding: '3px 8px', background: 'none', border: 'none', cursor: 'pointer', fontSize: 12, color: '#374151', borderRadius: 4, whiteSpace: 'nowrap' }}
+              style={{ padding: '3px 8px', background: 'none', border: 'none', cursor: 'pointer', fontSize: 12, color: '#E2E8F0', borderRadius: 4, whiteSpace: 'nowrap' }}
               onMouseEnter={e => e.target.style.background = '#E2E8F0'}
               onMouseLeave={e => e.target.style.background = 'none'}
             >{tool}</button>
@@ -189,9 +189,9 @@ function ContentModal({ tab, editTarget, onClose, onSave }) {
       {/* 是否置顶 + 是否推荐 */}
       <div style={{ display: 'flex', gap: 32, marginBottom: 8 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <span style={{ fontSize: 13, fontWeight: 700, color: '#374151' }}>是否置顶</span>
+          <span style={{ fontSize: 13, fontWeight: 700, color: '#E2E8F0' }}>是否置顶</span>
           {[{ label: '是', val: true }, { label: '否', val: false }].map(o => (
-            <label key={o.label} style={{ display: 'flex', alignItems: 'center', gap: 4, cursor: 'pointer', fontSize: 13, color: form.isTop === o.val ? '#1E3A5F' : '#64748B', fontWeight: form.isTop === o.val ? 600 : 400 }}>
+            <label key={o.label} style={{ display: 'flex', alignItems: 'center', gap: 4, cursor: 'pointer', fontSize: 13, color: form.isTop === o.val ? '#1E3A5F' : '#9CA3AF', fontWeight: form.isTop === o.val ? 600 : 400 }}>
               <input type="radio" name="istop" checked={form.isTop === o.val} onChange={() => set('isTop', o.val)} style={{ accentColor: '#1E3A5F' }} />
               {o.label}
             </label>
@@ -199,9 +199,9 @@ function ContentModal({ tab, editTarget, onClose, onSave }) {
         </div>
         {showRecommend && (
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <span style={{ fontSize: 13, fontWeight: 700, color: '#374151' }}>是否推荐</span>
+            <span style={{ fontSize: 13, fontWeight: 700, color: '#E2E8F0' }}>是否推荐</span>
             {[{ label: '是', val: true }, { label: '否', val: false }].map(o => (
-              <label key={o.label} style={{ display: 'flex', alignItems: 'center', gap: 4, cursor: 'pointer', fontSize: 13, color: form.isRecommend === o.val ? '#1E3A5F' : '#64748B', fontWeight: form.isRecommend === o.val ? 600 : 400 }}>
+              <label key={o.label} style={{ display: 'flex', alignItems: 'center', gap: 4, cursor: 'pointer', fontSize: 13, color: form.isRecommend === o.val ? '#1E3A5F' : '#9CA3AF', fontWeight: form.isRecommend === o.val ? 600 : 400 }}>
                 <input type="radio" name="isrecommend" checked={form.isRecommend === o.val} onChange={() => set('isRecommend', o.val)} style={{ accentColor: '#1E3A5F' }} />
                 {o.label}
               </label>
@@ -234,7 +234,7 @@ function Pagination({ page, pageSize, total, onPageChange, onPageSizeChange }) {
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 20px', borderTop: '1px solid #F1F5F9', flexWrap: 'wrap', gap: 10 }}>
       {/* 左侧：总条数 + 每页条数 */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-        <span style={{ fontSize: 13, color: '#64748B' }}>共 <strong style={{ color: '#1E3A5F' }}>{total}</strong> 条记录</span>
+        <span style={{ fontSize: 13, color: '#9CA3AF' }}>共 <strong style={{ color: '#1E3A5F' }}>{total}</strong> 条记录</span>
         <select
           className="form-select"
           style={{ width: 110, fontSize: 13, padding: '4px 8px' }}
@@ -255,14 +255,14 @@ function Pagination({ page, pageSize, total, onPageChange, onPageSizeChange }) {
             style={{
               minWidth: 34, height: 34, borderRadius: 6, border: 'none', cursor: 'pointer', fontSize: 13,
               background: page === n ? '#1E3A5F' : 'transparent',
-              color: page === n ? '#fff' : '#374151',
+              color: page === n ? '#fff' : '#E2E8F0',
               fontWeight: page === n ? 700 : 400,
             }}
           >{n}</button>
         ))}
         <button className="page-btn" onClick={() => onPageChange(Math.min(totalPages, page + 1))} disabled={page >= totalPages} style={{ minWidth: 34, height: 34, fontSize: 13 }}>›</button>
         <button className="page-btn" onClick={() => onPageChange(totalPages)} disabled={page >= totalPages} style={{ minWidth: 34, height: 34, fontSize: 13 }}>»</button>
-        <span style={{ fontSize: 13, color: '#64748B', marginLeft: 4 }}>第 <strong style={{ color: '#1E3A5F' }}>{page}</strong> / <strong style={{ color: '#1E3A5F' }}>{totalPages}</strong> 页</span>
+        <span style={{ fontSize: 13, color: '#9CA3AF', marginLeft: 4 }}>第 <strong style={{ color: '#1E3A5F' }}>{page}</strong> / <strong style={{ color: '#1E3A5F' }}>{totalPages}</strong> 页</span>
         <span style={{ color: '#E2E8F0' }}>|</span>
         <input
           type="number"
@@ -271,7 +271,7 @@ function Pagination({ page, pageSize, total, onPageChange, onPageSizeChange }) {
           onChange={e => setJumpPage(e.target.value)}
           onKeyDown={e => e.key === 'Enter' && handleJump()}
           placeholder="跳至"
-          style={{ width: 56, height: 34, padding: '0 8px', border: '1px solid #E2E8F0', borderRadius: 6, fontSize: 13, color: '#374151', outline: 'none' }}
+          style={{ width: 56, height: 34, padding: '0 8px', border: '1px solid #E2E8F0', borderRadius: 6, fontSize: 13, color: '#E2E8F0', outline: 'none' }}
         />
         <button
           onClick={handleJump}
@@ -357,7 +357,7 @@ export default function ContentManagePage() {
               style={{
                 padding: '14px 20px', border: 'none', background: 'none', cursor: 'pointer', fontSize: 14,
                 fontWeight: activeTab === tab ? 700 : 400,
-                color: activeTab === tab ? '#1E3A5F' : '#94A3B8',
+                color: activeTab === tab ? '#1E3A5F' : '#CBD5E1',
                 borderBottom: activeTab === tab ? '2px solid #1E3A5F' : '2px solid transparent',
                 marginBottom: -2,
                 transition: 'all 0.15s',
@@ -432,13 +432,13 @@ export default function ContentManagePage() {
             { w: 150, label: '创建时间' },
             { w: 70, label: '操作' },
           ].filter(Boolean).map((col, i) => (
-            <div key={i} style={{ width: col.w, flexShrink: 0, fontSize: 12, fontWeight: 700, color: '#64748B', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{col.label}</div>
+            <div key={i} style={{ width: col.w, flexShrink: 0, fontSize: 12, fontWeight: 700, color: '#9CA3AF', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{col.label}</div>
           ))}
         </div>
 
         {/* 列表数据行 */}
         {pageData.length === 0 ? (
-          <div style={{ textAlign: 'center', padding: '60px 0', color: '#94A3B8', fontSize: 14 }}>暂无数据</div>
+          <div style={{ textAlign: 'center', padding: '60px 0', color: '#CBD5E1', fontSize: 14 }}>暂无数据</div>
         ) : (
           pageData.map((item, idx) => (
             <div
@@ -450,14 +450,14 @@ export default function ContentManagePage() {
               }}
             >
               {/* 序号 */}
-              <div style={{ width: 50, flexShrink: 0, fontSize: 13, color: '#94A3B8' }}>{item.id}</div>
+              <div style={{ width: 50, flexShrink: 0, fontSize: 13, color: '#CBD5E1' }}>{item.id}</div>
               {/* 标题 */}
               <div style={{ width: 200, flexShrink: 0, display: 'flex', alignItems: 'center', gap: 8 }}>
                 <img src={item.img} alt="" style={{ width: 36, height: 36, borderRadius: 6, objectFit: 'cover', flexShrink: 0 }} />
                 <span style={{ fontSize: 13, fontWeight: 600, color: '#1E3A5F', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{item.title}</span>
               </div>
               {/* 专家姓名（仅专家专栏） */}
-              {activeTab === '专家专栏' && <div style={{ width: 90, flexShrink: 0, fontSize: 13, color: '#374151' }}>{item.expert || '-'}</div>}
+              {activeTab === '专家专栏' && <div style={{ width: 90, flexShrink: 0, fontSize: 13, color: '#E2E8F0' }}>{item.expert || '-'}</div>}
               {/* 标签 */}
               <div style={{ width: 140, flexShrink: 0, display: 'flex', gap: 4, flexWrap: 'wrap' }}>
                 {item.tags.slice(0, 2).map(tag => (
@@ -465,7 +465,7 @@ export default function ContentManagePage() {
                 ))}
               </div>
               {/* 内容 */}
-              <div style={{ width: 150, flexShrink: 0, fontSize: 12, color: '#94A3B8', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{item.content}</div>
+              <div style={{ width: 150, flexShrink: 0, fontSize: 12, color: '#CBD5E1', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{item.content}</div>
               {/* 是否置顶 */}
               <div style={{ width: 80, flexShrink: 0 }}><BoolBadge value={item.isTop} /></div>
               {/* 是否推荐（仅专家专栏） */}
@@ -473,9 +473,9 @@ export default function ContentManagePage() {
               {/* 状态 */}
               <div style={{ width: 70, flexShrink: 0 }}><StatusBadge s={item.status} /></div>
               {/* 创建人 */}
-              <div style={{ width: 80, flexShrink: 0, fontSize: 13, color: '#374151' }}>{item.author}</div>
+              <div style={{ width: 80, flexShrink: 0, fontSize: 13, color: '#E2E8F0' }}>{item.author}</div>
               {/* 创建时间 */}
-              <div style={{ width: 150, flexShrink: 0, fontSize: 12, color: '#94A3B8' }}>{item.createTime}</div>
+              <div style={{ width: 150, flexShrink: 0, fontSize: 12, color: '#CBD5E1' }}>{item.createTime}</div>
               {/* 操作 */}
               <div style={{ width: 70, flexShrink: 0 }}>
                 <button

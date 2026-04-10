@@ -12,24 +12,24 @@ function Pagination({ page, pageSize, total, onPageChange, onPageSizeChange }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 20px', borderTop: '1px solid #F1F5F9', flexWrap: 'wrap', gap: 10 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-        <span style={{ fontSize: 13, color: '#64748B' }}>共 <strong style={{ color: '#1E3A5F' }}>{total}</strong> 条记录</span>
+        <span style={{ fontSize: 13, color: '#9CA3AF' }}>共 <strong style={{ color: '#1E3A5F' }}>{total}</strong> 条记录</span>
         <select className="form-select" style={{ width: 110, fontSize: 13, padding: '4px 8px' }}
           value={`${pageSize} 条/页`} onChange={e => onPageSizeChange(parseInt(e.target.value))}>
           {[10, 20, 50].map(n => <option key={n}>{n} 条/页</option>)}
         </select>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-        <button style={{ minWidth: 34, height: 34, fontSize: 13, background: 'transparent', border: 'none', borderRadius: 6, cursor: 'pointer', color: page === 1 ? '#CBD5E1' : '#374151' }} onClick={() => onPageChange(1)} disabled={page === 1}>«</button>
-        <button style={{ minWidth: 34, height: 34, fontSize: 13, background: 'transparent', border: 'none', borderRadius: 6, cursor: 'pointer', color: page === 1 ? '#CBD5E1' : '#374151' }} onClick={() => onPageChange(Math.max(1, page - 1))} disabled={page === 1}>‹</button>
+        <button style={{ minWidth: 34, height: 34, fontSize: 13, background: 'transparent', border: 'none', borderRadius: 6, cursor: 'pointer', color: page === 1 ? '#CBD5E1' : '#E2E8F0' }} onClick={() => onPageChange(1)} disabled={page === 1}>«</button>
+        <button style={{ minWidth: 34, height: 34, fontSize: 13, background: 'transparent', border: 'none', borderRadius: 6, cursor: 'pointer', color: page === 1 ? '#CBD5E1' : '#E2E8F0' }} onClick={() => onPageChange(Math.max(1, page - 1))} disabled={page === 1}>‹</button>
         {nums.map(n => (
           <button key={n} onClick={() => onPageChange(n)}
-            style={{ minWidth: 34, height: 34, borderRadius: 6, border: 'none', cursor: 'pointer', fontSize: 13, background: page === n ? '#1E3A5F' : 'transparent', color: page === n ? '#fff' : '#374151', fontWeight: page === n ? 700 : 400 }}>{n}</button>
+            style={{ minWidth: 34, height: 34, borderRadius: 6, border: 'none', cursor: 'pointer', fontSize: 13, background: page === n ? '#1E3A5F' : 'transparent', color: page === n ? '#fff' : '#E2E8F0', fontWeight: page === n ? 700 : 400 }}>{n}</button>
         ))}
-        <button style={{ minWidth: 34, height: 34, fontSize: 13, background: 'transparent', border: 'none', borderRadius: 6, cursor: 'pointer', color: page >= totalPages ? '#CBD5E1' : '#374151' }} onClick={() => onPageChange(Math.min(totalPages, page + 1))} disabled={page >= totalPages}>›</button>
-        <button style={{ minWidth: 34, height: 34, fontSize: 13, background: 'transparent', border: 'none', borderRadius: 6, cursor: 'pointer', color: page >= totalPages ? '#CBD5E1' : '#374151' }} onClick={() => onPageChange(totalPages)} disabled={page >= totalPages}>»</button>
-        <span style={{ fontSize: 13, color: '#64748B', marginLeft: 8 }}>第 <strong style={{ color: '#1E3A5F' }}>{page}</strong> / <strong style={{ color: '#1E3A5F' }}>{totalPages}</strong> 页</span>
+        <button style={{ minWidth: 34, height: 34, fontSize: 13, background: 'transparent', border: 'none', borderRadius: 6, cursor: 'pointer', color: page >= totalPages ? '#CBD5E1' : '#E2E8F0' }} onClick={() => onPageChange(Math.min(totalPages, page + 1))} disabled={page >= totalPages}>›</button>
+        <button style={{ minWidth: 34, height: 34, fontSize: 13, background: 'transparent', border: 'none', borderRadius: 6, cursor: 'pointer', color: page >= totalPages ? '#CBD5E1' : '#E2E8F0' }} onClick={() => onPageChange(totalPages)} disabled={page >= totalPages}>»</button>
+        <span style={{ fontSize: 13, color: '#9CA3AF', marginLeft: 8 }}>第 <strong style={{ color: '#1E3A5F' }}>{page}</strong> / <strong style={{ color: '#1E3A5F' }}>{totalPages}</strong> 页</span>
         <span style={{ color: '#E2E8F0' }}>|</span>
-        <input type="number" min={1} value={jump} onChange={e => setJump(e.target.value)} onKeyDown={e => e.key === 'Enter' && doJump()} placeholder="跳至" style={{ width: 56, height: 34, padding: '0 8px', border: '1px solid #E2E8F0', borderRadius: 6, fontSize: 13, color: '#374151', outline: 'none' }} />
+        <input type="number" min={1} value={jump} onChange={e => setJump(e.target.value)} onKeyDown={e => e.key === 'Enter' && doJump()} placeholder="跳至" style={{ width: 56, height: 34, padding: '0 8px', border: '1px solid #E2E8F0', borderRadius: 6, fontSize: 13, color: '#E2E8F0', outline: 'none' }} />
         <button onClick={doJump} style={{ height: 34, padding: '0 12px', background: '#1E3A5F', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer', fontSize: 13 }}>跳转</button>
       </div>
     </div>
@@ -52,7 +52,7 @@ function DeleteModal({ title, onConfirm, onCancel }) {
     >
       <div style={{ textAlign: 'center', padding: '16px 0' }}>
         <div style={{ fontSize: 40, marginBottom: 12 }}>⚠️</div>
-        <div style={{ fontSize: 14, color: '#374151', lineHeight: 1.8 }}>
+        <div style={{ fontSize: 14, color: '#E2E8F0', lineHeight: 1.8 }}>
           删除 <strong>{title}</strong>，删除后不能恢复，是否继续？
         </div>
       </div>
@@ -79,7 +79,7 @@ function StepBar({ current }) {
 function FieldGroup({ label, required, children }) {
   return (
     <div style={{ marginBottom: 16 }}>
-      <div style={{ fontSize: 13, fontWeight: 700, color: '#374151', marginBottom: 8 }}>
+      <div style={{ fontSize: 13, fontWeight: 700, color: '#E2E8F0', marginBottom: 8 }}>
         {required && <span style={{ color: '#EF4444', marginRight: 3 }}>*</span>}{label}
       </div>
       {children}
@@ -91,7 +91,7 @@ function RadioGroup({ options, value, onChange, inline }) {
   return (
     <div style={{ display: inline ? 'flex' : 'block', gap: inline ? 16 : 0, flexDirection: 'column' }}>
       {options.map(opt => (
-        <label key={opt.value} style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer', fontSize: 13, color: value === opt.value ? '#1E3A5F' : '#64748B', fontWeight: value === opt.value ? 600 : 400, marginBottom: inline ? 0 : 8 }}>
+        <label key={opt.value} style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer', fontSize: 13, color: value === opt.value ? '#1E3A5F' : '#9CA3AF', fontWeight: value === opt.value ? 600 : 400, marginBottom: inline ? 0 : 8 }}>
           <input type="radio" value={opt.value} checked={value === opt.value} onChange={() => onChange(opt.value)} style={{ accentColor: '#1E3A5F' }} />
           {opt.label}
         </label>
@@ -101,8 +101,8 @@ function RadioGroup({ options, value, onChange, inline }) {
 }
 
 function Badge({ s }) {
-  const m = { '进行中': { bg: '#D1FAE5', c: '#065F46' }, '已结束': { bg: '#F1F5F9', c: '#64748B' }, '未开始': { bg: '#FEF3C7', c: '#92400E' } }
-  const st = m[s] || { bg: '#F1F5F9', c: '#64748B' }
+  const m = { '进行中': { bg: '#D1FAE5', c: '#065F46' }, '已结束': { bg: '#F1F5F9', c: '#9CA3AF' }, '未开始': { bg: '#FEF3C7', c: '#92400E' } }
+  const st = m[s] || { bg: '#F1F5F9', c: '#9CA3AF' }
   return <span style={{ background: st.bg, color: st.c, padding: '2px 8px', borderRadius: 4, fontSize: 12, fontWeight: 600 }}>{s}</span>
 }
 
@@ -150,12 +150,12 @@ function CouponForm({ editTarget, onSave, onCancel }) {
     <CenterModal open={true} onClose={onCancel} title={editTarget?.name ? '编辑优惠券' : '创建优惠券'} width={720}
       footer={<><button className="btn btn-ghost" onClick={onCancel} style={{ minWidth: 90, height: 38, fontSize: 14 }}>取消</button><button className="btn-query" onClick={handleSave} disabled={loading} style={{ height: 38, padding: '0 24px', fontSize: 14 }}>{loading ? '保存中...' : '发布'}</button></>}>
       <StepBar />
-      <div style={{ fontSize: 11, color: '#94A3B8', marginBottom: 16 }}>处理描述有点多有点多 不得不换行。</div>
-      <div style={{ fontSize: 13, fontWeight: 700, color: '#374151', marginBottom: 12, paddingBottom: 8, borderBottom: '1px solid #F1F5F9' }}>活动基本信息</div>
+      <div style={{ fontSize: 11, color: '#CBD5E1', marginBottom: 16 }}>处理描述有点多有点多 不得不换行。</div>
+      <div style={{ fontSize: 13, fontWeight: 700, color: '#E2E8F0', marginBottom: 12, paddingBottom: 8, borderBottom: '1px solid #F1F5F9' }}>活动基本信息</div>
 
       <FieldGroup label="活动图片" required>
-        <div style={{ width: 80, height: 80, border: '2px dashed #E2E8F0', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#94A3B8', fontSize: 24 }}>+</div>
-        <div style={{ fontSize: 11, color: '#94A3B8', marginTop: 4 }}>建议尺寸 750×400px</div>
+        <div style={{ width: 80, height: 80, border: '2px dashed #E2E8F0', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#CBD5E1', fontSize: 24 }}>+</div>
+        <div style={{ fontSize: 11, color: '#CBD5E1', marginTop: 4 }}>建议尺寸 750×400px</div>
       </FieldGroup>
 
       <FieldGroup label="活动名称" required>
@@ -167,7 +167,7 @@ function CouponForm({ editTarget, onSave, onCancel }) {
         {form.validType === '设置有效期' && (
           <div style={{ display: 'flex', gap: 8, marginTop: 8, alignItems: 'center' }}>
             <input type="date" className="form-input" value={form.validFrom} onChange={e => set('validFrom', e.target.value)} style={{ width: 160, fontSize: 13 }} />
-            <span style={{ color: '#64748B' }}>~</span>
+            <span style={{ color: '#9CA3AF' }}>~</span>
             <input type="date" className="form-input" value={form.validTo} onChange={e => set('validTo', e.target.value)} style={{ width: 160, fontSize: 13 }} />
           </div>
         )}
@@ -178,7 +178,7 @@ function CouponForm({ editTarget, onSave, onCancel }) {
         {form.thresholdType === '订单满' && (
           <div style={{ display: 'flex', alignItems: 'center', gap: 4, marginTop: 8 }}>
             <input className="form-input" placeholder="请输入" value={form.threshold} onChange={e => set('threshold', e.target.value)} style={{ width: 100, fontSize: 13 }} />
-            <span style={{ fontSize: 13, color: '#64748B' }}>元</span>
+            <span style={{ fontSize: 13, color: '#9CA3AF' }}>元</span>
             <button style={{ height: 34, padding: '0 12px', background: '#10B981', color: '#fff', border: 'none', borderRadius: 6, fontSize: 12, cursor: 'pointer' }}>可用</button>
           </div>
         )}
@@ -187,15 +187,15 @@ function CouponForm({ editTarget, onSave, onCancel }) {
       <FieldGroup label="发放数量" required>
         <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
           <input className="form-input" placeholder="请输入" value={form.stock} onChange={e => set('stock', e.target.value)} style={{ width: 160, fontSize: 13 }} />
-          <span style={{ fontSize: 13, color: '#64748B' }}>张</span>
+          <span style={{ fontSize: 13, color: '#9CA3AF' }}>张</span>
         </div>
       </FieldGroup>
 
       <FieldGroup label="优惠券类型" required>
         <RadioGroup options={[{ value: '折扣券', label: '折扣券' }, { value: '满减券', label: '满减券' }]} value={form.type} onChange={v => set('type', v)} inline />
         <div style={{ marginTop: 8, display: 'flex', alignItems: 'center', gap: 4 }}>
-          {form.type === '折扣券' && <><input className="form-input" placeholder="请输入" value={form.discount} onChange={e => set('discount', e.target.value)} style={{ width: 100, fontSize: 13 }} /><span style={{ fontSize: 13, color: '#64748B' }}>折</span></>}
-          {form.type === '满减券' && <><input className="form-input" placeholder="请输入" value={form.amount} onChange={e => set('amount', e.target.value)} style={{ width: 100, fontSize: 13 }} /><span style={{ fontSize: 13, color: '#64748B' }}>元</span></>}
+          {form.type === '折扣券' && <><input className="form-input" placeholder="请输入" value={form.discount} onChange={e => set('discount', e.target.value)} style={{ width: 100, fontSize: 13 }} /><span style={{ fontSize: 13, color: '#9CA3AF' }}>折</span></>}
+          {form.type === '满减券' && <><input className="form-input" placeholder="请输入" value={form.amount} onChange={e => set('amount', e.target.value)} style={{ width: 100, fontSize: 13 }} /><span style={{ fontSize: 13, color: '#9CA3AF' }}>元</span></>}
         </div>
       </FieldGroup>
 
@@ -203,20 +203,20 @@ function CouponForm({ editTarget, onSave, onCancel }) {
         <textarea className="form-input" placeholder="请输入备注" rows={3} value={form.note} onChange={e => set('note', e.target.value)} style={{ width: '100%', resize: 'vertical' }} />
       </FieldGroup>
 
-      <div style={{ fontSize: 13, fontWeight: 700, color: '#374151', marginBottom: 12, paddingBottom: 8, borderBottom: '1px solid #F1F5F9' }}>活动规则</div>
+      <div style={{ fontSize: 13, fontWeight: 700, color: '#E2E8F0', marginBottom: 12, paddingBottom: 8, borderBottom: '1px solid #F1F5F9' }}>活动规则</div>
 
       <FieldGroup label="每人限领" required>
         <RadioGroup options={[{ value: '不限张数', label: '不限张数' }, { value: '固定', label: '固定' }]} value={form.perLimitType} onChange={v => set('perLimitType', v)} inline />
-        {form.perLimitType === '固定' && <><input className="form-input" placeholder="请输入" value={form.perLimit} onChange={e => set('perLimit', e.target.value)} style={{ width: 80, fontSize: 13, marginTop: 8 }} /><span style={{ fontSize: 13, color: '#64748B', marginTop: 8 }}>张</span></>}
+        {form.perLimitType === '固定' && <><input className="form-input" placeholder="请输入" value={form.perLimit} onChange={e => set('perLimit', e.target.value)} style={{ width: 80, fontSize: 13, marginTop: 8 }} /><span style={{ fontSize: 13, color: '#9CA3AF', marginTop: 8 }}>张</span></>}
       </FieldGroup>
 
       <FieldGroup label="使用时间" required>
         <RadioGroup options={[{ value: '指定时间', label: '指定时间' }, { value: '领取后', label: '领取后' }]} value={form.useTimeType} onChange={v => set('useTimeType', v)} inline />
-        {form.useTimeType === '领取后' && <><input className="form-input" placeholder="请输入" value={form.useTime} onChange={e => set('useTime', e.target.value)} style={{ width: 80, fontSize: 13, marginTop: 8 }} /><span style={{ fontSize: 13, color: '#64748B', marginTop: 8 }}>日内可用</span></>}
+        {form.useTimeType === '领取后' && <><input className="form-input" placeholder="请输入" value={form.useTime} onChange={e => set('useTime', e.target.value)} style={{ width: 80, fontSize: 13, marginTop: 8 }} /><span style={{ fontSize: 13, color: '#9CA3AF', marginTop: 8 }}>日内可用</span></>}
         {form.useTimeType === '指定时间' && (
           <div style={{ display: 'flex', gap: 8, marginTop: 8, alignItems: 'center' }}>
             <input type="date" className="form-input" value={form.useTimeFrom} onChange={e => set('useTimeFrom', e.target.value)} style={{ width: 160, fontSize: 13 }} />
-            <span style={{ color: '#64748B' }}>~</span>
+            <span style={{ color: '#9CA3AF' }}>~</span>
             <input type="date" className="form-input" value={form.useTimeTo} onChange={e => set('useTimeTo', e.target.value)} style={{ width: 160, fontSize: 13 }} />
           </div>
         )}
@@ -226,17 +226,17 @@ function CouponForm({ editTarget, onSave, onCancel }) {
         <RadioGroup options={[{ value: '不可叠加', label: '不可叠加' }, { value: '可叠加其他类型的优惠', label: '可叠加其他类型的优惠' }]} value={form.stackable} onChange={v => set('stackable', v)} inline />
       </FieldGroup>
 
-      <div style={{ fontSize: 13, fontWeight: 700, color: '#374151', marginBottom: 12, paddingBottom: 8, borderBottom: '1px solid #F1F5F9' }}>条件规则</div>
+      <div style={{ fontSize: 13, fontWeight: 700, color: '#E2E8F0', marginBottom: 12, paddingBottom: 8, borderBottom: '1px solid #F1F5F9' }}>条件规则</div>
 
       <FieldGroup label="适用用户" required>
         <RadioGroup options={[{ value: '全部会员', label: '全部会员' }, { value: '部分会员', label: '部分会员' }]} value={form.userType} onChange={v => set('userType', v)} inline />
       </FieldGroup>
 
       <FieldGroup label="运算池">
-        <div style={{ fontSize: 12, color: '#64748B', marginBottom: 8 }}>用户标签满足以下规则的人</div>
+        <div style={{ fontSize: 12, color: '#9CA3AF', marginBottom: 8 }}>用户标签满足以下规则的人</div>
         {form.rules.map((rule, i) => (
           <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8, alignItems: 'center' }}>
-            {i > 0 && <span style={{ fontSize: 12, color: '#64748B', width: 20, textAlign: 'center' }}>且</span>}
+            {i > 0 && <span style={{ fontSize: 12, color: '#9CA3AF', width: 20, textAlign: 'center' }}>且</span>}
             <select className="form-select" style={{ width: 100, fontSize: 12 }} value={rule.level} onChange={e => updateRule(i, 'level', e.target.value)}>
               {LEVELS.map(l => <option key={l}>{l}</option>)}
             </select>
@@ -250,7 +250,7 @@ function CouponForm({ editTarget, onSave, onCancel }) {
             {form.rules.length > 1 && <button onClick={() => removeRule(i)} style={{ background: 'none', border: 'none', color: '#EF4444', cursor: 'pointer', fontSize: 16 }}>×</button>}
           </div>
         ))}
-        <button onClick={addRule} style={{ display: 'flex', alignItems: 'center', gap: 4, padding: '6px 12px', border: '1.5px dashed #CBD5E1', borderRadius: 6, background: 'transparent', color: '#64748B', fontSize: 12, cursor: 'pointer' }}>+ 添加</button>
+        <button onClick={addRule} style={{ display: 'flex', alignItems: 'center', gap: 4, padding: '6px 12px', border: '1.5px dashed #CBD5E1', borderRadius: 6, background: 'transparent', color: '#9CA3AF', fontSize: 12, cursor: 'pointer' }}>+ 添加</button>
       </FieldGroup>
     </CenterModal>
   )
@@ -298,12 +298,12 @@ function GiftForm({ editTarget, onSave, onCancel }) {
     <CenterModal open={true} onClose={onCancel} title={editTarget?.name ? '编辑注册有礼' : '创建注册有礼'} width={720}
       footer={<><button className="btn btn-ghost" onClick={onCancel} style={{ minWidth: 90, height: 38, fontSize: 14 }}>取消</button><button className="btn-query" onClick={handleSave} disabled={loading} style={{ height: 38, padding: '0 24px', fontSize: 14 }}>{loading ? '保存中...' : '发布'}</button></>}>
       <StepBar />
-      <div style={{ fontSize: 11, color: '#94A3B8', marginBottom: 16 }}>处理描述有点多有点多 不得不换行。</div>
-      <div style={{ fontSize: 13, fontWeight: 700, color: '#374151', marginBottom: 12, paddingBottom: 8, borderBottom: '1px solid #F1F5F9' }}>活动基本信息</div>
+      <div style={{ fontSize: 11, color: '#CBD5E1', marginBottom: 16 }}>处理描述有点多有点多 不得不换行。</div>
+      <div style={{ fontSize: 13, fontWeight: 700, color: '#E2E8F0', marginBottom: 12, paddingBottom: 8, borderBottom: '1px solid #F1F5F9' }}>活动基本信息</div>
 
       <FieldGroup label="活动图片" required>
-        <div style={{ width: 80, height: 80, border: '2px dashed #E2E8F0', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#94A3B8', fontSize: 24 }}>+</div>
-        <div style={{ fontSize: 11, color: '#94A3B8', marginTop: 4 }}>建议尺寸 750×400px</div>
+        <div style={{ width: 80, height: 80, border: '2px dashed #E2E8F0', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#CBD5E1', fontSize: 24 }}>+</div>
+        <div style={{ fontSize: 11, color: '#CBD5E1', marginTop: 4 }}>建议尺寸 750×400px</div>
       </FieldGroup>
 
       <FieldGroup label="活动名称" required>
@@ -315,7 +315,7 @@ function GiftForm({ editTarget, onSave, onCancel }) {
         {form.validType === '设置有效期' && (
           <div style={{ display: 'flex', gap: 8, marginTop: 8, alignItems: 'center' }}>
             <input type="date" className="form-input" value={form.validFrom} onChange={e => set('validFrom', e.target.value)} style={{ width: 160, fontSize: 13 }} />
-            <span style={{ color: '#64748B' }}>~</span>
+            <span style={{ color: '#9CA3AF' }}>~</span>
             <input type="date" className="form-input" value={form.validTo} onChange={e => set('validTo', e.target.value)} style={{ width: 160, fontSize: 13 }} />
           </div>
         )}
@@ -324,16 +324,16 @@ function GiftForm({ editTarget, onSave, onCancel }) {
       <FieldGroup label="奖励内容" required>
         <RadioGroup options={[{ value: '满减券', label: '满减券' }, { value: '折扣券', label: '折扣券' }, { value: '积分', label: '积分' }]} value={form.rewardType} onChange={v => set('rewardType', v)} inline />
         <div style={{ marginTop: 8, display: 'flex', alignItems: 'center', gap: 4 }}>
-          {form.rewardType === '积分' && <><input className="form-input" placeholder="请输入" value={form.amount} onChange={e => set('amount', e.target.value)} style={{ width: 100, fontSize: 13 }} /><span style={{ fontSize: 13, color: '#64748B' }}>积分</span></>}
-          {form.rewardType === '满减券' && <><input className="form-input" placeholder="请输入" value={form.amount} onChange={e => set('amount', e.target.value)} style={{ width: 100, fontSize: 13 }} /><span style={{ fontSize: 13, color: '#64748B' }}>元</span></>}
-          {form.rewardType === '折扣券' && <><input className="form-input" placeholder="请输入" value={form.discount} onChange={e => set('discount', e.target.value)} style={{ width: 100, fontSize: 13 }} /><span style={{ fontSize: 13, color: '#64748B' }}>折</span></>}
+          {form.rewardType === '积分' && <><input className="form-input" placeholder="请输入" value={form.amount} onChange={e => set('amount', e.target.value)} style={{ width: 100, fontSize: 13 }} /><span style={{ fontSize: 13, color: '#9CA3AF' }}>积分</span></>}
+          {form.rewardType === '满减券' && <><input className="form-input" placeholder="请输入" value={form.amount} onChange={e => set('amount', e.target.value)} style={{ width: 100, fontSize: 13 }} /><span style={{ fontSize: 13, color: '#9CA3AF' }}>元</span></>}
+          {form.rewardType === '折扣券' && <><input className="form-input" placeholder="请输入" value={form.discount} onChange={e => set('discount', e.target.value)} style={{ width: 100, fontSize: 13 }} /><span style={{ fontSize: 13, color: '#9CA3AF' }}>折</span></>}
         </div>
       </FieldGroup>
 
       <FieldGroup label="发放数量" required>
         <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
           <input className="form-input" placeholder="请输入" value={form.stock} onChange={e => set('stock', e.target.value)} style={{ width: 160, fontSize: 13 }} />
-          <span style={{ fontSize: 13, color: '#64748B' }}>张</span>
+          <span style={{ fontSize: 13, color: '#9CA3AF' }}>张</span>
         </div>
       </FieldGroup>
 
@@ -341,21 +341,21 @@ function GiftForm({ editTarget, onSave, onCancel }) {
         <textarea className="form-input" placeholder="请输入备注" rows={3} value={form.note} onChange={e => set('note', e.target.value)} style={{ width: '100%', resize: 'vertical' }} />
       </FieldGroup>
 
-      <div style={{ fontSize: 13, fontWeight: 700, color: '#374151', marginBottom: 12, paddingBottom: 8, borderBottom: '1px solid #F1F5F9' }}>活动规则</div>
+      <div style={{ fontSize: 13, fontWeight: 700, color: '#E2E8F0', marginBottom: 12, paddingBottom: 8, borderBottom: '1px solid #F1F5F9' }}>活动规则</div>
 
       <FieldGroup label="每人限领" required>
         <RadioGroup options={[{ value: '不限张数', label: '不限张数' }, { value: '固定', label: '固定' }]} value={form.perLimitType} onChange={v => set('perLimitType', v)} inline />
-        {form.perLimitType === '固定' && <><input className="form-input" placeholder="请输入" value={form.perLimit} onChange={e => set('perLimit', e.target.value)} style={{ width: 80, fontSize: 13, marginTop: 8 }} /><span style={{ fontSize: 13, color: '#64748B', marginTop: 8 }}>张</span></>}
+        {form.perLimitType === '固定' && <><input className="form-input" placeholder="请输入" value={form.perLimit} onChange={e => set('perLimit', e.target.value)} style={{ width: 80, fontSize: 13, marginTop: 8 }} /><span style={{ fontSize: 13, color: '#9CA3AF', marginTop: 8 }}>张</span></>}
       </FieldGroup>
 
       <FieldGroup label="使用时间" required>
         <RadioGroup options={[{ value: '指定时间', label: '指定时间' }, { value: '领取后', label: '领取后' }]} value={form.useTimeType} onChange={v => set('useTimeType', v)} inline />
-        {form.useTimeType === '领取后' && <><input className="form-input" placeholder="请输入" value={form.useTime} onChange={e => set('useTime', e.target.value)} style={{ width: 80, fontSize: 13, marginTop: 8 }} /><span style={{ fontSize: 13, color: '#64748B', marginTop: 8 }}>日内可用</span></>}
+        {form.useTimeType === '领取后' && <><input className="form-input" placeholder="请输入" value={form.useTime} onChange={e => set('useTime', e.target.value)} style={{ width: 80, fontSize: 13, marginTop: 8 }} /><span style={{ fontSize: 13, color: '#9CA3AF', marginTop: 8 }}>日内可用</span></>}
         {form.useTimeType === '指定时间' && (
           <div style={{ display: 'flex', gap: 8, marginTop:
 8, alignItems: 'center' }}>
             <input type="date" className="form-input" value={form.useTimeFrom} onChange={e => set('useTimeFrom', e.target.value)} style={{ width: 160, fontSize: 13 }} />
-            <span style={{ color: '#64748B' }}>~</span>
+            <span style={{ color: '#9CA3AF' }}>~</span>
             <input type="date" className="form-input" value={form.useTimeTo} onChange={e => set('useTimeTo', e.target.value)} style={{ width: 160, fontSize: 13 }} />
           </div>
         )}
@@ -365,17 +365,17 @@ function GiftForm({ editTarget, onSave, onCancel }) {
         <RadioGroup options={[{ value: '不可叠加', label: '不可叠加' }, { value: '可叠加其他类型的优惠', label: '可叠加其他类型的优惠' }]} value={form.stackable} onChange={v => set('stackable', v)} inline />
       </FieldGroup>
 
-      <div style={{ fontSize: 13, fontWeight: 700, color: '#374151', marginBottom: 12, paddingBottom: 8, borderBottom: '1px solid #F1F5F9' }}>条件规则</div>
+      <div style={{ fontSize: 13, fontWeight: 700, color: '#E2E8F0', marginBottom: 12, paddingBottom: 8, borderBottom: '1px solid #F1F5F9' }}>条件规则</div>
 
       <FieldGroup label="适用用户" required>
         <RadioGroup options={[{ value: '全部会员', label: '全部会员' }, { value: '部分会员', label: '部分会员' }]} value={form.userType} onChange={v => set('userType', v)} inline />
       </FieldGroup>
 
       <FieldGroup label="运算池">
-        <div style={{ fontSize: 12, color: '#64748B', marginBottom: 8 }}>用户标签满足以下规则的人</div>
+        <div style={{ fontSize: 12, color: '#9CA3AF', marginBottom: 8 }}>用户标签满足以下规则的人</div>
         {form.rules.map((rule, i) => (
           <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8, alignItems: 'center' }}>
-            {i > 0 && <span style={{ fontSize: 12, color: '#64748B', width: 20, textAlign: 'center' }}>且</span>}
+            {i > 0 && <span style={{ fontSize: 12, color: '#9CA3AF', width: 20, textAlign: 'center' }}>且</span>}
             <select className="form-select" style={{ width: 100, fontSize: 12 }} value={rule.level} onChange={e => updateRule(i, 'level', e.target.value)}>
               {LEVELS.map(l => <option key={l}>{l}</option>)}
             </select>
@@ -389,7 +389,7 @@ function GiftForm({ editTarget, onSave, onCancel }) {
             {form.rules.length > 1 && <button onClick={() => removeRule(i)} style={{ background: 'none', border: 'none', color: '#EF4444', cursor: 'pointer', fontSize: 16 }}>x</button>}
           </div>
         ))}
-        <button onClick={addRule} style={{ display: 'flex', alignItems: 'center', gap: 4, padding: '6px 12px', border: '1.5px dashed #CBD5E1', borderRadius: 6, background: 'transparent', color: '#64748B', fontSize: 12, cursor: 'pointer' }}>+ 添加</button>
+        <button onClick={addRule} style={{ display: 'flex', alignItems: 'center', gap: 4, padding: '6px 12px', border: '1.5px dashed #CBD5E1', borderRadius: 6, background: 'transparent', color: '#9CA3AF', fontSize: 12, cursor: 'pointer' }}>+ 添加</button>
       </FieldGroup>
     </CenterModal>
   )
@@ -457,7 +457,7 @@ export default function MarketingActivityPage() {
       <div style={{ display: 'flex', gap: 0, padding: '0 24px', background: '#fff', borderBottom: '2px solid #F1F5F9' }}>
         {[['coupon', '优惠券'], ['gift', '注册有礼']].map(([t, label]) => (
           <button key={t} onClick={() => setTab(t)}
-            style={{ padding: '12px 24px', background: 'none', border: 'none', borderBottom: tab === t ? '2px solid #3B82F6' : '2px solid transparent', cursor: 'pointer', fontSize: 14, fontWeight: tab === t ? 700 : 400, color: tab === t ? '#3B82F6' : '#64748B', marginBottom: -2, whiteSpace: 'nowrap' }}>
+            style={{ padding: '12px 24px', background: 'none', border: 'none', borderBottom: tab === t ? '2px solid #3B82F6' : '2px solid transparent', cursor: 'pointer', fontSize: 14, fontWeight: tab === t ? 700 : 400, color: tab === t ? '#3B82F6' : '#9CA3AF', marginBottom: -2, whiteSpace: 'nowrap' }}>
             {label}
           </button>
         ))}
@@ -481,26 +481,26 @@ export default function MarketingActivityPage() {
           </div>
           <div style={{ display: 'flex', gap: 8, padding: '10px 20px', borderBottom: '1px solid #F1F5F9' }}>
             <button className="btn-query" style={{ height: 34, padding: '0 16px', fontSize: 13, background: '#3B82F6' }} onClick={() => { setEditTarget(null); setShowForm(true) }}>+ 新增</button>
-            <button className="btn-query" style={{ height: 34, padding: '0 16px', fontSize: 13, background: '#6B7280' }}
+            <button className="btn-query" style={{ height: 34, padding: '0 16px', fontSize: 13, background: '#9CA3AF' }}
               onClick={() => { if (cData.length === 0) return; const ids = cData.map(c => c.id); setCoupons(prev => prev.filter(c => !ids.includes(c.id))) }}>批量删除</button>
           </div>
           <div style={{ display: 'flex', padding: '10px 20px', background: '#F8FAFC', borderBottom: '1px solid #E2E8F0', gap: 8, alignItems: 'center' }}>
-            <div style={{ width: 50, fontSize: 12, fontWeight: 700, color: '#64748B', flexShrink: 0 }}>序号</div>
-            <div style={{ width: 160, fontSize: 12, fontWeight: 700, color: '#64748B', flexShrink: 0 }}>优惠券名称</div>
-            <div style={{ width: 80, fontSize: 12, fontWeight: 700, color: '#64748B', flexShrink: 0 }}>类型</div>
-            <div style={{ width: 150, fontSize: 12, fontWeight: 700, color: '#64748B', flexShrink: 0 }}>有效期</div>
-            <div style={{ width: 120, fontSize: 12, fontWeight: 700, color: '#64748B', flexShrink: 0 }}>发放数量</div>
-            <div style={{ width: 80, fontSize: 12, fontWeight: 700, color: '#64748B', flexShrink: 0 }}>剩余数量</div>
-            <div style={{ width: 80, fontSize: 12, fontWeight: 700, color: '#64748B', flexShrink: 0 }}>状态</div>
-            <div style={{ flex: 1, fontSize: 12, fontWeight: 700, color: '#64748B', flexShrink: 0 }}>操作</div>
+            <div style={{ width: 50, fontSize: 12, fontWeight: 700, color: '#9CA3AF', flexShrink: 0 }}>序号</div>
+            <div style={{ width: 160, fontSize: 12, fontWeight: 700, color: '#9CA3AF', flexShrink: 0 }}>优惠券名称</div>
+            <div style={{ width: 80, fontSize: 12, fontWeight: 700, color: '#9CA3AF', flexShrink: 0 }}>类型</div>
+            <div style={{ width: 150, fontSize: 12, fontWeight: 700, color: '#9CA3AF', flexShrink: 0 }}>有效期</div>
+            <div style={{ width: 120, fontSize: 12, fontWeight: 700, color: '#9CA3AF', flexShrink: 0 }}>发放数量</div>
+            <div style={{ width: 80, fontSize: 12, fontWeight: 700, color: '#9CA3AF', flexShrink: 0 }}>剩余数量</div>
+            <div style={{ width: 80, fontSize: 12, fontWeight: 700, color: '#9CA3AF', flexShrink: 0 }}>状态</div>
+            <div style={{ flex: 1, fontSize: 12, fontWeight: 700, color: '#9CA3AF', flexShrink: 0 }}>操作</div>
           </div>
           {cData.map((c, idx) => (
             <div key={c.id} style={{ display: 'flex', padding: '12px 20px', borderBottom: '1px solid #F1F5F9', gap: 8, alignItems: 'center', background: idx % 2 === 0 ? '#fff' : '#FAFBFC' }}>
-              <div style={{ width: 50, fontSize: 13, color: '#94A3B8', flexShrink: 0 }}>{c.id}</div>
+              <div style={{ width: 50, fontSize: 13, color: '#CBD5E1', flexShrink: 0 }}>{c.id}</div>
               <div style={{ width: 160, fontSize: 13, fontWeight: 600, color: '#1E3A5F', flexShrink: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={c.name}>{c.name}</div>
-              <div style={{ width: 80, fontSize: 13, color: '#374151', flexShrink: 0 }}>{c.type}</div>
-              <div style={{ width: 150, fontSize: 12, color: '#94A3B8', flexShrink: 0 }}>{c.validFrom} ~ {c.validTo}</div>
-              <div style={{ width: 120, fontSize: 13, fontFamily: 'monospace', color: '#374151', flexShrink: 0 }}>{c.stock}</div>
+              <div style={{ width: 80, fontSize: 13, color: '#E2E8F0', flexShrink: 0 }}>{c.type}</div>
+              <div style={{ width: 150, fontSize: 12, color: '#CBD5E1', flexShrink: 0 }}>{c.validFrom} ~ {c.validTo}</div>
+              <div style={{ width: 120, fontSize: 13, fontFamily: 'monospace', color: '#E2E8F0', flexShrink: 0 }}>{c.stock}</div>
               <div style={{ width: 80, fontSize: 13, fontFamily: 'monospace', color: '#059669', flexShrink: 0 }}>{c.stock - c.used}</div>
               <div style={{ width: 80, flexShrink: 0 }}><Badge s={c.status} /></div>
               <div style={{ flex: 1, display: 'flex', gap: 4, flexShrink: 0 }}>
@@ -529,27 +529,27 @@ export default function MarketingActivityPage() {
           </div>
           <div style={{ display: 'flex', gap: 8, padding: '10px 20px', borderBottom: '1px solid #F1F5F9' }}>
             <button className="btn-query" style={{ height: 34, padding: '0 16px', fontSize: 13, background: '#3B82F6' }} onClick={() => { setEditTarget(null); setShowForm(true) }}>+ 新增</button>
-            <button className="btn-query" style={{ height: 34, padding: '0 16px', fontSize: 13, background: '#6B7280' }}
+            <button className="btn-query" style={{ height: 34, padding: '0 16px', fontSize: 13, background: '#9CA3AF' }}
               onClick={() => { if (gData.length === 0) return; const ids = gData.map(g => g.id); setGifts(prev => prev.filter(g => !ids.includes(g.id))) }}>批量删除</button>
           </div>
           <div style={{ display: 'flex', padding: '10px 20px', background: '#F8FAFC', borderBottom: '1px solid #E2E8F0', gap: 8, alignItems: 'center' }}>
-            <div style={{ width: 50, fontSize: 12, fontWeight: 700, color: '#64748B', flexShrink: 0 }}>序号</div>
-            <div style={{ width: 180, fontSize: 12, fontWeight: 700, color: '#64748B', flexShrink: 0 }}>活动名称</div>
-            <div style={{ width: 120, fontSize: 12, fontWeight: 700, color: '#64748B', flexShrink: 0 }}>奖励内容</div>
-            <div style={{ width: 80, fontSize: 12, fontWeight: 700, color: '#64748B', flexShrink: 0 }}>发放数量</div>
-            <div style={{ width: 150, fontSize: 12, fontWeight: 700, color: '#64748B', flexShrink: 0 }}>有效期</div>
-            <div style={{ width: 100, fontSize: 12, fontWeight: 700, color: '#64748B', flexShrink: 0 }}>适用用户</div>
-            <div style={{ width: 80, fontSize: 12, fontWeight: 700, color: '#64748B', flexShrink: 0 }}>状态</div>
-            <div style={{ flex: 1, fontSize: 12, fontWeight: 700, color: '#64748B', flexShrink: 0 }}>操作</div>
+            <div style={{ width: 50, fontSize: 12, fontWeight: 700, color: '#9CA3AF', flexShrink: 0 }}>序号</div>
+            <div style={{ width: 180, fontSize: 12, fontWeight: 700, color: '#9CA3AF', flexShrink: 0 }}>活动名称</div>
+            <div style={{ width: 120, fontSize: 12, fontWeight: 700, color: '#9CA3AF', flexShrink: 0 }}>奖励内容</div>
+            <div style={{ width: 80, fontSize: 12, fontWeight: 700, color: '#9CA3AF', flexShrink: 0 }}>发放数量</div>
+            <div style={{ width: 150, fontSize: 12, fontWeight: 700, color: '#9CA3AF', flexShrink: 0 }}>有效期</div>
+            <div style={{ width: 100, fontSize: 12, fontWeight: 700, color: '#9CA3AF', flexShrink: 0 }}>适用用户</div>
+            <div style={{ width: 80, fontSize: 12, fontWeight: 700, color: '#9CA3AF', flexShrink: 0 }}>状态</div>
+            <div style={{ flex: 1, fontSize: 12, fontWeight: 700, color: '#9CA3AF', flexShrink: 0 }}>操作</div>
           </div>
           {gData.map((g, idx) => (
             <div key={g.id} style={{ display: 'flex', padding: '12px 20px', borderBottom: '1px solid #F1F5F9', gap: 8, alignItems: 'center', background: idx % 2 === 0 ? '#fff' : '#FAFBFC' }}>
-              <div style={{ width: 50, fontSize: 13, color: '#94A3B8', flexShrink: 0 }}>{g.id}</div>
+              <div style={{ width: 50, fontSize: 13, color: '#CBD5E1', flexShrink: 0 }}>{g.id}</div>
               <div style={{ width: 180, fontSize: 13, fontWeight: 600, color: '#1E3A5F', flexShrink: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={g.name}>{g.name}</div>
-              <div style={{ width: 120, fontSize: 13, color: '#374151', flexShrink: 0 }}>{g.reward}</div>
-              <div style={{ width: 80, fontSize: 13, fontFamily: 'monospace', color: '#374151', flexShrink: 0 }}>{g.stock}</div>
-              <div style={{ width: 150, fontSize: 12, color: '#94A3B8', flexShrink: 0 }}>{g.validFrom} ~ {g.validTo}</div>
-              <div style={{ width: 100, fontSize: 13, color: '#374151', flexShrink: 0 }}>{g.users}</div>
+              <div style={{ width: 120, fontSize: 13, color: '#E2E8F0', flexShrink: 0 }}>{g.reward}</div>
+              <div style={{ width: 80, fontSize: 13, fontFamily: 'monospace', color: '#E2E8F0', flexShrink: 0 }}>{g.stock}</div>
+              <div style={{ width: 150, fontSize: 12, color: '#CBD5E1', flexShrink: 0 }}>{g.validFrom} ~ {g.validTo}</div>
+              <div style={{ width: 100, fontSize: 13, color: '#E2E8F0', flexShrink: 0 }}>{g.users}</div>
               <div style={{ width: 80, flexShrink: 0 }}><Badge s={g.status} /></div>
               <div style={{ flex: 1, display: 'flex', gap: 4, flexShrink: 0 }}>
                 <button className="btn-action" style={{ borderColor: '#1E3A5F', color: '#1E3A5F', width: 48, height: 28, fontSize: 12, padding: '0 4px' }}

@@ -70,8 +70,8 @@ export default function ActivityManagePage() {
                 <tr key={a.id}>
                   <td style={{ fontWeight: 600 }}>{a.name}</td>
                   <td><span className="badge badge-primary">{a.type}</span></td>
-                  <td style={{ fontSize: 12, color: '#64748B' }}>{a.startDate} ~ {a.endDate}</td>
-                  <td style={{ fontSize: 13, color: '#374151' }}>
+                  <td style={{ fontSize: 12, color: '#9CA3AF' }}>{a.startDate} ~ {a.endDate}</td>
+                  <td style={{ fontSize: 13, color: '#E2E8F0' }}>
                     {a.type === '积分加倍' ? `双倍积分` : `满${a.threshold}元减${a.discount}元`}
                   </td>
                   <td style={{ fontFamily: 'JetBrains Mono' }}>{a.participants.toLocaleString()}</td>
@@ -90,7 +90,7 @@ export default function ActivityManagePage() {
           <div className="pagination-controls">
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(1)}>«</button>
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(p => p - 1)}>‹</button>
-            <span style={{ fontSize: 13, color: '#64748B', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
+            <span style={{ fontSize: 13, color: '#9CA3AF', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(p => p + 1)}>›</button>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(totalPages)}>»</button>
           </div>

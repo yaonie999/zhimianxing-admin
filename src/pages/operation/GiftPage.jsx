@@ -62,10 +62,10 @@ export default function GiftPage() {
                   <td style={{ fontFamily: 'JetBrains Mono', color: '#E67E22', fontWeight: 700 }}>
                     {g.type === '积分' ? `${g.value}积分` : `¥${g.value}`}
                   </td>
-                  <td style={{ fontFamily: 'JetBrains Mono', color: '#64748B' }}>{g.threshold === 0 ? '无门槛' : `满${g.threshold}元`}</td>
+                  <td style={{ fontFamily: 'JetBrains Mono', color: '#9CA3AF' }}>{g.threshold === 0 ? '无门槛' : `满${g.threshold}元`}</td>
                   <td style={{ fontFamily: 'JetBrains Mono', color: '#059669' }}>{g.claimed.toLocaleString()}</td>
                   <td style={{ fontFamily: 'JetBrains Mono' }}>{g.total.toLocaleString()}</td>
-                  <td style={{ fontSize: 12, color: '#64748B' }}>{g.time}</td>
+                  <td style={{ fontSize: 12, color: '#9CA3AF' }}>{g.time}</td>
                   <td><span className="badge badge-success">{g.status}</span></td>
                   <td>
                     <button className="btn btn-secondary btn-sm" style={{ marginRight: 4 }}>编辑</button>
@@ -81,7 +81,7 @@ export default function GiftPage() {
           <div className="pagination-controls">
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(1)}>«</button>
             <button className="page-btn" disabled={page === 1} onClick={() => setPage(p => p - 1)}>‹</button>
-            <span style={{ fontSize: 13, color: '#64748B', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
+            <span style={{ fontSize: 13, color: '#9CA3AF', padding: '0 8px' }}>第 {page} / {totalPages} 页</span>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(p => p + 1)}>›</button>
             <button className="page-btn" disabled={page >= totalPages} onClick={() => setPage(totalPages)}>»</button>
           </div>

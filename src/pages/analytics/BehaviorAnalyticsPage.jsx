@@ -22,7 +22,7 @@ const BEHAVIOR_TABLE = [
   { id: 5, action: '浏览商品', users: 1893, pct: 45, avgTime: '5分10秒', color: '#8B5CF6' },
   { id: 6, action: '提交订单', users: 876, pct: 21, avgTime: '2分05秒', color: '#A78BFA' },
   { id: 7, action: '参与社区互动', users: 654, pct: 15, avgTime: '8分30秒', color: '#C4B5FD' },
-  { id: 8, action: '分享睡眠报告', users: 234, pct: 6, avgTime: '1分20秒', color: '#94A3B8' },
+  { id: 8, action: '分享睡眠报告', users: 234, pct: 6, avgTime: '1分20秒', color: '#CBD5E1' },
 ]
 
 // 趋势数据
@@ -36,7 +36,7 @@ const TREND_DATA = [
   { date: '04-10', eventA: 4920, eventB: 2210 },
 ]
 
-const COLORS = ['#1E3A5F', '#3B82F6', '#6366F1', '#8B5CF6', '#A78BFA', '#C4B5FD', '#DDD6FE', '#94A3B8']
+const COLORS = ['#1E3A5F', '#3B82F6', '#6366F1', '#8B5CF6', '#A78BFA', '#C4B5FD', '#DDD6FE', '#CBD5E1']
 
 // 统计汇总
 const SUMMARY = [
@@ -94,7 +94,7 @@ export default function BehaviorAnalyticsPage() {
         {/* 事件选择模块 */}
         <div style={{ padding: '16px 20px', borderBottom: '1px solid #F1F5F9' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
-            <span style={{ fontSize: 13, fontWeight: 700, color: '#374151', flexShrink: 0 }}>事件选择</span>
+            <span style={{ fontSize: 13, fontWeight: 700, color: '#E2E8F0', flexShrink: 0 }}>事件选择</span>
             <div style={{ height: 1, flex: 1, background: '#E2E8F0' }} />
           </div>
 
@@ -102,7 +102,7 @@ export default function BehaviorAnalyticsPage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 12 }}>
             {events.map((ev, idx) => (
               <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
-                <span style={{ fontSize: 12, color: '#94A3B8', width: 16, textAlign: 'center', flexShrink: 0 }}>
+                <span style={{ fontSize: 12, color: '#CBD5E1', width: 16, textAlign: 'center', flexShrink: 0 }}>
                   {String.fromCharCode(65 + idx)}
                 </span>
                 <select
@@ -144,7 +144,7 @@ export default function BehaviorAnalyticsPage() {
         {/* 全局筛选模块 */}
         <div style={{ padding: '16px 20px', borderBottom: '1px solid #F1F5F9' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
-            <span style={{ fontSize: 13, fontWeight: 700, color: '#374151', flexShrink: 0 }}>全局筛选</span>
+            <span style={{ fontSize: 13, fontWeight: 700, color: '#E2E8F0', flexShrink: 0 }}>全局筛选</span>
             <div style={{ height: 1, flex: 1, background: '#E2E8F0' }} />
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
@@ -166,7 +166,7 @@ export default function BehaviorAnalyticsPage() {
             </select>
             <button
               className="btn btn-ghost btn-sm"
-              style={{ fontSize: 12, color: '#64748B', border: '1px solid #E2E8F0', padding: '5px 12px', borderRadius: 6 }}
+              style={{ fontSize: 12, color: '#9CA3AF', border: '1px solid #E2E8F0', padding: '5px 12px', borderRadius: 6 }}
             >
               ＋ 添加条件
             </button>
@@ -178,7 +178,7 @@ export default function BehaviorAnalyticsPage() {
 
           {/* 时间粒度 */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <span style={{ fontSize: 13, color: '#64748B', flexShrink: 0 }}>时间粒度</span>
+            <span style={{ fontSize: 13, color: '#9CA3AF', flexShrink: 0 }}>时间粒度</span>
             <select
               className="form-select"
               style={{ width: 100, fontSize: 13 }}
@@ -213,10 +213,10 @@ export default function BehaviorAnalyticsPage() {
           {/* 统计汇总 */}
           <div style={{ display: 'flex', gap: 16, flex: 1, flexWrap: 'wrap' }}>
             {SUMMARY.map(s => (
-              <div key={s.label} style={{ fontSize: 12, color: '#64748B' }}>
+              <div key={s.label} style={{ fontSize: 12, color: '#9CA3AF' }}>
                 <span style={{ color: '#1E3A5F', fontWeight: 600 }}>{s.label}：</span>
                 <span>{s.total}</span>
-                <span style={{ marginLeft: 8, color: '#94A3B8' }}>({s.users})</span>
+                <span style={{ marginLeft: 8, color: '#CBD5E1' }}>({s.users})</span>
               </div>
             ))}
           </div>
@@ -234,7 +234,7 @@ export default function BehaviorAnalyticsPage() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '14px 20px', borderBottom: '1px solid #F1F5F9' }}>
           <div>
             <div style={{ fontSize: 14, fontWeight: 700, color: '#1E3A5F' }}>📈 事件趋势分析</div>
-            <div style={{ fontSize: 12, color: '#94A3B8', marginTop: 2 }}>
+            <div style={{ fontSize: 12, color: '#CBD5E1', marginTop: 2 }}>
               {events.map(e => e.event).join(' / ')} · {startDate} 至 {endDate}
             </div>
           </div>
@@ -246,7 +246,7 @@ export default function BehaviorAnalyticsPage() {
                 style={{
                   padding: '5px 12px', borderRadius: 6, border: 'none', cursor: 'pointer', fontSize: 12,
                   background: viewType === v ? '#1E3A5F' : '#F1F5F9',
-                  color: viewType === v ? '#fff' : '#64748B',
+                  color: viewType === v ? '#fff' : '#9CA3AF',
                   fontWeight: viewType === v ? 600 : 400,
                 }}
               >{v}</button>
@@ -254,7 +254,7 @@ export default function BehaviorAnalyticsPage() {
             <button
               style={{
                 padding: '5px 12px', borderRadius: 6, border: 'none', cursor: 'pointer', fontSize: 12,
-                background: '#F1F5F9', color: '#64748B',
+                background: '#F1F5F9', color: '#9CA3AF',
               }}
             >📥 下载</button>
           </div>
@@ -266,7 +266,7 @@ export default function BehaviorAnalyticsPage() {
             {events.map((ev, idx) => (
               <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                 <div style={{ width: 10, height: 3, borderRadius: 2, background: COLORS[idx * 2] }} />
-                <span style={{ fontSize: 12, color: '#64748B' }}>{ev.event}（{ev.dim}）</span>
+                <span style={{ fontSize: 12, color: '#9CA3AF' }}>{ev.event}（{ev.dim}）</span>
               </div>
             ))}
           </div>
@@ -278,8 +278,8 @@ export default function BehaviorAnalyticsPage() {
             {viewType === '折线图' ? (
               <LineChart data={TREND_DATA} margin={{ top: 5, right: 20, left: 0, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#F1F5F9" />
-                <XAxis dataKey="date" tick={{ fontSize: 12, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fontSize: 12, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
+                <XAxis dataKey="date" tick={{ fontSize: 12, fill: '#CBD5E1' }} axisLine={false} tickLine={false} />
+                <YAxis tick={{ fontSize: 12, fill: '#CBD5E1' }} axisLine={false} tickLine={false} />
                 <Tooltip content={<TooltipCustom />} />
                 {events.map((ev, idx) => (
                   <Line
@@ -297,8 +297,8 @@ export default function BehaviorAnalyticsPage() {
             ) : viewType === '柱状图' ? (
               <BarChart data={TREND_DATA} margin={{ top: 5, right: 20, left: 0, bottom: 0 }} barCategoryGap="30%">
                 <CartesianGrid strokeDasharray="3 3" stroke="#F1F5F9" />
-                <XAxis dataKey="date" tick={{ fontSize: 12, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fontSize: 12, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
+                <XAxis dataKey="date" tick={{ fontSize: 12, fill: '#CBD5E1' }} axisLine={false} tickLine={false} />
+                <YAxis tick={{ fontSize: 12, fill: '#CBD5E1' }} axisLine={false} tickLine={false} />
                 <Tooltip content={<TooltipCustom />} />
                 {events.map((ev, idx) => (
                   <Bar
@@ -336,7 +336,7 @@ export default function BehaviorAnalyticsPage() {
       <div className="card">
         <div style={{ padding: '16px 20px', borderBottom: '1px solid #F1F5F9' }}>
           <div style={{ fontSize: 14, fontWeight: 700, color: '#1E3A5F' }}>📋 行为步骤详情</div>
-          <div style={{ fontSize: 12, color: '#94A3B8', marginTop: 2 }}>各行为步骤触发用户数、覆盖率、人均时长完整统计</div>
+          <div style={{ fontSize: 12, color: '#CBD5E1', marginTop: 2 }}>各行为步骤触发用户数、覆盖率、人均时长完整统计</div>
         </div>
         <div className="table-wrapper">
           <table className="table">
@@ -353,7 +353,7 @@ export default function BehaviorAnalyticsPage() {
             <tbody>
               {BEHAVIOR_TABLE.map(b => (
                 <tr key={b.id}>
-                  <td style={{ textAlign: 'center', color: '#94A3B8', fontSize: 12 }}>{b.id}</td>
+                  <td style={{ textAlign: 'center', color: '#CBD5E1', fontSize: 12 }}>{b.id}</td>
                   <td>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                       <div style={{ width: 8, height: 8, borderRadius: '50%', background: b.color, flexShrink: 0 }} />
@@ -361,14 +361,14 @@ export default function BehaviorAnalyticsPage() {
                     </div>
                   </td>
                   <td style={{ fontFamily: 'JetBrains Mono, monospace', color: '#1E3A5F', fontWeight: 600 }}>{b.users.toLocaleString()}</td>
-                  <td style={{ fontFamily: 'JetBrains Mono, monospace', color: '#64748B' }}>{b.pct}%</td>
-                  <td style={{ fontFamily: 'JetBrains Mono, monospace', color: '#374151' }}>{b.avgTime}</td>
+                  <td style={{ fontFamily: 'JetBrains Mono, monospace', color: '#9CA3AF' }}>{b.pct}%</td>
+                  <td style={{ fontFamily: 'JetBrains Mono, monospace', color: '#E2E8F0' }}>{b.avgTime}</td>
                   <td>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                       <div style={{ flex: 1, background: '#E2E8F0', borderRadius: 4, height: 10, overflow: 'hidden' }}>
                         <div style={{ width: `${b.pct}%`, height: '100%', background: b.color, borderRadius: 4, transition: 'width 0.5s ease' }} />
                       </div>
-                      <span style={{ fontSize: 12, color: '#94A3B8', width: 28, textAlign: 'right', flexShrink: 0 }}>{b.pct}%</span>
+                      <span style={{ fontSize: 12, color: '#CBD5E1', width: 28, textAlign: 'right', flexShrink: 0 }}>{b.pct}%</span>
                     </div>
                   </td>
                 </tr>

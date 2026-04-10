@@ -54,8 +54,8 @@ export default function DictManagePage() {
                   <td style={{ fontWeight: 600 }}>{d.name}</td>
                   <td><span className="badge badge-default" style={{ fontFamily: 'JetBrains Mono' }}>{d.key}</span></td>
                   <td><span className={`badge ${d.type === '系统' ? 'badge-warning' : 'badge-primary'}`}>{d.type}</span></td>
-                  <td style={{ color: '#64748B', fontSize: 13, maxWidth: 300 }}>{d.items}</td>
-                  <td style={{ color: '#94A3B8', fontSize: 12 }}>{d.updateTime}</td>
+                  <td style={{ color: '#9CA3AF', fontSize: 13, maxWidth: 300 }}>{d.items}</td>
+                  <td style={{ color: '#CBD5E1', fontSize: 12 }}>{d.updateTime}</td>
                   <td>
                     <button className="btn btn-secondary btn-sm" style={{ marginRight: 4 }}>编辑</button>
                     <button className="btn btn-ghost btn-sm" style={{ color: '#EF4444' }}>删除</button>

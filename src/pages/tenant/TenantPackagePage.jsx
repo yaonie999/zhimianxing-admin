@@ -49,7 +49,7 @@ function TreeNode({ node, checked, onToggle, depth = 0 }) {
     <div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '4px 0', paddingLeft: depth * 20 }}>
         {hasChildren && (
-          <span style={{ color: '#94A3B8', fontSize: 10, cursor: 'pointer' }}
+          <span style={{ color: '#CBD5E1', fontSize: 10, cursor: 'pointer' }}
             onClick={() => onToggle(node.value)}>
             {checked[node.value] ? '▼' : '▶'}
           </span>
@@ -257,7 +257,7 @@ export default function TenantPackagePage() {
                   <td><input type="checkbox" checked={selected.includes(p.id)}
                     onChange={() => toggleAll(p.id)} /></td>
                   <td>{(page - 1) * pageSize + idx + 1}</td>
-                  <td style={{ fontFamily: 'monospace', color: '#64748B', fontSize: 12 }}>{p.code}</td>
+                  <td style={{ fontFamily: 'monospace', color: '#9CA3AF', fontSize: 12 }}>{p.code}</td>
                   <td><span style={{ fontWeight: 600 }}>{p.name}</span></td>
                   <td>
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5 }}>
@@ -265,11 +265,11 @@ export default function TenantPackagePage() {
                       <span style={{ color: p.status === '开启' ? '#059669' : '#DC2626', fontSize: 13 }}>{p.status}</span>
                     </span>
                   </td>
-                  <td style={{ color: '#94A3B8', fontSize: 12 }}>{p.remark || '-'}</td>
+                  <td style={{ color: '#CBD5E1', fontSize: 12 }}>{p.remark || '-'}</td>
                   <td>{p.creator}</td>
-                  <td style={{ color: '#94A3B8', fontSize: 12 }}>{p.createTime}</td>
+                  <td style={{ color: '#CBD5E1', fontSize: 12 }}>{p.createTime}</td>
                   <td>{p.updater}</td>
-                  <td style={{ color: '#94A3B8', fontSize: 12 }}>{p.updateTime}</td>
+                  <td style={{ color: '#CBD5E1', fontSize: 12 }}>{p.updateTime}</td>
                   <td>
                     <div className="action-btns">
                       <button className="btn-action btn-edit" style={{ fontSize: 12, padding: '0 8px', height: 26, minWidth: 0 }} onClick={() => openEdit(p)}>编辑</button>
@@ -290,8 +290,8 @@ export default function TenantPackagePage() {
               <button key={n} className={`page-btn ${n === page ? 'active' : ''}`}
                 onClick={() => setPage(n)}>{n}</button>
             ))}
-            <span style={{ fontSize: 12, color: '#64748B', padding: '0 6px' }}>...</span>
-            <span style={{ fontSize: 13, color: '#64748B', padding: '0 8px' }}>第 {page}/{totalPages} 页</span>
+            <span style={{ fontSize: 12, color: '#9CA3AF', padding: '0 6px' }}>...</span>
+            <span style={{ fontSize: 13, color: '#9CA3AF', padding: '0 8px' }}>第 {page}/{totalPages} 页</span>
             <select className="filter-select" style={{ width: 90, fontSize: 12 }}
               value={pageSize} onChange={e => { setPageSize(Number(e.target.value)); setPage(1) }}>
               <option value="10">10 条/页</option>
@@ -299,13 +299,13 @@ export default function TenantPackagePage() {
               <option value="50">50 条/页</option>
             </select>
             <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-              <span style={{ fontSize: 12, color: '#64748B' }}>跳至</span>
+              <span style={{ fontSize: 12, color: '#9CA3AF' }}>跳至</span>
               <input
                 style={{ width: 48, padding: '4px 8px', border: '1.5px solid #E2E8F0', borderRadius: 6, fontSize: 12, outline: 'none' }}
                 defaultValue={5}
                 onKeyDown={e => { if (e.key === 'Enter') setPage(Number(e.target.value)) }}
               />
-              <span style={{ fontSize: 12, color: '#64748B' }}>页</span>
+              <span style={{ fontSize: 12, color: '#9CA3AF' }}>页</span>
             </span>
           </div>
         </div>
@@ -392,7 +392,7 @@ export default function TenantPackagePage() {
       >
         <div style={{ textAlign: 'center', padding: '16px 0' }}>
           <div style={{ fontSize: 40, marginBottom: 12 }}>⚠️</div>
-          <div style={{ fontSize: 14, color: '#374151', lineHeight: 1.8 }}>
+          <div style={{ fontSize: 14, color: '#E2E8F0', lineHeight: 1.8 }}>
             删除 <strong>{delName}</strong>，删除后不能恢复，是否继续？
           </div>
         </div>

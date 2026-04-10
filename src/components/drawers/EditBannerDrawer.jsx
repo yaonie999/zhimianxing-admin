@@ -54,7 +54,7 @@ export default function EditBannerDrawer({ banner, onClose, onSave }) {
           {form.imagePreview ? (
             <img src={form.imagePreview} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="preview" />
           ) : (
-            <div style={{ textAlign: 'center', color: '#94A3B8' }}>
+            <div style={{ textAlign: 'center', color: '#CBD5E1' }}>
               <div style={{ fontSize: 32, marginBottom: 8 }}>📷</div>
               <div style={{ fontSize: 13 }}>点击上传广告图片</div>
               <div style={{ fontSize: 11, marginTop: 4 }}>建议尺寸 750×400</div>

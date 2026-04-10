@@ -25,7 +25,7 @@ function makeData() {
 }
 
 function StatusBadge({ s }) {
-  const st = STATUS_MAP[s] || { bg: '#F1F5F9', color: '#64748B' }
+  const st = STATUS_MAP[s] || { bg: '#F1F5F9', color: '#9CA3AF' }
   return (
     <span style={{ background: st.bg, color: st.color, padding: '2px 8px', borderRadius: 4, fontSize: 12, fontWeight: 600 }}>
       {s}
@@ -112,7 +112,7 @@ function NotifyModal({ editTarget, onClose, onSave }) {
             <div style={{ display: 'flex', gap: 2, padding: '6px 8px', background: '#F8FAFC', borderBottom: '1px solid #E2E8F0', flexWrap: 'wrap' }}>
               {toolbarItems.map((tool, i) => tool === '|'
                 ? <span key={i} style={{ width: 1, height: 18, background: '#E2E8F0', margin: '0 4px', alignSelf: 'center' }} />
-                : <button key={i} style={{ padding: '3px 8px', background: 'none', border: 'none', cursor: 'pointer', fontSize: 12, color: '#374151', borderRadius: 4 }}>{tool}</button>
+                : <button key={i} style={{ padding: '3px 8px', background: 'none', border: 'none', cursor: 'pointer', fontSize: 12, color: '#E2E8F0', borderRadius: 4 }}>{tool}</button>
               )}
             </div>
             <textarea className="form-input" rows={8} value={form.content}
@@ -139,7 +139,7 @@ function DetailModal({ item, onClose }) {
       <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <StatusBadge s={item.status} />
-          <span style={{ fontSize: 12, color: '#94A3B8' }}>ID：#{item.id}</span>
+          <span style={{ fontSize: 12, color: '#CBD5E1' }}>ID：#{item.id}</span>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, background: '#F8FAFC', borderRadius: 8, padding: '12px 16px' }}>
           {[
@@ -151,14 +151,14 @@ function DetailModal({ item, onClose }) {
             { label: '状态', value: item.status },
           ].map(row => (
             <div key={row.label} style={row.wide ? { gridColumn: '1 / -1' } : {}}>
-              <div style={{ fontSize: 11, color: '#94A3B8', marginBottom: 2 }}>{row.label}</div>
-              <div style={{ fontSize: 14, color: '#374151', fontWeight: row.wide ? 700 : 400 }}>{row.value}</div>
+              <div style={{ fontSize: 11, color: '#CBD5E1', marginBottom: 2 }}>{row.label}</div>
+              <div style={{ fontSize: 14, color: '#E2E8F0', fontWeight: row.wide ? 700 : 400 }}>{row.value}</div>
             </div>
           ))}
         </div>
         <div>
-          <div style={{ fontSize: 13, fontWeight: 700, color: '#374151', marginBottom: 8 }}>通知内容</div>
-          <div style={{ background: '#F8FAFC', borderRadius: 8, padding: '12px 16px', fontSize: 13, color: '#374151', lineHeight: 1.8, minHeight: 80 }}>
+          <div style={{ fontSize: 13, fontWeight: 700, color: '#E2E8F0', marginBottom: 8 }}>通知内容</div>
+          <div style={{ background: '#F8FAFC', borderRadius: 8, padding: '12px 16px', fontSize: 13, color: '#E2E8F0', lineHeight: 1.8, minHeight: 80 }}>
             {item.title}，平台在此通知您相关事项，请注意查收并及时处理。如有疑问请联系客服。
           </div>
         </div>
@@ -309,9 +309,9 @@ export default function NotificationPage() {
                   <td style={{ fontWeight: 600, color: '#1E3A5F', maxWidth: 200, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={item.title}>{item.title}</td>
                   <td><span className="badge badge-primary">{item.type}</span></td>
                   <td><StatusBadge s={item.status} /></td>
-                  <td style={{ color: '#94A3B8', fontSize: 12 }}>{item.sendTime}</td>
+                  <td style={{ color: '#CBD5E1', fontSize: 12 }}>{item.sendTime}</td>
                   <td>{item.creator}</td>
-                  <td style={{ color: '#94A3B8', fontSize: 12 }}>{item.createTime}</td>
+                  <td style={{ color: '#CBD5E1', fontSize: 12 }}>{item.createTime}</td>
                   <td>
                     <div className="action-btns">
                       {item.status === '待发送' && (
@@ -338,7 +338,7 @@ export default function NotificationPage() {
             {pageNumbers.map(n => (
               <button key={n} className={`page-btn ${n === page ? 'active' : ''}`} onClick={() => setPage(n)}>{n}</button>
             ))}
-            <span style={{ fontSize: 13, color: '#64748B', padding: '0 8px' }}>第 {page}/{totalPages} 页</span>
+            <span style={{ fontSize: 13, color: '#9CA3AF', padding: '0 8px' }}>第 {page}/{totalPages} 页</span>
             <select className="filter-select" style={{ width: 90, fontSize: 12 }}
               value={pageSize} onChange={e => { setPageSize(Number(e.target.value)); setPage(1) }}>
               {[10, 20, 50].map(n => <option key={n}>{n} 条/页</option>)}
@@ -377,10 +377,10 @@ export default function NotificationPage() {
         >
           <div style={{ textAlign: 'center', padding: '16px 0' }}>
             <div style={{ fontSize: 40, marginBottom: 12 }}>⚠️</div>
-            <div style={{ fontSize: 14, color: '#374151', lineHeight: 1.8 }}>
+            <div style={{ fontSize: 14, color: '#E2E8F0', lineHeight: 1.8 }}>
               确定删除通知 <strong>{deleteTarget.title}</strong> 吗？
             </div>
-            <div style={{ fontSize: 12, color: '#94A3B8', marginTop: 8 }}>删除后该消息将无法恢复</div>
+            <div style={{ fontSize: 12, color: '#CBD5E1', marginTop: 8 }}>删除后该消息将无法恢复</div>
           </div>
         </CenterModal>
       )}

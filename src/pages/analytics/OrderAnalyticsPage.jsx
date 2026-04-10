@@ -139,8 +139,8 @@ const FunnelTooltip = ({ active, payload }) => {
     return (
       <div style={{ background: '#fff', border: '1px solid #E2E8F0', borderRadius: 8, padding: '10px 14px', fontSize: 13, boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
         <div style={{ fontWeight: 700, color: '#1E3A5F' }}>{payload[0].payload.stage}</div>
-        <div style={{ color: '#64748B', marginTop: 4 }}>数值：{payload[0].value.toLocaleString()}</div>
-        <div style={{ color: '#64748B' }}>占比：{payload[0].payload.pct}%</div>
+        <div style={{ color: '#9CA3AF', marginTop: 4 }}>数值：{payload[0].value.toLocaleString()}</div>
+        <div style={{ color: '#9CA3AF' }}>占比：{payload[0].payload.pct}%</div>
       </div>
     )
   }
@@ -157,7 +157,7 @@ function FunnelChart({ data }) {
         const colors = ['#1E3A5F', '#3B82F6', '#6366F1', '#8B5CF6', '#A78BFA']
         return (
           <div key={d.stage} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <div style={{ width: 56, fontSize: 12, color: '#64748B', textAlign: 'right', flexShrink: 0 }}>{d.stage}</div>
+            <div style={{ width: 56, fontSize: 12, color: '#9CA3AF', textAlign: 'right', flexShrink: 0 }}>{d.stage}</div>
             <div style={{ flex: 1, height: 32, background: '#F1F5F9', borderRadius: 4, overflow: 'hidden', position: 'relative' }}>
               <div style={{
                 width: `${widthPct}%`, height: '100%', background: colors[i],
@@ -167,7 +167,7 @@ function FunnelChart({ data }) {
                 <span style={{ color: '#fff', fontSize: 12, fontWeight: 600, whiteSpace: 'nowrap' }}>{d.value.toLocaleString()}</span>
               </div>
             </div>
-            <div style={{ width: 36, fontSize: 12, color: '#94A3B8', textAlign: 'left', flexShrink: 0 }}>{d.pct}%</div>
+            <div style={{ width: 36, fontSize: 12, color: '#CBD5E1', textAlign: 'left', flexShrink: 0 }}>{d.pct}%</div>
           </div>
         )
       })}
@@ -202,7 +202,7 @@ export default function OrderAnalyticsPage() {
       {/* ====== ① 时间筛选栏 ====== */}
       <div className="card" style={{ marginBottom: 16 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16, padding: '14px 20px', flexWrap: 'wrap' }}>
-          <span style={{ fontSize: 14, fontWeight: 700, color: '#374151', flexShrink: 0 }}>时间筛选</span>
+          <span style={{ fontSize: 14, fontWeight: 700, color: '#E2E8F0', flexShrink: 0 }}>时间筛选</span>
           <div style={{ display: 'flex', gap: 6 }}>
             {TIME_RANGES.map(r => (
               <button
@@ -211,7 +211,7 @@ export default function OrderAnalyticsPage() {
                 style={{
                   padding: '5px 14px', borderRadius: 6, cursor: 'pointer', fontSize: 13,
                   background: timeRange === r.value ? '#1E3A5F' : '#fff',
-                  color: timeRange === r.value ? '#fff' : '#64748B',
+                  color: timeRange === r.value ? '#fff' : '#9CA3AF',
                   fontWeight: timeRange === r.value ? 600 : 400,
                   border: timeRange === r.value ? 'none' : '1px solid #E2E8F0',
                   transition: 'all 0.15s',
@@ -223,7 +223,7 @@ export default function OrderAnalyticsPage() {
             type="date"
             style={{
               padding: '6px 12px', border: '1px solid #E2E8F0', borderRadius: 6,
-              fontSize: 13, color: '#374151', background: '#fff', cursor: 'pointer',
+              fontSize: 13, color: '#E2E8F0', background: '#fff', cursor: 'pointer',
             }}
           />
           <span style={{ color: '#CBD5E1', fontSize: 14 }}>—</span>
@@ -231,7 +231,7 @@ export default function OrderAnalyticsPage() {
             type="date"
             style={{
               padding: '6px 12px', border: '1px solid #E2E8F0', borderRadius: 6,
-              fontSize: 13, color: '#374151', background: '#fff', cursor: 'pointer',
+              fontSize: 13, color: '#E2E8F0', background: '#fff', cursor: 'pointer',
             }}
           />
         </div>
@@ -242,18 +242,18 @@ export default function OrderAnalyticsPage() {
         {STATS.map((s) => (
           <div key={s.label} className="card" style={{ padding: '20px 24px', borderRadius: 12 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 10 }}>
-              <div style={{ fontSize: 13, color: '#64748B', fontWeight: 500 }}>{s.label}</div>
+              <div style={{ fontSize: 13, color: '#9CA3AF', fontWeight: 500 }}>{s.label}</div>
               <div style={{ fontSize: 20 }}>{s.icon}</div>
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 4, marginBottom: 8 }}>
               <span style={{ fontSize: 26, fontWeight: 800, color: s.color }}>{s.value}</span>
-              <span style={{ fontSize: 13, color: '#94A3B8' }}>{s.unit}</span>
+              <span style={{ fontSize: 13, color: '#CBD5E1' }}>{s.unit}</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10 }}>
               <span style={{ color: s.up ? '#059669' : '#EF4444', fontSize: 13, fontWeight: 700 }}>
                 {s.up ? '↑' : '↓'} {s.change}{s.changeUnit}
               </span>
-              <span style={{ fontSize: 12, color: '#94A3B8' }}>{s.compare}</span>
+              <span style={{ fontSize: 12, color: '#CBD5E1' }}>{s.compare}</span>
             </div>
             <div style={{ height: 28, display: 'flex', alignItems: 'center' }}>
               <MiniTrend
@@ -272,7 +272,7 @@ export default function OrderAnalyticsPage() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 20px', borderBottom: '1px solid #F1F5F9' }}>
           <div>
             <div style={{ fontSize: 14, fontWeight: 700, color: '#1E3A5F' }}>📈 订单量 & 营收金额趋势</div>
-            <div style={{ fontSize: 12, color: '#94A3B8', marginTop: 2 }}>2026年04月04日 - 04月10日</div>
+            <div style={{ fontSize: 12, color: '#CBD5E1', marginTop: 2 }}>2026年04月04日 - 04月10日</div>
           </div>
           <div style={{ display: 'flex', gap: 6 }}>
             {[
@@ -285,7 +285,7 @@ export default function OrderAnalyticsPage() {
                 style={{
                   padding: '4px 12px', borderRadius: 6, border: 'none', cursor: 'pointer', fontSize: 12,
                   background: chartType === t.key ? '#1E3A5F' : '#F1F5F9',
-                  color: chartType === t.key ? '#fff' : '#64748B',
+                  color: chartType === t.key ? '#fff' : '#9CA3AF',
                   fontWeight: chartType === t.key ? 600 : 400,
                 }}
               >{t.label}</button>
@@ -297,11 +297,11 @@ export default function OrderAnalyticsPage() {
           <div style={{ display: 'flex', gap: 24, marginBottom: 12 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
               <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#1E3A5F' }} />
-              <span style={{ fontSize: 12, color: '#64748B' }}>订单量（单）</span>
+              <span style={{ fontSize: 12, color: '#9CA3AF' }}>订单量（单）</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
               <div style={{ width: 10, height: 10, borderRadius: 2, background: '#3B82F6' }} />
-              <span style={{ fontSize: 12, color: '#64748B' }}>营收金额（元）</span>
+              <span style={{ fontSize: 12, color: '#9CA3AF' }}>营收金额（元）</span>
             </div>
           </div>
           <ResponsiveContainer width="100%" height={260}>
@@ -314,9 +314,9 @@ export default function OrderAnalyticsPage() {
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="#F1F5F9" />
-                <XAxis dataKey="date" tick={{ fontSize: 12, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
-                <YAxis yAxisId="orders" tick={{ fontSize: 12, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
-                <YAxis yAxisId="revenue" orientation="right" tick={{ fontSize: 12, fill: '#94A3B8' }} axisLine={false} tickLine={false} tickFormatter={v => `¥${(v / 1000).toFixed(0)}k`} />
+                <XAxis dataKey="date" tick={{ fontSize: 12, fill: '#CBD5E1' }} axisLine={false} tickLine={false} />
+                <YAxis yAxisId="orders" tick={{ fontSize: 12, fill: '#CBD5E1' }} axisLine={false} tickLine={false} />
+                <YAxis yAxisId="revenue" orientation="right" tick={{ fontSize: 12, fill: '#CBD5E1' }} axisLine={false} tickLine={false} tickFormatter={v => `¥${(v / 1000).toFixed(0)}k`} />
                 <Tooltip content={<RevenueTooltip />} />
                 <Area yAxisId="orders" type="monotone" dataKey="orders" name="订单量" stroke="#1E3A5F" strokeWidth={2} fill="none" dot={{ r: 4, fill: '#1E3A5F' }} activeDot={{ r: 6 }} />
                 <Area yAxisId="revenue" type="monotone" dataKey="revenue" name="营收金额" stroke="#3B82F6" strokeWidth={2} fill="url(#revenueGrad)" dot={false} activeDot={{ r: 5 }} />
@@ -324,9 +324,9 @@ export default function OrderAnalyticsPage() {
             ) : (
               <ComposedChart data={TREND_DATA} margin={{ top: 5, right: 10, left: 0, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#F1F5F9" />
-                <XAxis dataKey="date" tick={{ fontSize: 12, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
-                <YAxis yAxisId="orders" tick={{ fontSize: 12, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
-                <YAxis yAxisId="revenue" orientation="right" tick={{ fontSize: 12, fill: '#94A3B8' }} axisLine={false} tickLine={false} tickFormatter={v => `¥${(v / 1000).toFixed(0)}k`} />
+                <XAxis dataKey="date" tick={{ fontSize: 12, fill: '#CBD5E1' }} axisLine={false} tickLine={false} />
+                <YAxis yAxisId="orders" tick={{ fontSize: 12, fill: '#CBD5E1' }} axisLine={false} tickLine={false} />
+                <YAxis yAxisId="revenue" orientation="right" tick={{ fontSize: 12, fill: '#CBD5E1' }} axisLine={false} tickLine={false} tickFormatter={v => `¥${(v / 1000).toFixed(0)}k`} />
                 <Tooltip content={<RevenueTooltip />} />
                 <Bar yAxisId="orders" dataKey="orders" name="订单量" fill="#1E3A5F" radius={[4, 4, 0, 0]} barSize={28} />
                 <Bar yAxisId="revenue" dataKey="revenue" name="营收金额" fill="#3B82F6" radius={[4, 4, 0, 0]} barSize={28} />
@@ -343,24 +343,24 @@ export default function OrderAnalyticsPage() {
         <div className="card">
           <div style={{ padding: '16px 20px', borderBottom: '1px solid #F1F5F9' }}>
             <div style={{ fontSize: 14, fontWeight: 700, color: '#1E3A5F' }}>🏗 客户构成</div>
-            <div style={{ fontSize: 12, color: '#94A3B8', marginTop: 2 }}>本期 vs 上期 订单量对比</div>
+            <div style={{ fontSize: 12, color: '#CBD5E1', marginTop: 2 }}>本期 vs 上期 订单量对比</div>
           </div>
           <div style={{ padding: '20px' }}>
             <div style={{ display: 'flex', gap: 20, marginBottom: 12 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                 <div style={{ width: 10, height: 10, borderRadius: 2, background: '#1E3A5F' }} />
-                <span style={{ fontSize: 12, color: '#64748B' }}>本期</span>
+                <span style={{ fontSize: 12, color: '#9CA3AF' }}>本期</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                 <div style={{ width: 10, height: 10, borderRadius: 2, background: '#93C5FD' }} />
-                <span style={{ fontSize: 12, color: '#64748B' }}>上期</span>
+                <span style={{ fontSize: 12, color: '#9CA3AF' }}>上期</span>
               </div>
             </div>
             <ResponsiveContainer width="100%" height={220}>
               <BarChart data={CUSTOMER_DATA} margin={{ top: 5, right: 10, left: 0, bottom: 0 }} barCategoryGap="35%">
                 <CartesianGrid strokeDasharray="3 3" stroke="#F1F5F9" />
-                <XAxis dataKey="name" tick={{ fontSize: 12, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fontSize: 12, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
+                <XAxis dataKey="name" tick={{ fontSize: 12, fill: '#CBD5E1' }} axisLine={false} tickLine={false} />
+                <YAxis tick={{ fontSize: 12, fill: '#CBD5E1' }} axisLine={false} tickLine={false} />
                 <Tooltip content={<CustomerTooltip />} />
                 <Bar dataKey="thisPeriod" name="本期" fill="#1E3A5F" radius={[4, 4, 0, 0]} barSize={32} />
                 <Bar dataKey="lastPeriod" name="上期" fill="#93C5FD" radius={[4, 4, 0, 0]} barSize={32} />
@@ -373,7 +373,7 @@ export default function OrderAnalyticsPage() {
         <div className="card">
           <div style={{ padding: '16px 20px', borderBottom: '1px solid #F1F5F9' }}>
             <div style={{ fontSize: 14, fontWeight: 700, color: '#1E3A5F' }}>🔁 交易转化漏斗</div>
-            <div style={{ fontSize: 12, color: '#94A3B8', marginTop: 2 }}>从访问到完成交易的转化路径</div>
+            <div style={{ fontSize: 12, color: '#CBD5E1', marginTop: 2 }}>从访问到完成交易的转化路径</div>
           </div>
           <div style={{ padding: '20px' }}>
             <FunnelChart data={FUNNEL_DATA} />
@@ -385,7 +385,7 @@ export default function OrderAnalyticsPage() {
       <div className="card">
         <div style={{ padding: '16px 20px', borderBottom: '1px solid #F1F5F9' }}>
           <div style={{ fontSize: 14, fontWeight: 700, color: '#1E3A5F' }}>📋 订单明细数据</div>
-          <div style={{ fontSize: 12, color: '#94A3B8', marginTop: 2 }}>每日订单统计 · 2026年04月04日 - 04月10日</div>
+          <div style={{ fontSize: 12, color: '#CBD5E1', marginTop: 2 }}>每日订单统计 · 2026年04月04日 - 04月10日</div>
         </div>
         <div className="table-wrapper">
           <table className="table">
@@ -404,7 +404,7 @@ export default function OrderAnalyticsPage() {
                   <td style={{ fontWeight: 700, color: '#1E3A5F', width: 100 }}>{t.date}</td>
                   <td style={{ fontFamily: 'JetBrains Mono, monospace', color: '#1E3A5F', fontWeight: 600 }}>{t.orders}</td>
                   <td style={{ fontFamily: 'JetBrains Mono, monospace', color: '#D97706', fontWeight: 700 }}>¥{t.revenue.toLocaleString()}</td>
-                  <td style={{ fontFamily: 'JetBrains Mono, monospace', color: '#64748B' }}>¥{t.avgPrice}</td>
+                  <td style={{ fontFamily: 'JetBrains Mono, monospace', color: '#9CA3AF' }}>¥{t.avgPrice}</td>
                   <td style={{ fontFamily: 'JetBrains Mono, monospace', color: '#EF4444' }}>{t.refund}</td>
                 </tr>
               ))}
