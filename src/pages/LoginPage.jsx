@@ -21,7 +21,7 @@ function LoginBrand() {
         <span className="brand-name">智眠星</span>
       </div>
       <p className="brand-slogan">
-        智联百站，共筑全国睡眠健康图谱<br />
+        智眨百站，共筑全国睡眠健康图谱<br />
         守护每一夜，安睡每一天
       </p>
       <div className="brand-features">

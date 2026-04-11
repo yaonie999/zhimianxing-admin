@@ -4,7 +4,7 @@ import CenterModal from '../CenterModal'
 const TAGS = ['失眠', '焦虑', '睡眠呼吸暂停', '嗜睡症', 'REM睡眠障碍', '中医调理', '情绪管理', '神经内科']
 const TITLE_OPTIONS = ['睡眠医学专家', '心理咨询师', '中医睡眠专家', '神经内科专家', '精神科医生']
 
-export default function EditExpertDrawer({ expert, onClose, onSave }) {
+export default function EditExpertDrawer({ expert, onClose, onSave, isNew }) {
   const [form, setForm] = useState({ ...expert })
   const [loading, setLoading] = useState(false)
   const [avatarPreview, setAvatarPreview] = useState(expert?.avatarUrl || null)
@@ -28,7 +28,7 @@ export default function EditExpertDrawer({ expert, onClose, onSave }) {
   }
 
   return (
-    <CenterModal open={true} onClose={onClose} title="编辑专家" width={520}
+    <CenterModal open={true} onClose={onClose} title={isNew ? "添加专家" : "编辑专家"} width={520}
       footer={<>
         <button className="btn btn-ghost" onClick={onClose} style={{ minWidth: 80 }}>取消</button>
         <button className="btn btn-primary" onClick={handleSave} disabled={loading} style={{ minWidth: 100 }}>{loading ? '保存中...' : '确定'}</button>

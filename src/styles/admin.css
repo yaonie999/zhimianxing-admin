@@ -1,30 +1,34 @@
 /* ============================================
-   智眠星后台管理 - 深夜星空主题
+   智眠星后台管理 - 轻明亮色主题
    品牌调性：睡眠健康 · 科技智能 · 数据守护
    ============================================ */
 
 /* ==================== CSS 变量 ==================== */
 :root {
-  /* 深夜星空配色 */
-  --bg-void: #070D17;           /* 最深背景 */
-  --bg-night: #0D1B2A;          /* 主背景 */
-  --bg-sidebar: #111927;         /* 侧边栏 */
-  --bg-card: #1A2537;           /* 卡片背景 */
-  --bg-elevated: #1E2D42;       /* 悬浮/高亮卡片 */
-  --bg-hover: #243044;          /* hover 态 */
+  /* 轻明亮色配色 */
+  --bg-void: #F8FAFC;           /* 页面最背景 */
+  --bg-night: #F1F5F9;           /* 主背景 */
+  --bg-sidebar: #1E293B;         /* 侧边栏（保持深色，有层次感） */
+  --bg-card: #FFFFFF;            /* 卡片背景 */
+  --bg-elevated: #F8FAFC;      /* 悬浮/高亮卡片 */
+  --bg-hover: #E2E8F0;          /* hover 态 */
 
   /* 边框 */
-  --border-subtle: #1E2D42;      /* 细微分割线 */
-  --border-default: #2A3A50;     /* 默认边框 */
-  --border-bright: #3B4F6A;     /* 亮边框 */
+  --border-subtle: #E2E8F0;     /* 细微分割线 */
+  --border-default: #CBD5E1;     /* 默认边框 */
+  --border-bright: #94A3B8;     /* 亮边框 */
 
   /* 文字 */
-  --text-primary: #F1F5F9;       /* 主文字-亮白 */
-  --text-secondary: #CBD5E1;     /* 次要文字 */
-  --text-muted: #9CA3AF;         /* 暗淡文字 */
-  --text-dim: #475569;           /* 极淡文字 */
+  --text-primary: #1E293B;       /* 主文字-深色高对比 */
+  --text-secondary: #475569;     /* 次要文字 */
+  --text-muted: #64748B;        /* 暗淡文字 */
+  --text-dim: #94A3B8;          /* 极淡文字 */
 
-  /* 品牌色 - 月光金 */
+  /* 侧边栏内文字（深色背景上用亮色） */
+  --sidebar-text: #F1F5F9;
+  --sidebar-text-muted: #94A3B8;
+
+  /* 品牌色 - 天蓝（呼应"星"） */
   --gold: #C9A84C;
   --gold-light: #E0C068;
   --gold-glow: rgba(201, 168, 76, 0.15);
@@ -1276,4 +1280,395 @@ body {
 @media print {
   body { background: white; }
   .card { box-shadow: none; border: 1px solid #E2E8F0; }
+}
+
+
+/* ========================
+   响应式 — 移动端适配
+   ======================== */
+
+@media (max-width: 768px) {
+  /* ===== 整体布局 ===== */
+  .admin-layout {
+    flex-direction: column;
+  }
+
+  /* ===== 侧边栏 → 隐藏/抽屉 ===== */
+  .admin-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 240px;
+    z-index: 1001;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+  }
+
+  .admin-sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  /* 遮罩层 */
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+  }
+
+  /* ===== 顶部栏 ===== */
+  .admin-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    height: 56px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hamburger-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #1E293B;
+  }
+
+  /* ===== 主内容区 ===== */
+  .admin-main {
+    margin-left: 0 !important;
+    margin-top: 56px;
+    padding: 12px;
+    min-height: calc(100vh - 56px);
+  }
+
+  /* ===== 页面标题区 ===== */
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .page-title {
+    font-size: 18px;
+  }
+
+  /* ===== 筛选区 ===== */
+  .filter-bar {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .filter-row {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .filter-item {
+    flex: 1 1 calc(50% - 5px);
+    min-width: 0;
+  }
+
+  .filter-item label {
+    font-size: 12px;
+  }
+
+  .filter-item input,
+  .filter-item select {
+    width: 100%;
+    min-width: 0;
+    font-size: 13px;
+    height: 34px;
+  }
+
+  .filter-actions {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .filter-actions button {
+    flex: 1;
+    height: 34px;
+    font-size: 13px;
+  }
+
+  /* ===== 操作按钮区 ===== */
+  .action-bar {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .action-bar button {
+    height: 32px;
+    font-size: 12px;
+    padding: 0 12px;
+    white-space: nowrap;
+  }
+
+  /* ===== 表格 ===== */
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+
+  .data-table {
+    min-width: 700px;
+    font-size: 12px;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 8px 10px;
+    white-space: nowrap;
+  }
+
+  /* ===== 分页 ===== */
+  .pagination {
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .pagination-info {
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  /* ===== 弹窗 → 移动端全屏 ===== */
+  .modal-overlay {
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .modal-box {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 16px 16px 0 0;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 20px 16px 24px;
+  }
+
+  .modal-title {
+    font-size: 17px;
+  }
+
+  .modal-subtitle {
+    font-size: 13px;
+  }
+
+  /* 弹窗表单 */
+  .modal-box .form-group {
+    margin-bottom: 14px;
+  }
+
+  .modal-box .form-input {
+    width: 100%;
+    font-size: 14px;
+    height: 40px;
+  }
+
+  .modal-box .btn {
+    width: 100%;
+    height: 44px;
+    font-size: 15px;
+    margin-top: 8px;
+  }
+
+  /* ===== 表单 ===== */
+  .form-group {
+    margin-bottom: 14px;
+  }
+
+  .form-input {
+    width: 100%;
+    font-size: 14px;
+    height: 38px;
+  }
+
+  .form-label {
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+
+  /* ===== 卡片 ===== */
+  .card {
+    padding: 14px;
+    border-radius: 10px;
+  }
+
+  .card-header {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  /* ===== 标签页 ===== */
+  .tab-bar {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 0;
+  }
+
+  .tab-item {
+    padding: 8px 14px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  /* ===== 折叠/展开按钮 ===== */
+  .toggle-btn {
+    height: 32px;
+    font-size: 12px;
+    padding: 0 10px;
+  }
+
+  /* ===== 详情弹窗 ===== */
+  .detail-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+  }
+
+  .detail-label {
+    font-size: 12px;
+  }
+
+  .detail-value {
+    font-size: 13px;
+  }
+
+  /* ===== 统计卡片 ===== */
+  .stat-card {
+    padding: 14px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+  }
+
+  .stat-value {
+    font-size: 22px;
+  }
+
+  /* ===== Switch 开关 ===== */
+  .toggle-switch {
+    transform: scale(0.85);
+  }
+
+  /* ===== 进度条/状态条 ===== */
+  .progress-bar {
+    height: 6px;
+    border-radius: 3px;
+  }
+}
+
+/* ===== 小屏进一步优化 (<480px) ===== */
+@media (max-width: 480px) {
+  .admin-main {
+    padding: 10px 8px;
+  }
+
+  .page-title {
+    font-size: 16px;
+  }
+
+  .filter-item {
+    flex: 1 1 100%;
+  }
+
+  .action-bar button {
+    height: 30px;
+    font-size: 11px;
+    padding: 0 8px;
+  }
+
+  .modal-box {
+    padding: 16px 12px 20px;
+  }
+
+  .detail-row {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  /* 表格更紧凑 */
+  .data-table th,
+  .data-table td {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+}
+
+/* ===== 移动端：登录页特殊处理 ===== */
+@media (max-width: 480px) {
+  .login-page {
+    min-height: 100vh;
+  }
+
+  .login-brand {
+    display: none;
+  }
+
+  .login-container {
+    padding: 0 16px;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  .login-card {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 16px;
+    padding: 24px 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  }
+
+  .login-tabs {
+    gap: 0;
+  }
+
+  .login-tab {
+    font-size: 13px;
+    padding: 10px 8px;
+  }
+}
+
+/* ===== 移动端：抽屉/侧边栏遮罩 ===== */
+.sidebar-overlay {
+  display: none;
+}
+
+/* ===== 桌面端：隐藏汉堡按钮 ===== */
+.hamburger-btn {
+  display: none !important;
+}
+
+/* ===== 通用：防止布局被压扁 ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
 }

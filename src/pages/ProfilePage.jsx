@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import CenterModal from '../components/CenterModal'
 import '../styles/admin.css'
@@ -29,6 +29,11 @@ export default function ProfilePage() {
   const [tab, setTab] = useState('info')
   const navigate = useNavigate()
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    if (params.get('tab') === 'password') setTab('password')
+  }, [])
+
   return (
     <div className="page-container">
       {/* 顶部Tab切换 */}
@@ -53,14 +58,32 @@ export default function ProfilePage() {
 /* ============ 基本资料 ============ */
 function BasicInfoTab() {
   const [form, setForm] = useState({
-    name: MOCK_USER.name,
-    gender: MOCK_USER.gender,
-    phone: MOCK_USER.phone,
-    email: MOCK_USER.email,
-    department: MOCK_USER.department,
-    position: MOCK_USER.position,
+    name: '',
+    gender: '',
+    phone: '',
+    email: '',
+    department: '',
+    position: '',
   })
-  const [avatar, setAvatar] = useState(MOCK_USER.avatar)
+  const [avatar, setAvatar] = useState(null)
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem('admin_user')
+      if (stored) {
+        const p = JSON.parse(stored)
+        setForm({
+          name: p.name || p.nickname || p.phone || '',
+          gender: p.gender || '',
+          phone: p.phone || '',
+          email: p.email || '',
+          department: p.department || '',
+          position: p.position || '',
+        })
+        setAvatar(p.avatar || null)
+      }
+    } catch(e) {}
+  }, [])
   const [saved, setSaved] = useState(false)
   const [loading, setLoading] = useState(false)
 

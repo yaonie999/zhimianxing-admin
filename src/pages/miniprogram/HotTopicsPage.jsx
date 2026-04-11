@@ -68,8 +68,9 @@ export default function HotTopicsPage() {
         </div>
 
         {/* 筛选工具栏 */}
-        <div className="toolbar">
-          <div className="toolbar-left">
+        <div className="toolbar" style={{ display: 'block' }}>
+          {/* 第一行：筛选控件 */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, alignItems: 'center' }}>
             <div className="search-input-wrap">
               <span className="search-icon">🔍</span>
               <input className="search-input" placeholder="话题搜索" value={searchTopic} onChange={e => setSearchTopic(e.target.value)} />
@@ -78,11 +79,12 @@ export default function HotTopicsPage() {
               <span className="search-icon"> 🏷</span>
               <input className="search-input" placeholder="标签搜索" value={searchTag} onChange={e => setSearchTag(e.target.value)} />
             </div>
-            <button className="btn-query" onClick={() => {}} style={{ width: 60 }}>查询</button>
-            <button className="btn-reset" onClick={() => { setSearchTopic(''); setSearchTag('') }} style={{ width: 60 }}>重置</button>
           </div>
-          <div className="toolbar-right">
-            <button className="btn btn-primary btn-sm" onClick={() => { setIsNew(true); setEditTarget({ name: '', tags: [], sort: 1, status: '显示' }) }}>
+          {/* 第二行：操作按钮 */}
+          <div style={{ display: 'flex', gap: 8, marginTop: 4 }}>
+            <button className="btn-query" onClick={() => setPage(1)} style={{ width: 60 }}>查询</button>
+            <button className="btn-reset" onClick={() => { setSearchTopic(''); setSearchTag(''); setPage(1) }} style={{ width: 60 }}>重置</button>
+            <button className="btn btn-primary btn-sm" onClick={() => { setIsNew(true); setEditTarget({ name: '', tags: [], sort: 1, status: '显示' }) }} style={{ marginLeft: 'auto' }}>
               + 添加话题
             </button>
           </div>

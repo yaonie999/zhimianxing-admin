@@ -46,7 +46,16 @@ function PasswordLogin({ onSuccess }) {
   const [showSetPwd, setShowSetPwd] = useState(false)
   const [loginAttempts, setLoginAttempts] = useState(0)
   const [lockedUntil, setLockedUntil] = useState(null)
+  const [rememberPwd, setRememberPwd] = useState(false)
   const navigate = useNavigate()
+
+  // 页面加载时读取本地保存的账号密码
+  useEffect(() => {
+    const savedPhone = localStorage.getItem('saved_phone')
+    const savedPwd = localStorage.getItem('saved_password')
+    if (savedPhone) setPhone(savedPhone)
+    if (savedPwd) setPassword(savedPwd)
+  }, [])
 
   const isLocked = lockedUntil && Date.now() < lockedUntil
 
@@ -55,6 +64,46 @@ function PasswordLogin({ onSuccess }) {
     if (isLocked) return
     setError('')
     setLoading(true)
+
+    // ========== 测试账号 bypass（前端模拟登录，数据不上报后端）==========
+    const TEST_ACCOUNTS = [
+      { phone: '13800138000', password: 'admin123', name: '刘亦菲', userType: '超级管理员' },
+      { phone: '13800138001', password: 'admin123', name: '陈明', userType: '管理员' },
+    ]
+    const testAccount = TEST_ACCOUNTS.find(a => a.phone === phone && a.password === password)
+    if (testAccount) {
+      const mockToken = 'mock_token_' + Date.now()
+      const mockUser = {
+        id: 1,
+        phone: testAccount.phone,
+        name: testAccount.name,
+        nickname: testAccount.name,
+        userType: testAccount.userType,
+        loginName: testAccount.phone,
+        gender: '女',
+        userStatus: '正常',
+        onJobStatus: '在职',
+        email: 'admin@zhimianxing.com',
+        jobNumber: 'ZM-8801',
+        department: '产品研发部',
+        position: '产品经理',
+        createTime: '2025-07-14 18:29:20',
+        avatar: null,
+      }
+      localStorage.setItem('admin_token', mockToken)
+      localStorage.setItem('admin_user', JSON.stringify(mockUser))
+      if (rememberPwd) {
+        localStorage.setItem('saved_phone', phone)
+        localStorage.setItem('saved_password', password)
+      } else {
+        localStorage.removeItem('saved_phone')
+        localStorage.removeItem('saved_password')
+      }
+      setLoading(false)
+      onSuccess()
+      return
+    }
+    // ========== 正式登录流程 ==========
 
     try {
       const body = { phone, password }
@@ -86,6 +135,13 @@ function PasswordLogin({ onSuccess }) {
       } else {
         localStorage.setItem('admin_token', data.token)
         localStorage.setItem('admin_user', JSON.stringify(data.user))
+        if (rememberPwd) {
+          localStorage.setItem('saved_phone', phone)
+          localStorage.setItem('saved_password', password)
+        } else {
+          localStorage.removeItem('saved_phone')
+          localStorage.removeItem('saved_password')
+        }
         onSuccess()
       }
     } catch {
@@ -149,17 +205,18 @@ function PasswordLogin({ onSuccess }) {
         )}
 
         <div className="form-footer">
-          <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
-            <label className="remember-row">
-              <input type="checkbox" />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+            <label className="remember-row" style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer' }}>
+              <input
+                type="checkbox"
+                checked={rememberPwd}
+                onChange={e => setRememberPwd(e.target.checked)}
+                style={{ cursor: 'pointer' }}
+              />
               <span className="remember-label">保存密码</span>
             </label>
-            <label className="remember-row">
-              <input type="checkbox" />
-              <span className="remember-label">自动登录</span>
-            </label>
           </div>
-          <button type="button" className="forgot-link" onClick={() => setShowForget(true)}>
+          <button type="button" className="forgot-link" onClick={() => setShowForget(true)} style={{ marginLeft: 'auto' }}>
             忘记密码？
           </button>
         </div>
@@ -210,15 +267,20 @@ function WechatLogin() {
     <div>
       {step === 'qr' && (
         <>
-          <div className="wx-qr-placeholder">
-            <div className="wx-icon">🔲</div>
-            <div>微信开放平台扫码区</div>
-            <div style={{ fontSize: 11, marginTop: 4, opacity: 0.6 }}>
-              请开通微信开放平台获取AppID
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12, padding: '20px 0' }}>
+            <div style={{ width: 160, height: 160, border: '1px solid #E2E8F0', borderRadius: 8, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 8, background: '#F8FAFC' }}>
+              <div style={{ fontSize: 48 }}>𝕆</div>
+              <div style={{ fontSize: 12, color: '#94A3B8', textAlign: 'center', padding: '0 12px' }}>微信开放平台<br/>扫码区域</div>
             </div>
+            <p style={{ fontSize: 13, color: '#475569', textAlign: 'center', lineHeight: 1.6 }}>
+              使用微信扫一扫登录
+            </p>
+            <p style={{ fontSize: 11, color: '#94A3B8', textAlign: 'center' }}>
+              扫码后需绑定账号，验证码<span style={{ color: '#3B82F6', fontWeight: 600 }}>5分钟</span>内有效
+            </p>
           </div>
-          <p className="info-hint">
-            ℹ 微信扫码登录需先在微信开放平台( open.weixin.qq.com )开通网站应用，并配置回调域名
+          <p style={{ fontSize: 11, color: '#94A3B8', textAlign: 'center', marginTop: 8 }}>
+            ℹ 微信扫码登录需开通微信开放平台（<span style={{ color: '#3B82F6' }}>open.weixin.qq.com</span>），并配置回调域名
           </p>
         </>
       )}
@@ -232,34 +294,22 @@ function WechatLogin() {
 
 function BindPhoneStep({ onCancel }) {
   const [phone, setPhone] = useState('')
-  const [code, setCode] = useState('')
-  const [codeSent, setCodeSent] = useState(false)
+  const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const navigate = useNavigate()
 
-  function handleSendCode() {
-    if (!phone || phone.length !== 11) {
-      setError('请输入正确的手机号')
-      return
-    }
-    setCodeSent(true)
-    fetch(`${API}/auth/send-code`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ phone, type: 'login' })
-    })
-  }
-
   async function handleBind(e) {
     e.preventDefault()
+    if (!phone || phone.length !== 11) { setError('请输入正确的手机号'); return }
+    if (!password) { setError('请输入密码'); return }
     setLoading(true)
     setError('')
     try {
       const res = await fetch(`${API}/auth/bind-phone`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ phone, code })
+        body: JSON.stringify({ phone, password })
       })
       const data = await res.json()
       if (data.success) {
@@ -270,7 +320,7 @@ function BindPhoneStep({ onCancel }) {
         setError(data.error)
       }
     } catch {
-      setError('网络错误')
+      setError('网络错误，请稍后重试')
     } finally {
       setLoading(false)
     }
@@ -278,12 +328,15 @@ function BindPhoneStep({ onCancel }) {
 
   return (
     <form onSubmit={handleBind}>
+      <div style={{ background: '#FEF3C7', borderRadius: 8, padding: '10px 14px', marginBottom: 16, fontSize: 13, color: '#92400E', lineHeight: 1.6 }}>
+        ℹ 您的账号未绑定微信，请输入账号密码完成绑定
+      </div>
       <div className="form-group">
-        <label className="form-label">手机号</label>
+        <label className="form-label">账号（手机号）</label>
         <input
           className="form-input"
           type="tel"
-          placeholder="请输入手机号"
+          placeholder="请输入账号"
           value={phone}
           onChange={e => setPhone(e.target.value)}
           maxLength={11}
@@ -291,24 +344,19 @@ function BindPhoneStep({ onCancel }) {
           autoFocus
         />
       </div>
-
       <div className="form-group">
-        <label className="form-label">验证码</label>
-        <VerifyCodeInput
-          value={code}
-          onChange={setCode}
-          phone={phone}
-          type="login"
-          length={4}
+        <label className="form-label">密码</label>
+        <PasswordInput
+          value={password}
+          onChange={setPassword}
+          placeholder="请输入密码"
         />
       </div>
-
-      {error && <p className="error-msg">• {error}</p>}
-
-      <button type="submit" className="btn btn-primary" style={{ marginTop: 8 }} disabled={loading}>
-        {loading ? '绑定中...' : '确认绑定'}
+      {error && <p className="error-msg" style={{ marginBottom: 12 }}>• {error}</p>}
+      <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: 4 }} disabled={loading}>
+        {loading ? '绑定中...' : '绑 定'}
       </button>
-      <button type="button" className="btn btn-ghost" style={{ marginTop: 8, width: '100%' }} onClick={onCancel}>
+      <button type="button" className="btn btn-ghost" style={{ width: '100%', marginTop: 8 }} onClick={onCancel}>
         返回扫码
       </button>
     </form>
@@ -318,33 +366,43 @@ function BindPhoneStep({ onCancel }) {
 /* ============ 忘记密码弹窗 ============ */
 function ForgetModal({ onClose, phoneHint }) {
   const [phone, setPhone] = useState(phoneHint || '')
-  const [step, setStep] = useState('phone') // 'phone' | 'code' | 'pwd'
+  const [step, setStep] = useState('phone') // 'phone' | 'img' | 'code' | 'pwd'
   const [password, setPassword] = useState('')
   const [confirmPwd, setConfirmPwd] = useState('')
+  const [imgCode, setImgCode] = useState('')
   const [code, setCode] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [imgCaptchaId, setImgCaptchaId] = useState('')
   const navigate = useNavigate()
+
+  function getImgCaptchaUrl() {
+    const id = imgCaptchaId || (Math.random().toString(36).slice(2))
+    setImgCaptchaId(id)
+    return `${API}/auth/img-captcha?id=${id}&t=${Date.now()}`
+  }
 
   async function handleSendCode() {
     if (!phone || phone.length !== 11) { setError('请输入正确的手机号'); return }
+    if (!imgCode || imgCode.length !== 4) { setError('请输入图片验证码'); return }
     setLoading(true)
     setError('')
     try {
       const res = await fetch(`${API}/auth/send-code`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ phone, type: 'forget' })
+        body: JSON.stringify({ phone, type: 'forget', imgCode, imgCaptchaId })
       })
       const data = await res.json()
       if (data.success) { setStep('code') }
-      else { setError(data.error) }
+      else { setError(data.error); setImgCode('') }
     } catch { setError('网络错误') }
     finally { setLoading(false) }
   }
 
   async function handleVerifyCode(e) {
     e.preventDefault()
+    if (!code || code.length !== 4) { setError('请输入短信验证码'); return }
     setLoading(true); setError('')
     try {
       const res = await fetch(`${API}/auth/verify-code`, {
@@ -390,10 +448,29 @@ function ForgetModal({ onClose, phoneHint }) {
         {step === 'phone' && (
           <form onSubmit={e => { e.preventDefault(); handleSendCode() }}>
             <div className="form-group">
-              <input className="form-input" type="tel" placeholder="请输入手机号"
+              <input className="form-input" type="tel" placeholder="请填写手机号码"
                 value={phone} onChange={e => setPhone(e.target.value)} maxLength={11} autoFocus />
             </div>
-            {error && <p className="error-msg">• {error}</p>}
+            <div className="form-group">
+              <div style={{ display: 'flex', gap: 8 }}>
+                <input
+                  className="form-input"
+                  type="text"
+                  placeholder="请输入图片验证码"
+                  value={imgCode}
+                  onChange={e => setImgCode(e.target.value)}
+                  maxLength={4}
+                  style={{ flex: 1 }}
+                />
+                <img
+                  src={getImgCaptchaUrl()}
+                  alt="图片验证码"
+                  onClick={e => { e.currentTarget.src = getImgCaptchaUrl() }}
+                  style={{ height: 40, borderRadius: 6, cursor: 'pointer', border: '1px solid #E2E8F0', flexShrink: 0 }}
+                />
+              </div>
+            </div>
+            {error && <p className="error-msg" style={{ marginBottom: 12 }}>• {error}</p>}
             <button type="submit" className="btn btn-primary" disabled={loading}>
               {loading ? '发送中...' : '获取验证码'}
             </button>
@@ -468,15 +545,11 @@ function SetPasswordModal({ phone, onClose, onSuccess }) {
         </p>
         <form onSubmit={handleSetPwd}>
           <div className="form-group">
-            <label className="form-label">手机号</label>
-            <input className="form-input" value={phone} disabled />
-          </div>
-          <div className="form-group">
             <label className="form-label">设置密码</label>
             <PasswordInput
               value={password}
               onChange={setPassword}
-              placeholder="8-16位，需包含字母和数字"
+              placeholder="8-16位字母数字或符号，2种及以上组合"
               showStrength
             />
           </div>
@@ -484,9 +557,9 @@ function SetPasswordModal({ phone, onClose, onSuccess }) {
             <label className="form-label">确认密码</label>
             <PasswordInput value={confirmPwd} onChange={setConfirmPwd} placeholder="再次输入密码" />
           </div>
-          {error && <p className="error-msg">• {error}</p>}
-          <button type="submit" className="btn btn-primary" disabled={loading}>
-            {loading ? '设置中...' : '确认设置'}
+          {error && <p className="error-msg" style={{ marginBottom: 12 }}>• {error}</p>}
+          <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: 4 }} disabled={loading}>
+            {loading ? '设置中...' : '保 存'}
           </button>
         </form>
       </div>

@@ -15,6 +15,7 @@ export default function CommunityManagePage() {
   const [type, setType] = useState('全部')
   const [page, setPage] = useState(1)
   const [detailTarget, setDetailTarget] = useState(null)
+  const [showPostModal, setShowPostModal] = useState(false)
 
   const filtered = POSTS.filter(p => {
     if (search && !p.author.includes(search) && !p.content.includes(search)) return false
@@ -33,8 +34,10 @@ export default function CommunityManagePage() {
           <h3>💬 社区动态</h3>
           <p className="card-subtitle">管理用户动态、直播内容、科普文章的发布和审核</p>
         </div>
-        <div className="toolbar">
-          <div className="toolbar-left">
+        {/* 工具栏：筛选 + 操作按钮分两行 */}
+        <div style={{ marginBottom: 16 }}>
+          {/* 第一行：筛选控件 */}
+          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', alignItems: 'center', marginBottom: 8 }}>
             <div className="search-input-wrap">
               <span className="search-icon">🔍</span>
               <input className="search-input" placeholder="作者/内容搜索" value={search} onChange={e => { setSearch(e.target.value); setPage(1) }} />
@@ -47,11 +50,12 @@ export default function CommunityManagePage() {
               <option value="科普文章">科普文章</option>
               <option value="辟谣科普">辟谣科普</option>
             </select>
+          </div>
+          {/* 第二行：操作按钮 */}
+          <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
             <button className="btn-query" onClick={() => setPage(1)} style={{ width: 60 }}>查询</button>
             <button className="btn-reset" onClick={() => { setSearch(''); setType('全部'); setPage(1) }} style={{ width: 60 }}>重置</button>
-          </div>
-          <div className="toolbar-right">
-            <button className="btn btn-primary btn-sm">+ 发布动态</button>
+            <button className="btn btn-primary btn-sm" onClick={() => setShowPostModal(true)} style={{ marginLeft: 'auto' }}>+ 发布动态</button>
           </div>
         </div>
 
@@ -137,6 +141,36 @@ export default function CommunityManagePage() {
             <div style={{ background: '#F8FAFC', borderRadius: 8, padding: 12, color: '#E2E8F0', fontSize: 14, lineHeight: 1.7 }}>
               {detailTarget.content}
             </div>
+          </div>
+        </CenterModal>
+      )}
+    </div>
+
+      {/* 发布动态弹窗 */}
+      {showPostModal && (
+        <CenterModal
+          open={true}
+          onClose={() => setShowPostModal(false)}
+          title="发布动态"
+          width={560}
+          footer={<>
+            <button className="btn btn-ghost" onClick={() => setShowPostModal(false)} style={{ minWidth: 80 }}>取消</button>
+            <button className="btn btn-primary" style={{ minWidth: 100 }} onClick={() => setShowPostModal(false)}>发布</button>
+          </>}
+        >
+          <div className="form-group">
+            <label className="form-label">类型</label>
+            <select className="form-input">
+              <option>经验分享</option>
+              <option>直播预告</option>
+              <option>用户好评</option>
+              <option>科普文章</option>
+              <option>辟谣科普</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label className="form-label">正文内容</label>
+            <textarea className="form-input" rows={5} placeholder="请输入动态内容..." style={{ resize: 'vertical' }} />
           </div>
         </CenterModal>
       )}

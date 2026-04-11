@@ -15,6 +15,7 @@ export default function ExpertManagePage() {
   const [status, setStatus] = useState('全部')
   const [page, setPage] = useState(1)
   const [editTarget, setEditTarget] = useState(null)
+  const [isNew, setIsNew] = useState(false)
 
   const filtered = experts.filter(e => {
     if (search && !e.name.includes(search) && !e.title.includes(search)) return false
@@ -27,8 +28,13 @@ export default function ExpertManagePage() {
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE) || 1
 
   function handleSave(updated) {
-    setExperts(prev => prev.map(e => e.id === updated.id ? updated : e))
+    if (isNew) {
+      setExperts(prev => [...prev, { ...updated, id: Date.now() }])
+    } else {
+      setExperts(prev => prev.map(e => e.id === updated.id ? updated : e))
+    }
     setEditTarget(null)
+    setIsNew(false)
   }
 
   return (
@@ -38,8 +44,9 @@ export default function ExpertManagePage() {
           <h3>👨‍⚕️ 专家管理</h3>
           <p className="card-subtitle">管理睡眠医学专家信息、状态和咨询服务</p>
         </div>
-        <div className="toolbar">
-          <div className="toolbar-left">
+        <div className="toolbar" style={{ display: 'block' }}>
+          {/* 第一行：筛选控件 */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, alignItems: 'center' }}>
             <div className="search-input-wrap">
               <span className="search-icon">🔍</span>
               <input className="search-input" placeholder="姓名/职称搜索" value={search} onChange={e => { setSearch(e.target.value); setPage(1) }} />
@@ -50,10 +57,12 @@ export default function ExpertManagePage() {
               <option value="忙碌">忙碌</option>
               <option value="离线">离线</option>
             </select>
-            <button className="btn-query" onClick={() => setPage(1)}style={{ width: 60 }}>查询</button>
           </div>
-          <div className="toolbar-right">
-            <button className="btn btn-primary btn-sm">+ 添加专家</button>
+          {/* 第二行：操作按钮 */}
+          <div style={{ display: 'flex', gap: 8, marginTop: 4 }}>
+            <button className="btn-query" onClick={() => setPage(1)} style={{ width: 60 }}>查询</button>
+            <button className="btn-reset" onClick={() => { setSearch(''); setStatus('全部'); setPage(1) }} style={{ width: 60 }}>重置</button>
+            <button className="btn btn-primary btn-sm" onClick={() => { setIsNew(true); setEditTarget({ name: "", title: "", hospital: "", expertise: [], status: "offline", price: 0, patients: 0, rating: 0 }) }} style={{ marginLeft: 'auto' }}>+ 添加专家</button>
           </div>
         </div>
 
@@ -121,8 +130,9 @@ export default function ExpertManagePage() {
       {editTarget && (
         <EditExpertDrawer
           expert={editTarget}
-          onClose={() => setEditTarget(null)}
+          onClose={() => { setEditTarget(null); setIsNew(false) }}
           onSave={handleSave}
+          isNew={isNew}
         />
       )}
     </div>
