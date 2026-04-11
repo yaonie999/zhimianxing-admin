@@ -256,9 +256,8 @@ export default function AdminLayout({ children }) {
 
       <div className="admin-content">
         <header className="admin-topbar">
-          <div className="topbar-title">{getLabel(location.pathname)}</div>
-          <div className="topbar-breadcrumb">首页 / {getLabel(location.pathname)}</div>
-          <div className="topbar-actions">
+          <div className="topbar-center"><button className="back-home-btn" onClick={() => navigate('/home')}>返回首页</button></div>
+                    <div className="topbar-actions">
             <ThemeSwitcher currentTheme={currentTheme} onSelect={setCurrentTheme} />
             <span className="topbar-time">{new Date().toLocaleString('zh-CN')}</span>
             {/* 右上角用户菜单 */}
